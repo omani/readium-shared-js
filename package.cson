@@ -119,7 +119,7 @@ devDependencies:
     "urijs": 'danielweck/URI.js'
     #"urijs": 'latest'
 
-    "eventemitter3": 'latest'
+    "eventemitter3": '1.2.0'
     
     "es6-collections": 'latest'
 

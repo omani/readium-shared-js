@@ -54,7 +54,7 @@
     "backbone": "latest",
     "underscore": "latest",
     "urijs": "danielweck/URI.js",
-    "eventemitter3": "latest",
+    "eventemitter3": "1.2.0",
     "es6-collections": "latest",
     "FontLoader": "smnh/FontLoader",
     "CSSOM": "danielweck/CSSOM#gh-pages"
