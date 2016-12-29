@@ -110,6 +110,11 @@ Helpers.getURLQueryParams = function() {
         }
     }
 
+    if(window.location.pathname.match(/^\/book\/([0-9]+)$/)) {
+        var bookId = parseInt(window.location.pathname.replace(/^\/book\/([0-9]+)$/, '$1'), 10);
+        params['epub'] = '/epub_content/book_' + bookId;
+    }
+
     return params;
 };
 
@@ -128,8 +133,13 @@ Helpers.buildUrlQueryParameters = function(urlpath, overrides) {
             + "//"
             + window.location.hostname
             + (window.location.port ? (':' + window.location.port) : '')
-            + window.location.pathname
+            // + window.location.pathname
         ) : 'index.html';
+    }
+
+    var epubRegEx = /^.*?\/epub_content\/book_([0-9]+)$/;
+    if((overrides.epub || "").match(epubRegEx)) {
+        urlpath = overrides.epub.replace(epubRegEx, '/book/$1');
     }
 
     var paramsString = "";
@@ -138,6 +148,8 @@ Helpers.buildUrlQueryParameters = function(urlpath, overrides) {
         if (!overrides.hasOwnProperty(key)) continue;
         
         if (!overrides[key]) continue;
+
+        if (key == 'epub') continue;
         
         var val = overrides[key].trim();
         if (!val) continue;
