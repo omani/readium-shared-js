@@ -879,5 +879,9 @@ Helpers.polyfillCaretRangeFromPoint = function(document) {
     }
 };
 
+Helpers.getUTCTimeStamp = function() {
+    return parseInt(new Date().getTime() / 1000);
+}
+
 return Helpers;
 });
