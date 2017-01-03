@@ -883,5 +883,14 @@ Helpers.getUTCTimeStamp = function() {
     return parseInt(new Date().getTime() / 1000);
 }
 
+Helpers.getCurrentSpotInfo = function() {
+    var urlParams = Helpers.getURLQueryParams();
+    return {
+        ebookURL: urlParams['epub'],
+        ebookSpot: urlParams['goto'],
+        bookId: parseInt((urlParams['epub'] || "").replace(/^.*?book_([0-9]+).*$/, '$1') , 10) || 0
+    };
+}
+
 return Helpers;
 });
