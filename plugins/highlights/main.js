@@ -66,11 +66,7 @@ define(['readium_js_plugins', 'readium_shared_js/globals', './manager'], functio
          * @returns {object | undefined} partial cfi object of the created highlight
          */
         this.addHighlight = function(spineIdRef, cfi, id, type, styles) {
-            try {
-                return _highlightsManager.addHighlight(spineIdRef, cfi, id, type, styles);
-            } catch(e) {
-                return false;
-            }
+            return _highlightsManager.addHighlight(spineIdRef, cfi, id, type, styles);
         };
 
         /**

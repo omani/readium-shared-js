@@ -261,7 +261,7 @@ function($, _, Class, HighlightHelpers, HighlightGroup) {
                         currentSelection.collapseToStart();
                     }
                 }
-                return this.addHighlight(CFI, id || CFI, type, styles);
+                return this.addHighlight(CFI, id, type, styles);
             } else {
                 throw new Error("Nothing selected");
             }
