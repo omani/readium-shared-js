@@ -35,6 +35,14 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
             var triggerEvent = _.partial(topView.trigger, _, that.type,
                 that.CFI, that.id, event, documentFrame);
 
+            // biblemesh_ : IF block is new
+            if(event.target
+                && (
+                    $(event.target).attr('id') == "highlightOpts"
+                    || $(event.target).parents("#highlightOpts").length != 0
+                )
+            ) { return; }
+
             if (type === "click" || type === "touchend") {
                 debouncedTrigger(triggerEvent, "annotationClicked");
 
