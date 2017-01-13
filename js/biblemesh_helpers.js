@@ -36,7 +36,7 @@ biblemesh_Helpers.buildUrlQueryParameters = function(urlpath, overrides) {
         ) : 'index.html';
     }
 
-    var epubRegEx = /^.*?\/epub_content\/book_([0-9]+)$/;
+    var epubRegEx = /^.*?epub_content\/book_([0-9]+)$/;
     if((overrides.epub || "").match(epubRegEx)) {
         urlpath = overrides.epub.replace(epubRegEx, '/book/$1');
     }
