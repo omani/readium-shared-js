@@ -1,6 +1,7 @@
 define(['readium_shared_js/helpers'], function(Helpers) {
     
 var biblemesh_Helpers = {};
+var serverTimeOffset = 0;
 
 /**
  *
@@ -79,8 +80,24 @@ biblemesh_Helpers.buildUrlQueryParameters = function(urlpath, overrides) {
     return urlpath + "?" + paramsString;
 };
 
+
+biblemesh_Helpers.setTimeRelativeToServer = function(callback) {
+    $.ajax({
+        url: location.origin + '/currenttime.json',
+        success: function (result) {
+            serverTimeOffset = result.currentServerTime - new Date().getTime();
+            console.log('Set serverTimeOffset to ' + serverTimeOffset);
+            callback();
+        },
+        error: function (xhr, status, errorThrown) {
+            console.error('Error setting time relative to server.');
+            callback();
+        }
+    });
+}
+
 biblemesh_Helpers.getUTCTimeStamp = function() {
-    return new Date().getTime();
+    return new Date().getTime() + serverTimeOffset;
 }
 
 biblemesh_Helpers.getCurrentSpotInfo = function() {
