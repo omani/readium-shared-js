@@ -80,7 +80,7 @@ biblemesh_Helpers.buildUrlQueryParameters = function(urlpath, overrides) {
 };
 
 biblemesh_Helpers.getUTCTimeStamp = function() {
-    return parseInt(new Date().getTime() / 1000);
+    return new Date().getTime();
 }
 
 biblemesh_Helpers.getCurrentSpotInfo = function() {
