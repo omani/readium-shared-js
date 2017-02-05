@@ -34,9 +34,11 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
             var topView = this.context.manager;
             var triggerEvent = _.partial(topView.trigger, _, that.type,
                 that.CFI, that.id, event, documentFrame);
+            var $html = $(that.context.document.documentElement);   // biblemesh_
 
             // biblemesh_ : IF block is new
-            if(event.target
+            if(type === "mouseenter"
+                && event.target
                 && (
                     $(event.target).attr('id') == "highlightOpts"
                     || $(event.target).parents("#highlightOpts").length != 0
@@ -87,6 +89,16 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
                         highlightView.setBaseHighlight(false);
                     }
                 });
+
+                // biblemesh_ : following block is new                
+                var elsWithHoverCls = $('.hover-' + that.type, $html).removeClass('hide-hover-' + that.type);
+                var lastElId = $(elsWithHoverCls[elsWithHoverCls.length - 1]).attr('data-id');
+                elsWithHoverCls.each(function(idx, el) {
+                    var $el = $(el);
+                    if($el.attr('data-id') == lastElId) { return; }
+                    $el.addClass('hide-hover-' + that.type);
+                });
+                ;
             }
 
         },
