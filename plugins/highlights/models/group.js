@@ -39,14 +39,13 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
             // biblemesh_ : IF block is new
             if(type === "mouseenter"
                 && event.target
-                && (
-                    $(event.target).attr('id') == "highlightOpts"
-                    || $(event.target).parents("#highlightOpts").length != 0
-                )
+                && $(event.target)[0].closest("#highlightOpts")
             ) { return; }
 
             if (type === "click" || type === "touchend") {
-                debouncedTrigger(triggerEvent, "annotationClicked");
+                if(!$(event.target)[0].closest("#highlightOpts")) {  // biblemesh_
+                    debouncedTrigger(triggerEvent, "annotationClicked");
+                }
 
             } else if (type === "contextmenu") {
                 triggerEvent("annotationRightClicked");
