@@ -960,7 +960,10 @@ var CfiNavigationLogic = function(options) {
         var range = createRange();
 
         if (!rangeCfi2) {
-            if (self.isRangeCfi(rangeCfi)) {
+            // biblemesh_ : "true ||" was added do avoid bug with annotation click.
+            // It seems this function is only called throughout Readium to debug and 
+            // for scroll view (which we do not support).
+            if (true || self.isRangeCfi(rangeCfi)) {
                 var rangeInfo = getRangeTargetNodes(rangeCfi);
                 range.setStart(rangeInfo.startElement, rangeInfo.startOffset);
                 range.setEnd(rangeInfo.endElement, rangeInfo.endOffset);
