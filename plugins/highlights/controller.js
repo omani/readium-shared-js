@@ -63,16 +63,18 @@ function($, _, Class, HighlightHelpers, HighlightGroup) {
             _.each(this.highlights, function(highlightGroup) {
                 var visible = true;
 
+
                 if (visibleCfiRange &&
                     visibleCfiRange.firstVisibleCfi &&
                     visibleCfiRange.firstVisibleCfi.contentCFI &&
                     visibleCfiRange.lastVisibleCfi &&
-                    visibleCfiRange.lastVisibleCfi.contentCFI) {
-
-                    visible = that._cfiIsBetweenTwoCfis(
-                        highlightGroup.CFI,
-                        visibleCfiRange.firstVisibleCfi.contentCFI,
-                        visibleCfiRange.lastVisibleCfi.contentCFI);
+                    visibleCfiRange.lastVisibleCfi.contentCFI
+                ) {
+                    var biblemesh_CFIPieces = highlightGroup.CFI.split(',');
+                    var biblemesh_CFIStart = [biblemesh_CFIPieces[0], biblemesh_CFIPieces[1], biblemesh_CFIPieces[1]].join();
+                    var biblemesh_CFIEnd = [biblemesh_CFIPieces[0], biblemesh_CFIPieces[2], biblemesh_CFIPieces[2]].join();
+                    visible = that._cfiIsBetweenTwoCfis(biblemesh_CFIStart, visibleCfiRange.firstVisibleCfi.contentCFI, visibleCfiRange.lastVisibleCfi.contentCFI)
+                        || that._cfiIsBetweenTwoCfis(biblemesh_CFIEnd, visibleCfiRange.firstVisibleCfi.contentCFI, visibleCfiRange.lastVisibleCfi.contentCFI);
                 }
                 highlightGroup.visible = visible;
                 highlightGroup.resetHighlights(that.readerBoundElement,
@@ -371,8 +373,13 @@ function($, _, Class, HighlightHelpers, HighlightGroup) {
                 visibleCfiRange.firstVisibleCfi &&
                 visibleCfiRange.firstVisibleCfi.contentCFI &&
                 visibleCfiRange.lastVisibleCfi &&
-                visibleCfiRange.lastVisibleCfi.contentCFI) {
-                visible = this._cfiIsBetweenTwoCfis(CFI, visibleCfiRange.firstVisibleCfi.contentCFI, visibleCfiRange.lastVisibleCfi.contentCFI);
+                visibleCfiRange.lastVisibleCfi.contentCFI
+            ) {
+                var biblemesh_CFIPieces = CFI.split(',');
+                var biblemesh_CFIStart = [biblemesh_CFIPieces[0], biblemesh_CFIPieces[1], biblemesh_CFIPieces[1]].join();
+                var biblemesh_CFIEnd = [biblemesh_CFIPieces[0], biblemesh_CFIPieces[2], biblemesh_CFIPieces[2]].join();
+                visible = this._cfiIsBetweenTwoCfis(biblemesh_CFIStart, visibleCfiRange.firstVisibleCfi.contentCFI, visibleCfiRange.lastVisibleCfi.contentCFI)
+                    || this._cfiIsBetweenTwoCfis(biblemesh_CFIEnd, visibleCfiRange.firstVisibleCfi.contentCFI, visibleCfiRange.lastVisibleCfi.contentCFI);
             } else {
                 visible = true;
             }
