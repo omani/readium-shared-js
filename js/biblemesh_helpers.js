@@ -24,7 +24,7 @@ biblemesh_Helpers.getURLQueryParams = function() {
  * @param overrides: object that maps query parameter names with values (to be included in the resulting URL, while any other query params in the current window.location are preserved as-is) 
  * @returns a string corresponding to a URL obtained by concatenating the given URL with the given query parameters (and those already in window.location)
  */
-biblemesh_Helpers.buildUrlQueryParameters = function(urlpath, overrides) {
+biblemesh_Helpers.buildUrlQueryParameters = function(urlpath, overrides, ignoreCurrentQueryParams) {
     
     if (!urlpath) {
         urlpath =
@@ -60,7 +60,7 @@ biblemesh_Helpers.buildUrlQueryParameters = function(urlpath, overrides) {
         paramsString += "&";
     }
     
-    var urlParams = biblemesh_Helpers.getURLQueryParams();
+    var urlParams = ignoreCurrentQueryParams ? {} : biblemesh_Helpers.getURLQueryParams();
     for (var key in urlParams) {
         if (!urlParams.hasOwnProperty(key)) continue;
         
