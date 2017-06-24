@@ -294,6 +294,7 @@ var ScrollView = function (options, isContinuousScroll, reader) {
 
     function scrollTo(offset, pageRequest) {
 
+return; // turned off for the sake of the widget
         _$contentFrame[0].scrollTop = offset;
 
         if (pageRequest) {
