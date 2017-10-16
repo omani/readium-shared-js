@@ -51,7 +51,12 @@ var IFrameLoader = function() {
         _.each(eventListeners, function (value, key) {
             $(iframe.contentWindow).off(key);
             for (var i = 0, count = value.length; i < count; i++) {
-                $(iframe.contentWindow).on(key, value[i].callback, value[i].context);
+                if(value[i].context == 'document') {
+                    var doc = ( iframe.contentWindow || iframe.contentDocument ).document;
+                    doc.addEventListener(key, value[i].callback);
+                } else {
+                    $(iframe.contentWindow).on(key, value[i].callback, value[i].context);
+                }
             }
         });
     };
