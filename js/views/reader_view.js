@@ -1682,6 +1682,13 @@ var ReaderView = function (options) {
         }
         return undefined;
     };
+
+    this.biblemesh_getColumnCount = function(element) {
+        if (_currentView && _currentView.biblemesh_getColumnCount) {
+            return _currentView.biblemesh_getColumnCount();
+        }
+        return undefined;
+    };
 };
 
 /**

@@ -1042,6 +1042,10 @@ var ReflowableView = function(options, reader){
     this.getElementFromPoint = function(x, y) {
         return _navigationLogic.getElementFromPoint(x,y);
     };
+
+    this.biblemesh_getColumnCount = function() {
+        return _paginationInfo.columnCount;
+    };
 };
     return ReflowableView;
 });
