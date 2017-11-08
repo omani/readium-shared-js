@@ -194,12 +194,16 @@ function($, _, Class, HighlightHelpers, HighlightGroup) {
                 var startNode = CFIRangeInfo.startElement,
                     endNode = CFIRangeInfo.endElement;
                 range = rangy.createRange(contentDoc);
+                // biblemesh_: the two next if's are no longer needed since I remove all HTML comments. But they don't hurt.
                 if (startNode.length < CFIRangeInfo.startOffset) {
                     //this is a workaround
                     // "Uncaught IndexSizeError: Index or size was negative, or greater than the allowed value." errors
                     // the range cfi generator outputs a cfi like /4/2,/1:125,/16
                     // can't explain, investigating..
                     CFIRangeInfo.startOffset = startNode.length;
+                }
+                if (endNode.length < CFIRangeInfo.endOffset) {
+                    CFIRangeInfo.endOffset = endNode.length;
                 }
                 range.setStart(startNode, CFIRangeInfo.startOffset);
                 range.setEnd(endNode, CFIRangeInfo.endOffset);
