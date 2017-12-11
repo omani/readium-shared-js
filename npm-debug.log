@@ -1,25 +1,1515 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/Users/huberts/.nvm/versions/node/v4.8.3/bin/node',
 1 verbose cli   '/Users/huberts/.nvm/versions/node/v4.8.3/bin/npm',
-1 verbose cli   'start' ]
-2 info using npm@2.15.11
+1 verbose cli   'install' ]
+2 info using npm@2.14.7
 3 info using node@v4.8.3
-4 verbose stack Error: missing script: start
-4 verbose stack     at run (/Users/huberts/.nvm/versions/node/v4.8.3/lib/node_modules/npm/lib/run-script.js:142:19)
-4 verbose stack     at /Users/huberts/.nvm/versions/node/v4.8.3/lib/node_modules/npm/lib/run-script.js:58:5
-4 verbose stack     at /Users/huberts/.nvm/versions/node/v4.8.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:356:5
-4 verbose stack     at checkBinReferences_ (/Users/huberts/.nvm/versions/node/v4.8.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:320:45)
-4 verbose stack     at final (/Users/huberts/.nvm/versions/node/v4.8.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:354:3)
-4 verbose stack     at then (/Users/huberts/.nvm/versions/node/v4.8.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:124:5)
-4 verbose stack     at /Users/huberts/.nvm/versions/node/v4.8.3/lib/node_modules/npm/node_modules/read-package-json/read-json.js:243:12
-4 verbose stack     at /Users/huberts/.nvm/versions/node/v4.8.3/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
-4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:380:3)
-5 verbose cwd /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
-6 error Darwin 16.7.0
-7 error argv "/Users/huberts/.nvm/versions/node/v4.8.3/bin/node" "/Users/huberts/.nvm/versions/node/v4.8.3/bin/npm" "start"
-8 error node v4.8.3
-9 error npm  v2.15.11
-10 error missing script: start
-11 error If you need help, you may report this error at:
-11 error     <https://github.com/npm/npm/issues>
-12 verbose exit [ 1, true ]
+4 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/package.json
+5 verbose install where, deps [ '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js',
+5 verbose install   [ 'parallelshell',
+5 verbose install     'opener',
+5 verbose install     'http-server',
+5 verbose install     'jquery-sizes',
+5 verbose install     'domReady',
+5 verbose install     'backbone',
+5 verbose install     'underscore',
+5 verbose install     'urijs',
+5 verbose install     'eventemitter3',
+5 verbose install     'es6-collections',
+5 verbose install     'FontLoader',
+5 verbose install     'CSSOM' ] ]
+6 verbose install where, peers [ '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js',
+6 verbose install   [] ]
+7 verbose installManyTop reading for lifecycle /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/package.json
+8 info preinstall readium-shared-js@0.24.0
+9 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader/package.json
+10 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/backbone/package.json
+11 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom/package.json
+12 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady/package.json
+13 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/es6-collections/package.json
+14 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/eventemitter3/package.json
+15 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/http-server/package.json
+16 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/package.json
+17 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/opener/package.json
+18 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/parallelshell/package.json
+19 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/underscore/package.json
+20 verbose installManyTop reading scoped package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs/package.json
+21 info package.json domReady@2.0.1 'repositories' (plural) Not supported. Please pick one as the 'repository' field
+22 info package.json jquery-sizes@0.33.0 No license field.
+23 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/package.json
+24 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader/package.json
+25 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/backbone/package.json
+26 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom/package.json
+27 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady/package.json
+28 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/es6-collections/package.json
+29 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/eventemitter3/package.json
+30 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/http-server/package.json
+31 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/package.json
+32 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/opener/package.json
+33 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/parallelshell/package.json
+34 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/underscore/package.json
+35 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs/package.json
+36 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/hs/package.json
+37 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/http-server/package.json
+38 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/opener/package.json
+39 verbose targetResolver reading package data from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell/package.json
+40 silly cache add args [ 'domReady@github:requirejs/domReady', null ]
+41 verbose cache add spec domReady@github:requirejs/domReady
+42 silly cache add parsed spec Result {
+42 silly cache add   raw: 'domReady@github:requirejs/domReady',
+42 silly cache add   scope: null,
+42 silly cache add   name: 'domReady',
+42 silly cache add   rawSpec: 'github:requirejs/domReady',
+42 silly cache add   spec: 'github:requirejs/domReady',
+42 silly cache add   type: 'hosted',
+42 silly cache add   hosted:
+42 silly cache add    { type: 'github',
+42 silly cache add      ssh: 'git@github.com:requirejs/domReady.git',
+42 silly cache add      sshUrl: 'git+ssh://git@github.com/requirejs/domReady.git',
+42 silly cache add      httpsUrl: 'git+https://github.com/requirejs/domReady.git',
+42 silly cache add      gitUrl: 'git://github.com/requirejs/domReady.git',
+42 silly cache add      shortcut: 'github:requirejs/domReady',
+42 silly cache add      directUrl: 'https://raw.githubusercontent.com/requirejs/domReady/master/package.json' } }
+43 verbose addRemoteGit caching github:requirejs/domReady
+44 verbose addRemoteGit requirejs/domReady is a repository hosted by github
+45 silly tryGitProto attempting to clone git://github.com/requirejs/domReady.git
+46 silly tryClone cloning requirejs/domReady via git://github.com/requirejs/domReady.git
+47 verbose tryClone git-github-com-requirejs-domReady-git-e8e9c1f6 not in flight; caching
+48 silly cache add args [ 'backbone@latest', null ]
+49 verbose cache add spec backbone@latest
+50 silly cache add args [ 'underscore@latest', null ]
+51 verbose cache add spec underscore@latest
+52 silly cache add parsed spec Result {
+52 silly cache add   raw: 'backbone@latest',
+52 silly cache add   scope: null,
+52 silly cache add   name: 'backbone',
+52 silly cache add   rawSpec: 'latest',
+52 silly cache add   spec: 'latest',
+52 silly cache add   type: 'tag' }
+53 silly addNamed backbone@latest
+54 verbose addNamed "latest" is being treated as a dist-tag for backbone
+55 info addNameTag [ 'backbone', 'latest' ]
+56 silly mapToRegistry name backbone
+57 silly mapToRegistry using default registry
+58 silly mapToRegistry registry https://registry.npmjs.org/
+59 silly mapToRegistry uri https://registry.npmjs.org/backbone
+60 verbose addNameTag registry:https://registry.npmjs.org/backbone not in flight; fetching
+61 silly cache add args [ 'urijs@github:danielweck/URI.js', null ]
+62 verbose cache add spec urijs@github:danielweck/URI.js
+63 verbose already installed skipping eventemitter3@1.2.0 /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+64 silly cache add args [ 'es6-collections@latest', null ]
+65 verbose cache add spec es6-collections@latest
+66 silly cache add args [ 'FontLoader@github:smnh/FontLoader', null ]
+67 verbose cache add spec FontLoader@github:smnh/FontLoader
+68 silly cache add parsed spec Result {
+68 silly cache add   raw: 'underscore@latest',
+68 silly cache add   scope: null,
+68 silly cache add   name: 'underscore',
+68 silly cache add   rawSpec: 'latest',
+68 silly cache add   spec: 'latest',
+68 silly cache add   type: 'tag' }
+69 silly addNamed underscore@latest
+70 verbose addNamed "latest" is being treated as a dist-tag for underscore
+71 info addNameTag [ 'underscore', 'latest' ]
+72 silly mapToRegistry name underscore
+73 silly mapToRegistry using default registry
+74 silly mapToRegistry registry https://registry.npmjs.org/
+75 silly mapToRegistry uri https://registry.npmjs.org/underscore
+76 verbose addNameTag registry:https://registry.npmjs.org/underscore not in flight; fetching
+77 silly cache add parsed spec Result {
+77 silly cache add   raw: 'urijs@github:danielweck/URI.js',
+77 silly cache add   scope: null,
+77 silly cache add   name: 'urijs',
+77 silly cache add   rawSpec: 'github:danielweck/URI.js',
+77 silly cache add   spec: 'github:danielweck/URI.js',
+77 silly cache add   type: 'hosted',
+77 silly cache add   hosted:
+77 silly cache add    { type: 'github',
+77 silly cache add      ssh: 'git@github.com:danielweck/URI.js.git',
+77 silly cache add      sshUrl: 'git+ssh://git@github.com/danielweck/URI.js.git',
+77 silly cache add      httpsUrl: 'git+https://github.com/danielweck/URI.js.git',
+77 silly cache add      gitUrl: 'git://github.com/danielweck/URI.js.git',
+77 silly cache add      shortcut: 'github:danielweck/URI.js',
+77 silly cache add      directUrl: 'https://raw.githubusercontent.com/danielweck/URI.js/master/package.json' } }
+78 verbose addRemoteGit caching github:danielweck/URI.js
+79 verbose addRemoteGit danielweck/URI.js is a repository hosted by github
+80 silly tryGitProto attempting to clone git://github.com/danielweck/URI.js.git
+81 silly tryClone cloning danielweck/URI.js via git://github.com/danielweck/URI.js.git
+82 verbose tryClone git-github-com-danielweck-URI-js-git-c437bd2c not in flight; caching
+83 silly cache add parsed spec Result {
+83 silly cache add   raw: 'es6-collections@latest',
+83 silly cache add   scope: null,
+83 silly cache add   name: 'es6-collections',
+83 silly cache add   rawSpec: 'latest',
+83 silly cache add   spec: 'latest',
+83 silly cache add   type: 'tag' }
+84 silly addNamed es6-collections@latest
+85 verbose addNamed "latest" is being treated as a dist-tag for es6-collections
+86 info addNameTag [ 'es6-collections', 'latest' ]
+87 silly mapToRegistry name es6-collections
+88 silly mapToRegistry using default registry
+89 silly mapToRegistry registry https://registry.npmjs.org/
+90 silly mapToRegistry uri https://registry.npmjs.org/es6-collections
+91 verbose addNameTag registry:https://registry.npmjs.org/es6-collections not in flight; fetching
+92 silly cache add args [ 'CSSOM@github:danielweck/CSSOM#gh-pages', null ]
+93 verbose cache add spec CSSOM@github:danielweck/CSSOM#gh-pages
+94 silly cache add args [ 'parallelshell@latest', null ]
+95 verbose cache add spec parallelshell@latest
+96 silly cache add args [ 'opener@latest', null ]
+97 verbose cache add spec opener@latest
+98 silly cache add args [ 'http-server@github:danielweck/http-server', null ]
+99 verbose cache add spec http-server@github:danielweck/http-server
+100 silly cache add args [ 'jquery-sizes@github:bramstein/jsizes', null ]
+101 verbose cache add spec jquery-sizes@github:bramstein/jsizes
+102 silly cache add parsed spec Result {
+102 silly cache add   raw: 'FontLoader@github:smnh/FontLoader',
+102 silly cache add   scope: null,
+102 silly cache add   name: 'FontLoader',
+102 silly cache add   rawSpec: 'github:smnh/FontLoader',
+102 silly cache add   spec: 'github:smnh/FontLoader',
+102 silly cache add   type: 'hosted',
+102 silly cache add   hosted:
+102 silly cache add    { type: 'github',
+102 silly cache add      ssh: 'git@github.com:smnh/FontLoader.git',
+102 silly cache add      sshUrl: 'git+ssh://git@github.com/smnh/FontLoader.git',
+102 silly cache add      httpsUrl: 'git+https://github.com/smnh/FontLoader.git',
+102 silly cache add      gitUrl: 'git://github.com/smnh/FontLoader.git',
+102 silly cache add      shortcut: 'github:smnh/FontLoader',
+102 silly cache add      directUrl: 'https://raw.githubusercontent.com/smnh/FontLoader/master/package.json' } }
+103 verbose addRemoteGit caching github:smnh/FontLoader
+104 verbose addRemoteGit smnh/FontLoader is a repository hosted by github
+105 silly tryGitProto attempting to clone git://github.com/smnh/FontLoader.git
+106 silly tryClone cloning smnh/FontLoader via git://github.com/smnh/FontLoader.git
+107 verbose tryClone git-github-com-smnh-FontLoader-git-6ce02b64 not in flight; caching
+108 silly cache add parsed spec Result {
+108 silly cache add   raw: 'CSSOM@github:danielweck/CSSOM#gh-pages',
+108 silly cache add   scope: null,
+108 silly cache add   name: 'CSSOM',
+108 silly cache add   rawSpec: 'github:danielweck/CSSOM#gh-pages',
+108 silly cache add   spec: 'github:danielweck/CSSOM#gh-pages',
+108 silly cache add   type: 'hosted',
+108 silly cache add   hosted:
+108 silly cache add    { type: 'github',
+108 silly cache add      ssh: 'git@github.com:danielweck/CSSOM.git#gh-pages',
+108 silly cache add      sshUrl: 'git+ssh://git@github.com/danielweck/CSSOM.git#gh-pages',
+108 silly cache add      httpsUrl: 'git+https://github.com/danielweck/CSSOM.git#gh-pages',
+108 silly cache add      gitUrl: 'git://github.com/danielweck/CSSOM.git#gh-pages',
+108 silly cache add      shortcut: 'github:danielweck/CSSOM#gh-pages',
+108 silly cache add      directUrl: 'https://raw.githubusercontent.com/danielweck/CSSOM/gh-pages/package.json' } }
+109 verbose addRemoteGit caching github:danielweck/CSSOM#gh-pages
+110 verbose addRemoteGit danielweck/CSSOM#gh-pages is a repository hosted by github
+111 silly tryGitProto attempting to clone git://github.com/danielweck/CSSOM.git#gh-pages
+112 silly tryClone cloning danielweck/CSSOM#gh-pages via git://github.com/danielweck/CSSOM.git#gh-pages
+113 verbose tryClone git-github-com-danielweck-CSSOM-git-39e1e24b not in flight; caching
+114 silly cache add parsed spec Result {
+114 silly cache add   raw: 'parallelshell@latest',
+114 silly cache add   scope: null,
+114 silly cache add   name: 'parallelshell',
+114 silly cache add   rawSpec: 'latest',
+114 silly cache add   spec: 'latest',
+114 silly cache add   type: 'tag' }
+115 silly addNamed parallelshell@latest
+116 verbose addNamed "latest" is being treated as a dist-tag for parallelshell
+117 info addNameTag [ 'parallelshell', 'latest' ]
+118 silly mapToRegistry name parallelshell
+119 silly mapToRegistry using default registry
+120 silly mapToRegistry registry https://registry.npmjs.org/
+121 silly mapToRegistry uri https://registry.npmjs.org/parallelshell
+122 verbose addNameTag registry:https://registry.npmjs.org/parallelshell not in flight; fetching
+123 silly cache add parsed spec Result {
+123 silly cache add   raw: 'opener@latest',
+123 silly cache add   scope: null,
+123 silly cache add   name: 'opener',
+123 silly cache add   rawSpec: 'latest',
+123 silly cache add   spec: 'latest',
+123 silly cache add   type: 'tag' }
+124 silly addNamed opener@latest
+125 verbose addNamed "latest" is being treated as a dist-tag for opener
+126 info addNameTag [ 'opener', 'latest' ]
+127 silly mapToRegistry name opener
+128 silly mapToRegistry using default registry
+129 silly mapToRegistry registry https://registry.npmjs.org/
+130 silly mapToRegistry uri https://registry.npmjs.org/opener
+131 verbose addNameTag registry:https://registry.npmjs.org/opener not in flight; fetching
+132 silly cache add parsed spec Result {
+132 silly cache add   raw: 'http-server@github:danielweck/http-server',
+132 silly cache add   scope: null,
+132 silly cache add   name: 'http-server',
+132 silly cache add   rawSpec: 'github:danielweck/http-server',
+132 silly cache add   spec: 'github:danielweck/http-server',
+132 silly cache add   type: 'hosted',
+132 silly cache add   hosted:
+132 silly cache add    { type: 'github',
+132 silly cache add      ssh: 'git@github.com:danielweck/http-server.git',
+132 silly cache add      sshUrl: 'git+ssh://git@github.com/danielweck/http-server.git',
+132 silly cache add      httpsUrl: 'git+https://github.com/danielweck/http-server.git',
+132 silly cache add      gitUrl: 'git://github.com/danielweck/http-server.git',
+132 silly cache add      shortcut: 'github:danielweck/http-server',
+132 silly cache add      directUrl: 'https://raw.githubusercontent.com/danielweck/http-server/master/package.json' } }
+133 verbose addRemoteGit caching github:danielweck/http-server
+134 verbose addRemoteGit danielweck/http-server is a repository hosted by github
+135 silly tryGitProto attempting to clone git://github.com/danielweck/http-server.git
+136 silly tryClone cloning danielweck/http-server via git://github.com/danielweck/http-server.git
+137 verbose tryClone git-github-com-danielweck-http-server-git-b830c3f0 not in flight; caching
+138 silly cache add parsed spec Result {
+138 silly cache add   raw: 'jquery-sizes@github:bramstein/jsizes',
+138 silly cache add   scope: null,
+138 silly cache add   name: 'jquery-sizes',
+138 silly cache add   rawSpec: 'github:bramstein/jsizes',
+138 silly cache add   spec: 'github:bramstein/jsizes',
+138 silly cache add   type: 'hosted',
+138 silly cache add   hosted:
+138 silly cache add    { type: 'github',
+138 silly cache add      ssh: 'git@github.com:bramstein/jsizes.git',
+138 silly cache add      sshUrl: 'git+ssh://git@github.com/bramstein/jsizes.git',
+138 silly cache add      httpsUrl: 'git+https://github.com/bramstein/jsizes.git',
+138 silly cache add      gitUrl: 'git://github.com/bramstein/jsizes.git',
+138 silly cache add      shortcut: 'github:bramstein/jsizes',
+138 silly cache add      directUrl: 'https://raw.githubusercontent.com/bramstein/jsizes/master/package.json' } }
+139 verbose addRemoteGit caching github:bramstein/jsizes
+140 verbose addRemoteGit bramstein/jsizes is a repository hosted by github
+141 silly tryGitProto attempting to clone git://github.com/bramstein/jsizes.git
+142 silly tryClone cloning bramstein/jsizes via git://github.com/bramstein/jsizes.git
+143 verbose tryClone git-github-com-bramstein-jsizes-git-fef7ba90 not in flight; caching
+144 info git [ 'config', '--get', 'remote.origin.url' ]
+145 verbose request uri https://registry.npmjs.org/backbone
+146 verbose request no auth needed
+147 info attempt registry request try #1 at 1:10:40 AM
+148 verbose request id a9e15aa17a74efe5
+149 verbose etag "5a088f78-8811"
+150 verbose lastModified Sun, 12 Nov 2017 18:14:16 GMT
+151 http request GET https://registry.npmjs.org/backbone
+152 verbose request uri https://registry.npmjs.org/underscore
+153 verbose request no auth needed
+154 info attempt registry request try #1 at 1:10:40 AM
+155 verbose etag "5a1cfa2f-b0cb"
+156 verbose lastModified Tue, 28 Nov 2017 5:54:55 GMT
+157 http request GET https://registry.npmjs.org/underscore
+158 verbose request uri https://registry.npmjs.org/es6-collections
+159 verbose request no auth needed
+160 info attempt registry request try #1 at 1:10:40 AM
+161 verbose etag "57440b67-7115"
+162 verbose lastModified Tue, 24 May 2016 8:05:59 GMT
+163 http request GET https://registry.npmjs.org/es6-collections
+164 verbose request uri https://registry.npmjs.org/opener
+165 verbose request no auth needed
+166 info attempt registry request try #1 at 1:10:40 AM
+167 verbose etag "5a1bb4b8-2cb3"
+168 verbose lastModified Mon, 27 Nov 2017 6:46:16 GMT
+169 http request GET https://registry.npmjs.org/opener
+170 verbose request uri https://registry.npmjs.org/parallelshell
+171 verbose request no auth needed
+172 info attempt registry request try #1 at 1:10:40 AM
+173 verbose etag "59e7cf9f-45ff"
+174 verbose lastModified Wed, 18 Oct 2017 22:03:11 GMT
+175 http request GET https://registry.npmjs.org/parallelshell
+176 silly validateExistingRemote requirejs/domReady remote.origin.url: git://github.com/requirejs/domReady.git
+177 verbose validateExistingRemote requirejs/domReady is updating existing cached remote /Users/huberts/.npm/_git-remotes/git-github-com-requirejs-domReady-git-e8e9c1f6
+178 info git [ 'config', '--get', 'remote.origin.url' ]
+179 info git [ 'config', '--get', 'remote.origin.url' ]
+180 info git [ 'config', '--get', 'remote.origin.url' ]
+181 info git [ 'config', '--get', 'remote.origin.url' ]
+182 info git [ 'config', '--get', 'remote.origin.url' ]
+183 info git [ 'fetch', '-a', 'origin' ]
+184 silly validateExistingRemote danielweck/URI.js remote.origin.url: git://github.com/danielweck/URI.js.git
+185 verbose validateExistingRemote danielweck/URI.js is updating existing cached remote /Users/huberts/.npm/_git-remotes/git-github-com-danielweck-URI-js-git-c437bd2c
+186 silly validateExistingRemote danielweck/CSSOM#gh-pages remote.origin.url: git://github.com/danielweck/CSSOM.git
+187 verbose validateExistingRemote danielweck/CSSOM#gh-pages is updating existing cached remote /Users/huberts/.npm/_git-remotes/git-github-com-danielweck-CSSOM-git-39e1e24b
+188 silly validateExistingRemote smnh/FontLoader remote.origin.url: git://github.com/smnh/FontLoader.git
+189 verbose validateExistingRemote smnh/FontLoader is updating existing cached remote /Users/huberts/.npm/_git-remotes/git-github-com-smnh-FontLoader-git-6ce02b64
+190 silly validateExistingRemote bramstein/jsizes remote.origin.url: git://github.com/bramstein/jsizes.git
+191 verbose validateExistingRemote bramstein/jsizes is updating existing cached remote /Users/huberts/.npm/_git-remotes/git-github-com-bramstein-jsizes-git-fef7ba90
+192 info git [ 'fetch', '-a', 'origin' ]
+193 info git [ 'fetch', '-a', 'origin' ]
+194 info git [ 'fetch', '-a', 'origin' ]
+195 info git [ 'fetch', '-a', 'origin' ]
+196 silly validateExistingRemote danielweck/http-server remote.origin.url: git://github.com/danielweck/http-server.git
+197 verbose validateExistingRemote danielweck/http-server is updating existing cached remote /Users/huberts/.npm/_git-remotes/git-github-com-danielweck-http-server-git-b830c3f0
+198 info git [ 'fetch', '-a', 'origin' ]
+199 http 304 https://registry.npmjs.org/backbone
+200 verbose headers { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+200 verbose headers   via: '1.1 varnish',
+200 verbose headers   'cache-control': 'max-age=300',
+200 verbose headers   etag: '"5a088f78-8811"',
+200 verbose headers   age: '12802',
+200 verbose headers   connection: 'keep-alive',
+200 verbose headers   'x-served-by': 'cache-mad9435-MAD',
+200 verbose headers   'x-cache': 'HIT',
+200 verbose headers   'x-cache-hits': '1',
+200 verbose headers   'x-timer': 'S1513033841.088449,VS0,VE1',
+200 verbose headers   vary: 'Accept-Encoding, Accept' }
+201 silly get cb [ 304,
+201 silly get   { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+201 silly get     via: '1.1 varnish',
+201 silly get     'cache-control': 'max-age=300',
+201 silly get     etag: '"5a088f78-8811"',
+201 silly get     age: '12802',
+201 silly get     connection: 'keep-alive',
+201 silly get     'x-served-by': 'cache-mad9435-MAD',
+201 silly get     'x-cache': 'HIT',
+201 silly get     'x-cache-hits': '1',
+201 silly get     'x-timer': 'S1513033841.088449,VS0,VE1',
+201 silly get     vary: 'Accept-Encoding, Accept' } ]
+202 verbose etag https://registry.npmjs.org/backbone from cache
+203 verbose get saving backbone to /Users/huberts/.npm/registry.npmjs.org/backbone/.cache.json
+204 http 304 https://registry.npmjs.org/es6-collections
+205 verbose headers { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+205 verbose headers   via: '1.1 varnish',
+205 verbose headers   'cache-control': 'max-age=300',
+205 verbose headers   etag: '"57440b67-7115"',
+205 verbose headers   age: '10649',
+205 verbose headers   connection: 'keep-alive',
+205 verbose headers   'x-served-by': 'cache-mad9431-MAD',
+205 verbose headers   'x-cache': 'HIT',
+205 verbose headers   'x-cache-hits': '2',
+205 verbose headers   'x-timer': 'S1513033841.091109,VS0,VE0',
+205 verbose headers   vary: 'Accept-Encoding, Accept' }
+206 silly get cb [ 304,
+206 silly get   { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+206 silly get     via: '1.1 varnish',
+206 silly get     'cache-control': 'max-age=300',
+206 silly get     etag: '"57440b67-7115"',
+206 silly get     age: '10649',
+206 silly get     connection: 'keep-alive',
+206 silly get     'x-served-by': 'cache-mad9431-MAD',
+206 silly get     'x-cache': 'HIT',
+206 silly get     'x-cache-hits': '2',
+206 silly get     'x-timer': 'S1513033841.091109,VS0,VE0',
+206 silly get     vary: 'Accept-Encoding, Accept' } ]
+207 verbose etag https://registry.npmjs.org/es6-collections from cache
+208 verbose get saving es6-collections to /Users/huberts/.npm/registry.npmjs.org/es6-collections/.cache.json
+209 http 304 https://registry.npmjs.org/opener
+210 verbose headers { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+210 verbose headers   via: '1.1 varnish',
+210 verbose headers   'cache-control': 'max-age=300',
+210 verbose headers   etag: '"5a1bb4b8-2cb3"',
+210 verbose headers   age: '11811',
+210 verbose headers   connection: 'keep-alive',
+210 verbose headers   'x-served-by': 'cache-mad9420-MAD',
+210 verbose headers   'x-cache': 'HIT',
+210 verbose headers   'x-cache-hits': '1',
+210 verbose headers   'x-timer': 'S1513033841.089643,VS0,VE0',
+210 verbose headers   vary: 'Accept-Encoding, Accept' }
+211 silly get cb [ 304,
+211 silly get   { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+211 silly get     via: '1.1 varnish',
+211 silly get     'cache-control': 'max-age=300',
+211 silly get     etag: '"5a1bb4b8-2cb3"',
+211 silly get     age: '11811',
+211 silly get     connection: 'keep-alive',
+211 silly get     'x-served-by': 'cache-mad9420-MAD',
+211 silly get     'x-cache': 'HIT',
+211 silly get     'x-cache-hits': '1',
+211 silly get     'x-timer': 'S1513033841.089643,VS0,VE0',
+211 silly get     vary: 'Accept-Encoding, Accept' } ]
+212 verbose etag https://registry.npmjs.org/opener from cache
+213 verbose get saving opener to /Users/huberts/.npm/registry.npmjs.org/opener/.cache.json
+214 http 304 https://registry.npmjs.org/underscore
+215 verbose headers { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+215 verbose headers   via: '1.1 varnish',
+215 verbose headers   'cache-control': 'max-age=300',
+215 verbose headers   etag: '"5a1cfa2f-b0cb"',
+215 verbose headers   age: '3505',
+215 verbose headers   connection: 'keep-alive',
+215 verbose headers   'x-served-by': 'cache-mad9424-MAD',
+215 verbose headers   'x-cache': 'HIT',
+215 verbose headers   'x-cache-hits': '6',
+215 verbose headers   'x-timer': 'S1513033841.092140,VS0,VE0',
+215 verbose headers   vary: 'Accept-Encoding, Accept' }
+216 silly get cb [ 304,
+216 silly get   { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+216 silly get     via: '1.1 varnish',
+216 silly get     'cache-control': 'max-age=300',
+216 silly get     etag: '"5a1cfa2f-b0cb"',
+216 silly get     age: '3505',
+216 silly get     connection: 'keep-alive',
+216 silly get     'x-served-by': 'cache-mad9424-MAD',
+216 silly get     'x-cache': 'HIT',
+216 silly get     'x-cache-hits': '6',
+216 silly get     'x-timer': 'S1513033841.092140,VS0,VE0',
+216 silly get     vary: 'Accept-Encoding, Accept' } ]
+217 verbose etag https://registry.npmjs.org/underscore from cache
+218 verbose get saving underscore to /Users/huberts/.npm/registry.npmjs.org/underscore/.cache.json
+219 silly addNameTag next cb for backbone with tag latest
+220 silly addNamed backbone@1.3.3
+221 verbose addNamed "1.3.3" is a plain semver version for backbone
+222 silly addNameTag next cb for es6-collections with tag latest
+223 silly addNamed es6-collections@0.5.6
+224 verbose addNamed "0.5.6" is a plain semver version for es6-collections
+225 warn deprecated es6-collections@0.5.6: not actively maintained anymore
+226 silly addNameTag next cb for underscore with tag latest
+227 silly addNamed underscore@1.8.3
+228 verbose addNamed "1.8.3" is a plain semver version for underscore
+229 silly addNameTag next cb for opener with tag latest
+230 silly addNamed opener@1.4.3
+231 verbose addNamed "1.4.3" is a plain semver version for opener
+232 silly cache afterAdd backbone@1.3.3
+233 verbose afterAdd /Users/huberts/.npm/backbone/1.3.3/package/package.json not in flight; writing
+234 silly cache afterAdd es6-collections@0.5.6
+235 verbose afterAdd /Users/huberts/.npm/es6-collections/0.5.6/package/package.json not in flight; writing
+236 silly cache afterAdd underscore@1.8.3
+237 verbose afterAdd /Users/huberts/.npm/underscore/1.8.3/package/package.json not in flight; writing
+238 http 304 https://registry.npmjs.org/parallelshell
+239 verbose headers { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+239 verbose headers   via: '1.1 varnish',
+239 verbose headers   'cache-control': 'max-age=300',
+239 verbose headers   etag: '"59e7cf9f-45ff"',
+239 verbose headers   age: '5845',
+239 verbose headers   connection: 'keep-alive',
+239 verbose headers   'x-served-by': 'cache-mad9423-MAD',
+239 verbose headers   'x-cache': 'HIT',
+239 verbose headers   'x-cache-hits': '1',
+239 verbose headers   'x-timer': 'S1513033841.113585,VS0,VE0',
+239 verbose headers   vary: 'Accept-Encoding, Accept' }
+240 silly get cb [ 304,
+240 silly get   { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+240 silly get     via: '1.1 varnish',
+240 silly get     'cache-control': 'max-age=300',
+240 silly get     etag: '"59e7cf9f-45ff"',
+240 silly get     age: '5845',
+240 silly get     connection: 'keep-alive',
+240 silly get     'x-served-by': 'cache-mad9423-MAD',
+240 silly get     'x-cache': 'HIT',
+240 silly get     'x-cache-hits': '1',
+240 silly get     'x-timer': 'S1513033841.113585,VS0,VE0',
+240 silly get     vary: 'Accept-Encoding, Accept' } ]
+241 verbose etag https://registry.npmjs.org/parallelshell from cache
+242 verbose get saving parallelshell to /Users/huberts/.npm/registry.npmjs.org/parallelshell/.cache.json
+243 silly cache afterAdd opener@1.4.3
+244 verbose afterAdd /Users/huberts/.npm/opener/1.4.3/package/package.json not in flight; writing
+245 verbose afterAdd /Users/huberts/.npm/backbone/1.3.3/package/package.json written
+246 info already installed backbone@1.3.3
+247 verbose afterAdd /Users/huberts/.npm/es6-collections/0.5.6/package/package.json written
+248 info already installed es6-collections@0.5.6
+249 verbose afterAdd /Users/huberts/.npm/underscore/1.8.3/package/package.json written
+250 info already installed underscore@1.8.3
+251 verbose afterAdd /Users/huberts/.npm/opener/1.4.3/package/package.json written
+252 info already installed opener@1.4.3
+253 silly addNameTag next cb for parallelshell with tag latest
+254 silly addNamed parallelshell@3.0.2
+255 verbose addNamed "3.0.2" is a plain semver version for parallelshell
+256 silly cache afterAdd parallelshell@3.0.2
+257 verbose afterAdd /Users/huberts/.npm/parallelshell/3.0.2/package/package.json not in flight; writing
+258 verbose afterAdd /Users/huberts/.npm/parallelshell/3.0.2/package/package.json written
+259 verbose updateRemote git fetch -a origin (git://github.com/requirejs/domReady.git)
+260 verbose updateRemote git fetch -a origin (git://github.com/smnh/FontLoader.git)
+261 verbose updateRemote git fetch -a origin (git://github.com/bramstein/jsizes.git)
+262 verbose updateRemote git fetch -a origin (git://github.com/danielweck/CSSOM.git)
+263 verbose setPermissions bramstein/jsizes set permissions on /Users/huberts/.npm/_git-remotes/git-github-com-bramstein-jsizes-git-fef7ba90
+264 verbose resolveHead bramstein/jsizes original treeish: master
+265 verbose setPermissions requirejs/domReady set permissions on /Users/huberts/.npm/_git-remotes/git-github-com-requirejs-domReady-git-e8e9c1f6
+266 verbose resolveHead requirejs/domReady original treeish: master
+267 verbose setPermissions smnh/FontLoader set permissions on /Users/huberts/.npm/_git-remotes/git-github-com-smnh-FontLoader-git-6ce02b64
+268 verbose resolveHead smnh/FontLoader original treeish: master
+269 verbose setPermissions danielweck/CSSOM#gh-pages set permissions on /Users/huberts/.npm/_git-remotes/git-github-com-danielweck-CSSOM-git-39e1e24b
+270 verbose resolveHead danielweck/CSSOM#gh-pages original treeish: gh-pages
+271 info git [ 'rev-list', '-n1', 'master' ]
+272 info git [ 'rev-list', '-n1', 'master' ]
+273 info git [ 'rev-list', '-n1', 'master' ]
+274 info git [ 'rev-list', '-n1', 'gh-pages' ]
+275 verbose updateRemote git fetch -a origin (git://github.com/danielweck/http-server.git)
+276 verbose updateRemote git fetch -a origin (git://github.com/danielweck/URI.js.git)
+277 silly resolveHead bramstein/jsizes resolved treeish: 4ef9284f30c9cd859a67afb10dd824fa1cc46685
+278 verbose resolveHead bramstein/jsizes resolved Git URL: git://github.com/bramstein/jsizes.git#4ef9284f30c9cd859a67afb10dd824fa1cc46685
+279 silly resolveHead Git working directory: /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-d5a31c5769b7/4ef9284f30c9cd859a67afb10dd824fa1cc46685
+280 silly resolveHead requirejs/domReady resolved treeish: d85bdc38a6df868ead52ab3e80715aaf60e68765
+281 verbose resolveHead requirejs/domReady resolved Git URL: git://github.com/requirejs/domReady.git#d85bdc38a6df868ead52ab3e80715aaf60e68765
+282 silly resolveHead Git working directory: /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-f2fd03673e93/d85bdc38a6df868ead52ab3e80715aaf60e68765
+283 silly resolveHead smnh/FontLoader resolved treeish: dab9c9ba20f98016dbc77bea56220efcfa254352
+284 verbose resolveHead smnh/FontLoader resolved Git URL: git://github.com/smnh/FontLoader.git#dab9c9ba20f98016dbc77bea56220efcfa254352
+285 silly resolveHead Git working directory: /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-54773e5a6d41/dab9c9ba20f98016dbc77bea56220efcfa254352
+286 silly resolveHead danielweck/CSSOM#gh-pages resolved treeish: 1ca01860ea716fa98e069074b4aaee728f793e5f
+287 verbose resolveHead danielweck/CSSOM#gh-pages resolved Git URL: git://github.com/danielweck/CSSOM.git#1ca01860ea716fa98e069074b4aaee728f793e5f
+288 silly resolveHead Git working directory: /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-5f650d99726f/1ca01860ea716fa98e069074b4aaee728f793e5f
+289 verbose setPermissions danielweck/http-server set permissions on /Users/huberts/.npm/_git-remotes/git-github-com-danielweck-http-server-git-b830c3f0
+290 verbose resolveHead danielweck/http-server original treeish: master
+291 verbose setPermissions danielweck/URI.js set permissions on /Users/huberts/.npm/_git-remotes/git-github-com-danielweck-URI-js-git-c437bd2c
+292 verbose resolveHead danielweck/URI.js original treeish: master
+293 info git [ 'clone',
+293 info git   '/Users/huberts/.npm/_git-remotes/git-github-com-bramstein-jsizes-git-fef7ba90',
+293 info git   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-d5a31c5769b7/4ef9284f30c9cd859a67afb10dd824fa1cc46685' ]
+294 info git [ 'rev-list', '-n1', 'master' ]
+295 info git [ 'clone',
+295 info git   '/Users/huberts/.npm/_git-remotes/git-github-com-danielweck-CSSOM-git-39e1e24b',
+295 info git   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-5f650d99726f/1ca01860ea716fa98e069074b4aaee728f793e5f' ]
+296 info git [ 'clone',
+296 info git   '/Users/huberts/.npm/_git-remotes/git-github-com-requirejs-domReady-git-e8e9c1f6',
+296 info git   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-f2fd03673e93/d85bdc38a6df868ead52ab3e80715aaf60e68765' ]
+297 info git [ 'rev-list', '-n1', 'master' ]
+298 info git [ 'clone',
+298 info git   '/Users/huberts/.npm/_git-remotes/git-github-com-smnh-FontLoader-git-6ce02b64',
+298 info git   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-54773e5a6d41/dab9c9ba20f98016dbc77bea56220efcfa254352' ]
+299 silly resolveHead danielweck/http-server resolved treeish: 1d74e29a2e5609ee4e8805122051cccaba160caa
+300 verbose resolveHead danielweck/http-server resolved Git URL: git://github.com/danielweck/http-server.git#1d74e29a2e5609ee4e8805122051cccaba160caa
+301 silly resolveHead Git working directory: /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-53527e8df90f/1d74e29a2e5609ee4e8805122051cccaba160caa
+302 info git [ 'clone',
+302 info git   '/Users/huberts/.npm/_git-remotes/git-github-com-danielweck-http-server-git-b830c3f0',
+302 info git   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-53527e8df90f/1d74e29a2e5609ee4e8805122051cccaba160caa' ]
+303 silly resolveHead danielweck/URI.js resolved treeish: 34b082939dda82fa53ebfa5534bd898b359ef672
+304 verbose resolveHead danielweck/URI.js resolved Git URL: git://github.com/danielweck/URI.js.git#34b082939dda82fa53ebfa5534bd898b359ef672
+305 silly resolveHead Git working directory: /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-741891da3d2f/34b082939dda82fa53ebfa5534bd898b359ef672
+306 info git [ 'clone',
+306 info git   '/Users/huberts/.npm/_git-remotes/git-github-com-danielweck-URI-js-git-c437bd2c',
+306 info git   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-741891da3d2f/34b082939dda82fa53ebfa5534bd898b359ef672' ]
+307 verbose cloneResolved bramstein/jsizes clone Cloning into '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-d5a31c5769b7/4ef9284f30c9cd859a67afb10dd824fa1cc46685'...
+307 verbose cloneResolved done.
+308 verbose cloneResolved requirejs/domReady clone Cloning into '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-f2fd03673e93/d85bdc38a6df868ead52ab3e80715aaf60e68765'...
+308 verbose cloneResolved done.
+309 info git [ 'checkout', '4ef9284f30c9cd859a67afb10dd824fa1cc46685' ]
+310 info git [ 'checkout', 'd85bdc38a6df868ead52ab3e80715aaf60e68765' ]
+311 verbose cloneResolved smnh/FontLoader clone Cloning into '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-54773e5a6d41/dab9c9ba20f98016dbc77bea56220efcfa254352'...
+311 verbose cloneResolved done.
+312 info git [ 'checkout', 'dab9c9ba20f98016dbc77bea56220efcfa254352' ]
+313 verbose checkoutTreeish bramstein/jsizes checkout Note: checking out '4ef9284f30c9cd859a67afb10dd824fa1cc46685'.
+313 verbose checkoutTreeish
+313 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+313 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+313 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+313 verbose checkoutTreeish
+313 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+313 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+313 verbose checkoutTreeish
+313 verbose checkoutTreeish   git checkout -b <new-branch-name>
+313 verbose checkoutTreeish
+313 verbose checkoutTreeish HEAD is now at 4ef9284... Merge pull request #5 from danielweck/master
+314 verbose cloneResolved danielweck/CSSOM#gh-pages clone Cloning into '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-5f650d99726f/1ca01860ea716fa98e069074b4aaee728f793e5f'...
+314 verbose cloneResolved done.
+315 verbose checkoutTreeish requirejs/domReady checkout Note: checking out 'd85bdc38a6df868ead52ab3e80715aaf60e68765'.
+315 verbose checkoutTreeish
+315 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+315 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+315 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+315 verbose checkoutTreeish
+315 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+315 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+315 verbose checkoutTreeish
+315 verbose checkoutTreeish   git checkout -b <new-branch-name>
+315 verbose checkoutTreeish
+315 verbose checkoutTreeish HEAD is now at d85bdc3... Merge pull request #17 from avindra/patch-1
+316 info git [ 'checkout', '1ca01860ea716fa98e069074b4aaee728f793e5f' ]
+317 verbose addLocalDirectory /Users/huberts/.npm/jquery-sizes/0.33.0/package.tgz not in flight; packing
+318 verbose checkoutTreeish smnh/FontLoader checkout Note: checking out 'dab9c9ba20f98016dbc77bea56220efcfa254352'.
+318 verbose checkoutTreeish
+318 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+318 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+318 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+318 verbose checkoutTreeish
+318 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+318 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+318 verbose checkoutTreeish
+318 verbose checkoutTreeish   git checkout -b <new-branch-name>
+318 verbose checkoutTreeish
+318 verbose checkoutTreeish HEAD is now at dab9c9b... Added FontDescriptor class, better error handling.
+319 verbose tar pack [ '/Users/huberts/.npm/jquery-sizes/0.33.0/package.tgz',
+319 verbose tar pack   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-d5a31c5769b7/4ef9284f30c9cd859a67afb10dd824fa1cc46685' ]
+320 verbose tarball /Users/huberts/.npm/jquery-sizes/0.33.0/package.tgz
+321 verbose folder /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-d5a31c5769b7/4ef9284f30c9cd859a67afb10dd824fa1cc46685
+322 verbose cloneResolved danielweck/http-server clone Cloning into '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-53527e8df90f/1d74e29a2e5609ee4e8805122051cccaba160caa'...
+322 verbose cloneResolved done.
+323 verbose addLocalDirectory /Users/huberts/.npm/domReady/2.0.1/package.tgz not in flight; packing
+324 verbose checkoutTreeish danielweck/CSSOM#gh-pages checkout Note: checking out '1ca01860ea716fa98e069074b4aaee728f793e5f'.
+324 verbose checkoutTreeish
+324 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+324 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+324 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+324 verbose checkoutTreeish
+324 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+324 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+324 verbose checkoutTreeish
+324 verbose checkoutTreeish   git checkout -b <new-branch-name>
+324 verbose checkoutTreeish
+324 verbose checkoutTreeish HEAD is now at 1ca0186... Merge remote-tracking branch 'upstream/gh-pages' into gh-pages
+325 verbose tar pack [ '/Users/huberts/.npm/domReady/2.0.1/package.tgz',
+325 verbose tar pack   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-f2fd03673e93/d85bdc38a6df868ead52ab3e80715aaf60e68765' ]
+326 verbose tarball /Users/huberts/.npm/domReady/2.0.1/package.tgz
+327 verbose folder /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-f2fd03673e93/d85bdc38a6df868ead52ab3e80715aaf60e68765
+328 info git [ 'checkout', '1d74e29a2e5609ee4e8805122051cccaba160caa' ]
+329 verbose addLocalDirectory /Users/huberts/.npm/FontLoader/0.0.2/package.tgz not in flight; packing
+330 verbose tar pack [ '/Users/huberts/.npm/FontLoader/0.0.2/package.tgz',
+330 verbose tar pack   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-54773e5a6d41/dab9c9ba20f98016dbc77bea56220efcfa254352' ]
+331 verbose tarball /Users/huberts/.npm/FontLoader/0.0.2/package.tgz
+332 verbose folder /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-54773e5a6d41/dab9c9ba20f98016dbc77bea56220efcfa254352
+333 verbose addLocalDirectory /Users/huberts/.npm/cssom/0.3.1/package.tgz not in flight; packing
+334 verbose tar pack [ '/Users/huberts/.npm/cssom/0.3.1/package.tgz',
+334 verbose tar pack   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-5f650d99726f/1ca01860ea716fa98e069074b4aaee728f793e5f' ]
+335 verbose tarball /Users/huberts/.npm/cssom/0.3.1/package.tgz
+336 verbose folder /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-5f650d99726f/1ca01860ea716fa98e069074b4aaee728f793e5f
+337 verbose checkoutTreeish danielweck/http-server checkout Note: checking out '1d74e29a2e5609ee4e8805122051cccaba160caa'.
+337 verbose checkoutTreeish
+337 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+337 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+337 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+337 verbose checkoutTreeish
+337 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+337 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+337 verbose checkoutTreeish
+337 verbose checkoutTreeish   git checkout -b <new-branch-name>
+337 verbose checkoutTreeish
+337 verbose checkoutTreeish HEAD is now at 1d74e29... Merge remote-tracking branch 'upstream/master'
+338 verbose cloneResolved danielweck/URI.js clone Cloning into '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-741891da3d2f/34b082939dda82fa53ebfa5534bd898b359ef672'...
+338 verbose cloneResolved done.
+339 info git [ 'checkout', '34b082939dda82fa53ebfa5534bd898b359ef672' ]
+340 verbose addLocalDirectory /Users/huberts/.npm/http-server/0.10.0/package.tgz not in flight; packing
+341 verbose tar pack [ '/Users/huberts/.npm/http-server/0.10.0/package.tgz',
+341 verbose tar pack   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-53527e8df90f/1d74e29a2e5609ee4e8805122051cccaba160caa' ]
+342 verbose tarball /Users/huberts/.npm/http-server/0.10.0/package.tgz
+343 verbose folder /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-53527e8df90f/1d74e29a2e5609ee4e8805122051cccaba160caa
+344 verbose addLocalTarball adding from inside cache /Users/huberts/.npm/jquery-sizes/0.33.0/package.tgz
+345 verbose addLocalTarball adding from inside cache /Users/huberts/.npm/domReady/2.0.1/package.tgz
+346 verbose addRemoteGit data._from: bramstein/jsizes
+347 verbose addRemoteGit data._resolved: git://github.com/bramstein/jsizes.git#4ef9284f30c9cd859a67afb10dd824fa1cc46685
+348 verbose addRemoteGit data._from: requirejs/domReady
+349 verbose addRemoteGit data._resolved: git://github.com/requirejs/domReady.git#d85bdc38a6df868ead52ab3e80715aaf60e68765
+350 silly cache afterAdd jquery-sizes@0.33.0
+351 verbose afterAdd /Users/huberts/.npm/jquery-sizes/0.33.0/package/package.json not in flight; writing
+352 silly cache afterAdd domReady@2.0.1
+353 verbose afterAdd /Users/huberts/.npm/domReady/2.0.1/package/package.json not in flight; writing
+354 verbose checkoutTreeish danielweck/URI.js checkout Note: checking out '34b082939dda82fa53ebfa5534bd898b359ef672'.
+354 verbose checkoutTreeish
+354 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+354 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+354 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+354 verbose checkoutTreeish
+354 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+354 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+354 verbose checkoutTreeish
+354 verbose checkoutTreeish   git checkout -b <new-branch-name>
+354 verbose checkoutTreeish
+354 verbose checkoutTreeish HEAD is now at 34b0829... Merge remote-tracking branch 'upstream/master'
+355 verbose afterAdd /Users/huberts/.npm/jquery-sizes/0.33.0/package/package.json written
+356 verbose afterAdd /Users/huberts/.npm/domReady/2.0.1/package/package.json written
+357 verbose addLocalDirectory /Users/huberts/.npm/urijs/1.19.0/package.tgz not in flight; packing
+358 verbose tar pack [ '/Users/huberts/.npm/urijs/1.19.0/package.tgz',
+358 verbose tar pack   '/var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-741891da3d2f/34b082939dda82fa53ebfa5534bd898b359ef672' ]
+359 verbose tarball /Users/huberts/.npm/urijs/1.19.0/package.tgz
+360 verbose folder /var/folders/v0/z278_wk502zf07_4tj6vt2vc0000gn/T/npm-98941-73a44a43/git-cache-741891da3d2f/34b082939dda82fa53ebfa5534bd898b359ef672
+361 verbose addLocalTarball adding from inside cache /Users/huberts/.npm/http-server/0.10.0/package.tgz
+362 verbose addRemoteGit data._from: danielweck/http-server
+363 verbose addRemoteGit data._resolved: git://github.com/danielweck/http-server.git#1d74e29a2e5609ee4e8805122051cccaba160caa
+364 silly cache afterAdd http-server@0.10.0
+365 verbose afterAdd /Users/huberts/.npm/http-server/0.10.0/package/package.json not in flight; writing
+366 verbose afterAdd /Users/huberts/.npm/http-server/0.10.0/package/package.json written
+367 verbose addLocalTarball adding from inside cache /Users/huberts/.npm/cssom/0.3.1/package.tgz
+368 verbose addRemoteGit data._from: danielweck/CSSOM#gh-pages
+369 verbose addRemoteGit data._resolved: git://github.com/danielweck/CSSOM.git#1ca01860ea716fa98e069074b4aaee728f793e5f
+370 silly cache afterAdd cssom@0.3.1
+371 verbose afterAdd /Users/huberts/.npm/cssom/0.3.1/package/package.json not in flight; writing
+372 verbose afterAdd /Users/huberts/.npm/cssom/0.3.1/package/package.json written
+373 verbose addLocalTarball adding from inside cache /Users/huberts/.npm/FontLoader/0.0.2/package.tgz
+374 verbose addRemoteGit data._from: smnh/FontLoader
+375 verbose addRemoteGit data._resolved: git://github.com/smnh/FontLoader.git#dab9c9ba20f98016dbc77bea56220efcfa254352
+376 silly cache afterAdd FontLoader@0.0.2
+377 verbose afterAdd /Users/huberts/.npm/FontLoader/0.0.2/package/package.json not in flight; writing
+378 verbose afterAdd /Users/huberts/.npm/FontLoader/0.0.2/package/package.json written
+379 verbose addLocalTarball adding from inside cache /Users/huberts/.npm/urijs/1.19.0/package.tgz
+380 verbose addRemoteGit data._from: danielweck/URI.js
+381 verbose addRemoteGit data._resolved: git://github.com/danielweck/URI.js.git#34b082939dda82fa53ebfa5534bd898b359ef672
+382 silly cache afterAdd urijs@1.19.0
+383 verbose afterAdd /Users/huberts/.npm/urijs/1.19.0/package/package.json not in flight; writing
+384 verbose afterAdd /Users/huberts/.npm/urijs/1.19.0/package/package.json written
+385 silly install resolved [ { name: 'parallelshell',
+385 silly install resolved     version: '3.0.2',
+385 silly install resolved     description: 'Invoke multiple commands, running in parallel',
+385 silly install resolved     homepage: 'https://github.com/darkguy2008/parallelshell',
+385 silly install resolved     repository:
+385 silly install resolved      { type: 'git',
+385 silly install resolved        url: 'git+ssh://git@github.com/darkguy2008/parallelshell.git' },
+385 silly install resolved     bugs: { url: 'https://github.com/darkguy2008/parallelshell/issues' },
+385 silly install resolved     main: 'index.js',
+385 silly install resolved     bin: { parallelshell: './index.js' },
+385 silly install resolved     scripts: { test: 'mocha' },
+385 silly install resolved     keywords: [ 'parallel', 'shell' ],
+385 silly install resolved     author: { name: 'DARKGuy', email: 'darkguy2008@gmail.com' },
+385 silly install resolved     license: 'MIT',
+385 silly install resolved     devDependencies:
+385 silly install resolved      { bluebird: '^3.5.0',
+385 silly install resolved        chai: '^4.0.2',
+385 silly install resolved        'coffee-script': '^1.12.6',
+385 silly install resolved        mocha: '^3.4.2' },
+385 silly install resolved     gitHead: '4b5bfdef0937a94f699b0bdb49e2ff869133e6a9',
+385 silly install resolved     _id: 'parallelshell@3.0.2',
+385 silly install resolved     _npmVersion: '5.4.2',
+385 silly install resolved     _nodeVersion: '8.2.1',
+385 silly install resolved     _npmUser: { name: 'darkguy2008', email: 'darkguy2008@gmail.com' },
+385 silly install resolved     dist:
+385 silly install resolved      { integrity: 'sha512-aW73W8tmYiFZtQi41pweV3WWT6o/EvSxAVQHbumOhN53H47OuWQwrRc11xQ2i44GFvR5AjtzhD92r8Kv9X+7Iw==',
+385 silly install resolved        shasum: 'fffc55aaa145bdd44b5381cf7fd5e521fc21aa7b',
+385 silly install resolved        tarball: 'https://registry.npmjs.org/parallelshell/-/parallelshell-3.0.2.tgz' },
+385 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+385 silly install resolved     _npmOperationalInternal:
+385 silly install resolved      { host: 's3://npm-registry-packages',
+385 silly install resolved        tmp: 'tmp/parallelshell-3.0.2.tgz_1508364191145_0.9827517485246062' },
+385 silly install resolved     directories: {},
+385 silly install resolved     _shasum: 'fffc55aaa145bdd44b5381cf7fd5e521fc21aa7b',
+385 silly install resolved     _resolved: 'https://registry.npmjs.org/parallelshell/-/parallelshell-3.0.2.tgz',
+385 silly install resolved     _from: 'parallelshell@latest',
+385 silly install resolved     readme: 'ERROR: No README data found!' },
+385 silly install resolved   { name: 'jquery-sizes',
+385 silly install resolved     version: '0.33.0',
+385 silly install resolved     description: 'jQuery extension plugin for CSS properties',
+385 silly install resolved     keywords: [ 'jQuery sizes jsizes' ],
+385 silly install resolved     author:
+385 silly install resolved      { name: 'Bram Stein',
+385 silly install resolved        email: 'b.l.stein@gmail.com',
+385 silly install resolved        url: 'http://github.com/bramstein' },
+385 silly install resolved     licenses: [ [Object] ],
+385 silly install resolved     homepage: 'http://github.com/bramstein/jsizes',
+385 silly install resolved     bugs:
+385 silly install resolved      { url: 'http://github.com/bramstein/jsizes/issues',
+385 silly install resolved        email: 'b.l.stein@gmail.com' },
+385 silly install resolved     repository: { type: 'git', url: 'git://github.com/bramstein/jsizes.git' },
+385 silly install resolved     dependencies: { jquery: 'latest' },
+385 silly install resolved     devDependencies: {},
+385 silly install resolved     scripts: { env: 'env', echo: 'echo ""' },
+385 silly install resolved     gitHead: '4ef9284f30c9cd859a67afb10dd824fa1cc46685',
+385 silly install resolved     readme: '## JSizes ― jQuery extension plugin for CSS properties\n\nJSizes is a small plugin for the [jQuery JavaScript library](http://jquery.com/) which adds convenience methods for querying and setting the CSS `min-width`, `min-height`, `max-width`, `max-height`, `border-*-width`, `margin`, and `padding` properties. Additionally it has one method for determining whether an element is visible. In total it adds six new methods to the jQuery element API. It internally calls the jQuery built-in `css` method, so syntax and use is identical to calling `css(\'property-name\', ...)`. An example of its use follows.\n\n    jQuery(function($) {\n       var myDiv = $(\'#myDiv\');\n    \n       myDiv.minWidth(100); // set \'min-width\' to 100px\n       alert(myDiv.minWidth()); // displays \'100\'\n    });\n\nNote that all returned values are converted to pixel values, without the `px` suffix. It is thus safe to use these methods in calculations without having to worry about non-numeric values. Most importantly, it does *not* add support for min- and max-sizes on browsers that do not natively support it, it just adds convenient methods to query these properties and return a sensible value when they are not available or not set.\n\n## API\n\nThe plugin adds the following methods to the JQuery object:\n\n<dl>\n    <dt>minSize()</dt>\n    <dd>Returns the CSS `min-width` and `min-height` properties of the first matched element as pixel values in an object with `width` and `height` properties. If a CSS property is not set `0` is returned as value.\n</dd>\n    <dt>minSize(value)</dt>\n    <dd>Sets the CSS `min-width`, and `min-height` property on all matched elements. Expects a value object containing any of `width` and `height` properties. If the property values are numbers they will be converted to pixel values.</dd>\n    \n    <dt>maxSize()</dt>\n    <dd>Returns the CSS `max-width` and `max-height` properties of the first matched element as pixel values in an object with `width` and `height` properties. If a CSS property is not set `Number.MAX_VALUE` is returned as value.</dd>\n    \n    <dt>maxSize(value)</dt>\n    <dd>Sets the CSS `max-width` and `max-height` property on all matched elements. Expects a value object containing any of `width` and `height` properties. If the property values are numbers they will be converted to pixel values.</dd>\n    \n    <dt>margin()</dt>\n    <dd>Returns the CSS `margin` property of the first matched element as pixel values in an object with `top`, `bottom`, `left`, and `right` properties.</dd>\n    \n    <dt>margin(value)</dt>\n    <dd>Sets the CSS `margin` property on all matched elements. Expects a value object containing any of `top` , `bottom` , `left` , and `right` properties. If the property values are numbers they will be converted to pixel values.</dd>\n    \n    <dt>padding()</dt>\n    <dd>Returns the CSS `padding` property of the first matched element as pixel values in an object with `top`, `bottom`, `left`, and `right` properties.</dd>\n    \n    <dt>padding(value)</dt>\n    <dd>Sets the CSS `padding` property on all matched elements. Expects a value object containing any of `top`, `bottom`, `left`, and `right` properties. If the property values are numbers they will be converted to pixel values.</dd>\n    \n    <dt>border()</dt>\n    <dd>Returns the CSS `border-*-width` property of the first matched element as pixels values in an object with `top`, `bottom`, `left`, and `right` properties.</dd>\n    \n    <dt>border(value)</dt>\n    <dd>Sets the CSS `border-*-width` property on all matched elements. Expects a value object containing any of `top`, `bottom`, `left`, and `right` properties. If the property values are numbers they will be converted to pixel values. Note that the CSS `border-style` property also needs to be set in order for the border to show.</dd>\n    \n    <dt>isVisible()</dt>\n    <dd>Returns true if the any of the matched element are visible, false otherwise.</dd>\n</dl>\n\n## Examples\n\nSome examples of how the new methods can be used:\n\n    jQuery(function($) {\n       var myDiv = $(\'#myDiv\');\n    \n       // set margin-top to 100px and margin-bottom to 10em\n       myDiv.margin({top: 100, bottom: \'10em\'});\n    \n       // displays the size of the top border in pixels\n       alert(myDiv.border().top);\n    \n       // displays true if the element is visible, false otherwise\n       alert(myDiv.isVisible());\n    \n       // set padding-right to 10px and margin-left to 15px using chaining\n       myDiv.padding({right: 10}).margin({left: 15});\n    });\n\nThe above example also shows that chaining can be used on methods that do not return values.\n\n## Credits\n\n* John Bowers ― Setting values to zero bug fix.',
+385 silly install resolved     readmeFilename: 'README.md',
+385 silly install resolved     _id: 'jquery-sizes@0.33.0',
+385 silly install resolved     _shasum: '031699f00e86e4f5abd7ac89d4ce66c776488edc',
+385 silly install resolved     _from: 'bramstein/jsizes',
+385 silly install resolved     _resolved: 'git://github.com/bramstein/jsizes.git#4ef9284f30c9cd859a67afb10dd824fa1cc46685' },
+385 silly install resolved   { name: 'domReady',
+385 silly install resolved     version: '2.0.1',
+385 silly install resolved     description: 'An AMD loader plugin for detecting DOM ready',
+385 silly install resolved     categories: [ 'Loader plugins' ],
+385 silly install resolved     main: 'domReady.js',
+385 silly install resolved     github: 'https://github.com/requirejs/domReady',
+385 silly install resolved     bugs: { url: 'https://github.com/requirejs/domReady/issues' },
+385 silly install resolved     repositories: [ [Object] ],
+385 silly install resolved     license: 'MIT',
+385 silly install resolved     volo: { url: 'https://raw.github.com/requirejs/domReady/{version}/domReady.js' },
+385 silly install resolved     gitHead: 'd85bdc38a6df868ead52ab3e80715aaf60e68765',
+385 silly install resolved     readme: '# domReady\n\nAn AMD loader plugin for detecting DOM ready.\n\nKnown to work in RequireJS, but should work in other\nAMD loaders that support the same loader plugin API.\n\n## Docs\n\nSee the [RequireJS API "Page Load Event Support/DOM Ready" section](http://requirejs.org/docs/api.html#pageload).\n\n## Latest release\n\nThe latest release will be available from the "latest" tag.\n\n## License\n\nMIT\n\n## Code of Conduct\n\n[jQuery Foundation Code of Conduct](https://jquery.org/conduct/).\n\n\n## Where are the tests?\n\nThey are in the [requirejs](https://github.com/requirejs/requirejs) and\n[r.js](https://github.com/requirejs/r.js) repos.\n\n## History\n\nThis plugin was in the [requirejs repo](https://github.com/requirejs/requirejs)\nup until the requirejs 2.0 release.\n\n## Contributing\n\ndomReady follows the [same contribution model as requirejs](http://requirejs.org/docs/contributing.html) and is considered a sub-project of requirejs.\n',
+385 silly install resolved     readmeFilename: 'README.md',
+385 silly install resolved     repository:
+385 silly install resolved      { type: 'git',
+385 silly install resolved        url: 'git+https://github.com/requirejs/domReady.git' },
+385 silly install resolved     homepage: 'https://github.com/requirejs/domReady#readme',
+385 silly install resolved     _id: 'domReady@2.0.1',
+385 silly install resolved     _shasum: 'f1d6c106da3443f7e94fe1b817e61e9ddc66ee79',
+385 silly install resolved     _from: 'requirejs/domReady',
+385 silly install resolved     _resolved: 'git://github.com/requirejs/domReady.git#d85bdc38a6df868ead52ab3e80715aaf60e68765' },
+385 silly install resolved   { name: 'http-server',
+385 silly install resolved     version: '0.10.0',
+385 silly install resolved     description: 'A simple zero-configuration command-line http server',
+385 silly install resolved     main: './lib/http-server',
+385 silly install resolved     repository:
+385 silly install resolved      { type: 'git',
+385 silly install resolved        url: 'git://github.com/indexzero/http-server.git' },
+385 silly install resolved     keywords: [ 'cli', 'command' ],
+385 silly install resolved     scripts:
+385 silly install resolved      { start: 'node ./bin/http-server',
+385 silly install resolved        pretest: 'common bin/http-server lib/ test',
+385 silly install resolved        test: 'vows --spec --isolate' },
+385 silly install resolved     files: [ 'lib', 'bin' ],
+385 silly install resolved     contributors:
+385 silly install resolved      [ [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object],
+385 silly install resolved        [Object] ],
+385 silly install resolved     dependencies:
+385 silly install resolved      { colors: '1.0.3',
+385 silly install resolved        corser: '~2.0.0',
+385 silly install resolved        ecstatic: '^2.0.0',
+385 silly install resolved        'http-proxy': '^1.8.1',
+385 silly install resolved        opener: '~1.4.0',
+385 silly install resolved        optimist: '0.6.x',
+385 silly install resolved        portfinder: '^1.0.13',
+385 silly install resolved        union: '~0.4.3' },
+385 silly install resolved     devDependencies: { 'common-style': '^3.0.0', request: '2.49.x', vows: '0.7.x' },
+385 silly install resolved     bugs: { url: 'https://github.com/nodeapps/http-server/issues' },
+385 silly install resolved     license: 'MIT',
+385 silly install resolved     preferGlobal: 'true',
+385 silly install resolved     bin: { 'http-server': './bin/http-server', hs: './bin/http-server' },
+385 silly install resolved     gitHead: '1d74e29a2e5609ee4e8805122051cccaba160caa',
+385 silly install resolved     readme: '[![build status](https://img.shields.io/travis/indexzero/http-server.svg?style=flat-square)](https://travis-ci.org/indexzero/http-server)\n[![dependencies status](https://img.shields.io/david/indexzero/http-server.svg?style=flat-square)](https://david-dm.org/indexzero/http-server)\n[![npm](https://img.shields.io/npm/v/http-server.svg?style=flat-square)](https://www.npmjs.com/package/http-server)\n[![license](https://img.shields.io/github/license/indexzero/http-server.svg?style=flat-square)](https://github.com/indexzero/http-server)\n\n# http-server: a command-line http server\n\n`http-server` is a simple, zero-configuration command-line http server.  It is powerful enough for production usage, but it\'s simple and hackable enough to be used for testing, local development, and learning.\n\n![](https://github.com/nodeapps/http-server/raw/master/screenshots/public.png)\n\n# Installing globally:\n\nInstallation via `npm`:\n\n     npm install http-server -g\n\nThis will install `http-server` globally so that it may be run from the command line.\n\n## Usage:\n\n     http-server [path] [options]\n\n`[path]` defaults to `./public` if the folder exists, and `./` otherwise.\n\n*Now you can visit http://localhost:8080 to view your server*\n\n## Available Options:\n\n`-p` Port to use (defaults to 8080)\n\n`-a` Address to use (defaults to 0.0.0.0)\n\n`-d` Show directory listings (defaults to \'True\')\n\n`-i` Display autoIndex (defaults to \'True\')\n\n`-g` or `--gzip` When enabled (defaults to \'False\') it will serve `./public/some-file.js.gz` in place of `./public/some-file.js` when a gzipped version of the file exists and the request accepts gzip encoding.\n\n`-e` or `--ext` Default file extension if none supplied (defaults to \'html\')\n\n`-s` or `--silent` Suppress log messages from output\n\n`--cors` Enable CORS via the `Access-Control-Allow-Origin` header\n\n`-o` Open browser window after starting the server\n\n`-c` Set cache time (in seconds) for cache-control max-age header, e.g. -c10 for 10 seconds (defaults to \'3600\'). To disable caching, use -c-1.\n\n`-U` or `--utc` Use UTC time format in log messages.\n\n`-P` or `--proxy` Proxies all requests which can\'t be resolved locally to the given url. e.g.: -P http://someurl.com\n\n`-S` or `--ssl` Enable https.\n\n`-C` or `--cert` Path to ssl cert file (default: cert.pem).\n\n`-K` or `--key` Path to ssl key file (default: key.pem).\n\n`-r` or `--robots` Provide a /robots.txt (whose content defaults to \'User-agent: *\\nDisallow: /\')\n\n`-h` or `--help` Print this list and exit.\n\n# Development\n\nCheckout this repository locally, then:\n\n```sh\n$ npm i\n$ node bin/http-server\n```\n\n*Now you can visit http://localhost:8080 to view your server*\n\nYou should see the turtle image in the screenshot above hosted at that URL. See\nthe `./public` folder for demo content.\n',
+385 silly install resolved     readmeFilename: 'README.md',
+385 silly install resolved     homepage: 'https://github.com/indexzero/http-server#readme',
+385 silly install resolved     _id: 'http-server@0.10.0',
+385 silly install resolved     _shasum: 'e9cad613f8b2fdcb2d97b90db6695723059495ba',
+385 silly install resolved     _from: 'danielweck/http-server',
+385 silly install resolved     _resolved: 'git://github.com/danielweck/http-server.git#1d74e29a2e5609ee4e8805122051cccaba160caa' },
+385 silly install resolved   { name: 'cssom',
+385 silly install resolved     description: 'CSS Object Model implementation and CSS parser',
+385 silly install resolved     keywords: [ 'CSS', 'CSSOM', 'parser', 'styleSheet' ],
+385 silly install resolved     version: '0.3.1',
+385 silly install resolved     author: { name: 'Nikita Vasilyev', email: 'me@elv1s.ru' },
+385 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/nv/CSSOM.git' },
+385 silly install resolved     files: [ 'lib/', 'build/' ],
+385 silly install resolved     main: './lib/index.js',
+385 silly install resolved     devDependencies: { jake: '~0.7.3' },
+385 silly install resolved     license: 'MIT',
+385 silly install resolved     scripts: { prepublish: 'jake lib/index.js' },
+385 silly install resolved     gitHead: '1ca01860ea716fa98e069074b4aaee728f793e5f',
+385 silly install resolved     readme: '# CSSOM\n\nCSSOM.js is a CSS parser written in pure JavaScript. It also a partial implementation of [CSS Object Model](http://dev.w3.org/csswg/cssom/). \n\n    CSSOM.parse("body {color: black}")\n    -> {\n      cssRules: [\n        {\n          selectorText: "body",\n          style: {\n            0: "color",\n            color: "black",\n            length: 1\n          }\n        }\n      ]\n    }\n\n\n## [Parser demo](http://nv.github.com/CSSOM/docs/parse.html)\n\nWorks well in Google Chrome 6+, Safari 5+, Firefox 3.6+, Opera 10.63+.\nDoesn\'t work in IE < 9 because of unsupported getters/setters.\n\nTo use CSSOM.js in the browser you might want to build a one-file version that exposes CSSOM global variable:\n\n    ➤ git clone https://github.com/NV/CSSOM.git\n    ➤ cd CSSOM\n    ➤ npm install -d\n    ➤ ./node_modules/.bin/jake\n    build/CSSOM.js is done\n\nTo use it with Node.js or any other CommonJS loader:\n\n    ➤ npm install cssom\n\n## Don’t use it if...\n\nYou parse CSS to mungle, minify or reformat the following code:\n\n```css\ndiv {\n  background: gray;\n  background: linear-gradient(to bottom, white 0%, black 100%);\n}\n```\n\nThis pattern is often used to give browsers that don’t understand linear gradients a fallback solution (e.g. gray color in the example).\nIn CSSOM, `background: gray` [gets overwritten](http://nv.github.io/CSSOM/docs/parse.html#css=div%20%7B%0A%20%20%20%20%20%20background%3A%20gray%3B%0A%20%20%20%20background%3A%20linear-gradient(to%20bottom%2C%20white%200%25%2C%20black%20100%25)%3B%0A%7D).\nThe last same-name property always overwrites all the previous ones.\n\n\nIf you do CSS mungling, minification, image inlining, and such, CSSOM.js is no good for you, considere using one of the following:\n\n  * [postcss](https://github.com/postcss/postcss)\n  * [reworkcss/css](https://github.com/reworkcss/css)\n  * [csso](https://github.com/css/csso)\n  * [mensch](https://github.com/brettstimmerman/mensch)\n\n\n## [Specs](http://nv.github.com/CSSOM/spec/)\n\nTo run specs locally:\n\n    ➤ git submodule init\n    ➤ git submodule update\n\n\n## [Who uses CSSOM.js](https://github.com/NV/CSSOM/wiki/Who-uses-CSSOM.js)\n',
+385 silly install resolved     readmeFilename: 'README.mdown',
+385 silly install resolved     bugs: { url: 'https://github.com/nv/CSSOM/issues' },
+385 silly install resolved     homepage: 'https://github.com/nv/CSSOM#readme',
+385 silly install resolved     _id: 'cssom@0.3.1',
+385 silly install resolved     _shasum: 'a2d2727c1097643f7e91571dc73c13fb53031f34',
+385 silly install resolved     _from: 'danielweck/CSSOM#gh-pages',
+385 silly install resolved     _resolved: 'git://github.com/danielweck/CSSOM.git#1ca01860ea716fa98e069074b4aaee728f793e5f' },
+385 silly install resolved   { name: 'FontLoader',
+385 silly install resolved     version: '0.0.2',
+385 silly install resolved     description: 'detects and notifies when specified font-families loaded and rendered by the browser',
+385 silly install resolved     main: 'FontLoader.js',
+385 silly install resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+385 silly install resolved     repository:
+385 silly install resolved      { type: 'git',
+385 silly install resolved        url: 'git+https://github.com/smnh/FontLoader.git' },
+385 silly install resolved     author: { name: 'smnh' },
+385 silly install resolved     license: 'MIT',
+385 silly install resolved     gitHead: 'dab9c9ba20f98016dbc77bea56220efcfa254352',
+385 silly install resolved     readme: 'FontLoader\n==========\n\nThe FontLoader detects and notifies when fonts of the specified font-families loaded and rendered by the browser. This, without using timeouts (when possible) to poll for element dimensions like it is done traditionally. Instead it utilizes the "scroll" event to receive an instantaneous event when element size is changed. In IE10 and lower it uses "onresize" event which brings a similar result. In addition it utilizes [AdobeBlank][1] font to eliminate known issues related to [metric compatible fonts][2].\n\nMore info on how the FontLoader works can be found [here][3].\n\nUsage\n=====\n\nThe FontLoader receives an array of fonts and notifies the `delegate` object via `fontLoaded` and `complete` methods when specific or all fonts were loaded respectively. The FontLoader does not load the fonts, the insertion of specified font-families into the document should be done elsewhere.\n\nThe `FontLoader(fonts, delegate, timeout)` constructor receives three parameters:\n\n1. `font` - array of font-family strings with optionally specified variations using [FVD][4] notation, or `FontDescriptor` objects.\n2. `delegate` - the delegate object with following optional methods which are invoked in the context of the delegate object:\n  * `fontLoaded(font)` - called when one of the specified fonts was loaded with the font itself passed as the `FontDescriptor` object.\n  * `complete(error)` -  called when all specified fonts were loaded, in which case the `error` will be `null`. Or when the timeout was reached before all specified fonts were loaded, in which case `error` will be an object with two fields - the `message` string and the `notLoadedFonts` array with all the fonts that weren\'t loaded as `FontDescriptor` objects.\n3. `timeout` - optional timeout in milliseconds, default is 3000. Pass `null` to disable the timeout.\n\nAfter the `FontLoaded` was instantiated, call `loadFonts` method to begin watching for fonts to load. If some or all fonts were already loaded, the appropriate delegate methods will be invoked as expected.\n\nThe `FontDescriptor` object is an object with the following fields:\n\n1. `family` - the font family (e.g.: \'Open Sans\')\n2. `weight` - the font weight (e.g.: 400)\n3. `style` - the font style (e.g.: \'italic\')\n4. `stretch` - the font stretch (e.g.: \'condensed\'), optional\n\nExample\n=======\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <style type="text/css">\n        @font-face {\n            font-family: \'MyFont\';\n            font-style: normal;\n            font-weight: 400;\n            src:  url(path/to/MyFont.woff) format(\'woff\');\n        }\n        @font-face {\n            font-family: \'MyOtherFont\';\n            font-style: italic;\n            font-weight: 800;\n            src:  url(path/to/MyOtherFont.woff) format(\'woff\');\n        }\n    </style>\n</head>\n<body>\n    <script type="text/javascript" src="FontLoader.js"></script>\n    <script type="text/javascript">\n        var fontLoader = new FontLoader(["MyFont", "MyOtherFont:i8"], {\n            "fontLoaded": function(font) {\n                // One of the fonts was loaded\n                console.log("font loaded: " + font.family);\n            },\n            "complete": function(error) {\n                if (error !== null) {\n                    // Reached the timeout but not all fonts were loaded\n                    console.log(error.message);\n                    console.log(error.notLoadedFonts);\n                } else {\n                    // All fonts were loaded\n                    console.log("all fonts were loaded");\n                }\n            }\n        }, 3000);\n        fontLoader.loadFonts();\n    </script>\n</body>\n</html>\n```\n\n[1]: http://blogs.adobe.com/typblography/2013/03/introducing-adobe-blank.html "Introducing Adobe Blank"\n[2]: http://en.wikipedia.org/wiki/Typeface#Font_metrics "Font metrics"\n[3]: http://smnh.me/web-font-loading-detection-without-timers/ "Web font loading detection, without timers"\n[4]: https://github.com/typekit/fvd "Font Variation Description"',
+385 silly install resolved     readmeFilename: 'README.md',
+385 silly install resolved     bugs: { url: 'https://github.com/smnh/FontLoader/issues' },
+385 silly install resolved     homepage: 'https://github.com/smnh/FontLoader#readme',
+385 silly install resolved     _id: 'FontLoader@0.0.2',
+385 silly install resolved     _shasum: '8bad80b70e5335774c66f89507f077637e4488ed',
+385 silly install resolved     _from: 'smnh/FontLoader',
+385 silly install resolved     _resolved: 'git://github.com/smnh/FontLoader.git#dab9c9ba20f98016dbc77bea56220efcfa254352' },
+385 silly install resolved   { name: 'urijs',
+385 silly install resolved     version: '1.19.0',
+385 silly install resolved     title: 'URI.js - Mutating URLs',
+385 silly install resolved     author: { name: 'Rodney Rehm', url: 'http://rodneyrehm.de' },
+385 silly install resolved     repository:
+385 silly install resolved      { type: 'git',
+385 silly install resolved        url: 'git+https://github.com/medialize/URI.js.git' },
+385 silly install resolved     license: 'MIT',
+385 silly install resolved     description: 'URI.js is a Javascript library for working with URLs.',
+385 silly install resolved     keywords:
+385 silly install resolved      [ 'uri',
+385 silly install resolved        'url',
+385 silly install resolved        'urn',
+385 silly install resolved        'uri mutation',
+385 silly install resolved        'url mutation',
+385 silly install resolved        'uri manipulation',
+385 silly install resolved        'url manipulation',
+385 silly install resolved        'uri template',
+385 silly install resolved        'url template',
+385 silly install resolved        'unified resource locator',
+385 silly install resolved        'unified resource identifier',
+385 silly install resolved        'query string',
+385 silly install resolved        'RFC 3986',
+385 silly install resolved        'RFC3986',
+385 silly install resolved        'RFC 6570',
+385 silly install resolved        'RFC6570',
+385 silly install resolved        'jquery-plugin',
+385 silly install resolved        'ecosystem:jquery' ],
+385 silly install resolved     categories: [ 'Parsers & Compilers', 'Utilities' ],
+385 silly install resolved     main: './src/URI',
+385 silly install resolved     homepage: 'http://medialize.github.io/URI.js/',
+385 silly install resolved     contributors: [ [Object], [Object] ],
+385 silly install resolved     files:
+385 silly install resolved      [ 'src/URI.js',
+385 silly install resolved        'src/IPv6.js',
+385 silly install resolved        'src/SecondLevelDomains.js',
+385 silly install resolved        'src/punycode.js',
+385 silly install resolved        'src/URITemplate.js',
+385 silly install resolved        'src/jquery.URI.js',
+385 silly install resolved        'src/URI.min.js',
+385 silly install resolved        'src/jquery.URI.min.js',
+385 silly install resolved        'src/URI.fragmentQuery.js',
+385 silly install resolved        'src/URI.fragmentURI.js',
+385 silly install resolved        'LICENSE.txt' ],
+385 silly install resolved     npmName: 'urijs',
+385 silly install resolved     npmFileMap: [ [Object], [Object] ],
+385 silly install resolved     devDependencies:
+385 silly install resolved      { 'jshint-stylish': '~0.1.5',
+385 silly install resolved        grunt: '~0.4.2',
+385 silly install resolved        'grunt-contrib-jshint': '~0.8.0' },
+385 silly install resolved     gitHead: '34b082939dda82fa53ebfa5534bd898b359ef672',
+385 silly install resolved     readme: '# URI.js #\n\n[![CDNJS](https://img.shields.io/cdnjs/v/URI.js.svg)](https://cdnjs.com/libraries/URI.js)\n* [About](http://medialize.github.io/URI.js/)\n* [Understanding URIs](http://medialize.github.io/URI.js/about-uris.html)\n* [Documentation](http://medialize.github.io/URI.js/docs.html)\n* [jQuery URI Plugin](http://medialize.github.io/URI.js/jquery-uri-plugin.html)\n* [Author](http://rodneyrehm.de/en/)\n* [Changelog](./CHANGELOG.md)\n\n---\n\n> **NOTE:** The npm package name changed to `urijs`\n\n---\n\nI always want to shoot myself in the head when looking at code like the following:\n\n```javascript\nvar url = "http://example.org/foo?bar=baz";\nvar separator = url.indexOf(\'?\') > -1 ? \'&\' : \'?\';\n\nurl += separator + encodeURIComponent("foo") + "=" + encodeURIComponent("bar");\n```\n\nThings are looking up with [URL](https://developer.mozilla.org/en/docs/Web/API/URL) and the [URL spec](http://url.spec.whatwg.org/) but until we can safely rely on that API, have a look at URI.js for a clean and simple API for mutating URIs:\n\n```javascript\nvar url = new URI("http://example.org/foo?bar=baz");\nurl.addQuery("foo", "bar");\n```\n\nURI.js is here to help with that.\n\n\n## API Example ##\n\n```javascript\n// mutating URLs\nURI("http://example.org/foo.html?hello=world")\n  .username("rodneyrehm")\n    // -> http://rodneyrehm@example.org/foo.html?hello=world\n  .username("")\n    // -> http://example.org/foo.html?hello=world\n  .directory("bar")\n    // -> http://example.org/bar/foo.html?hello=world\n  .suffix("xml")\n    // -> http://example.org/bar/foo.xml?hello=world\n  .query("")\n    // -> http://example.org/bar/foo.xml\n  .tld("com")\n    // -> http://example.com/bar/foo.xml\n  .query({ foo: "bar", hello: ["world", "mars"] });\n    // -> http://example.com/bar/foo.xml?foo=bar&hello=world&hello=mars\n\n// cleaning things up\nURI("?&foo=bar&&foo=bar&foo=baz&")\n  .normalizeQuery();\n    // -> ?foo=bar&foo=baz\n\n// working with relative paths\nURI("/foo/bar/baz.html")\n  .relativeTo("/foo/bar/world.html");\n    // -> ./baz.html\n\nURI("/foo/bar/baz.html")\n  .relativeTo("/foo/bar/sub/world.html")\n    // -> ../baz.html\n  .absoluteTo("/foo/bar/sub/world.html");\n    // -> /foo/bar/baz.html\n\n// URI Templates\nURI.expand("/foo/{dir}/{file}", {\n  dir: "bar",\n  file: "world.html"\n});\n// -> /foo/bar/world.html\n```\n\nSee the [About Page](http://medialize.github.io/URI.js/) and [API Docs](http://medialize.github.io/URI.js/docs.html) for more stuff.\n\n## Using URI.js ##\n\nURI.js (without plugins) has a gzipped weight of about 7KB - if you include all extensions you end up at about 13KB. So unless you *need* second level domain support and use URI templates, we suggest you don\'t include them in your build. If you don\'t need a full featured URI mangler, it may be worth looking into the much smaller parser-only alternatives [listed below](#alternatives).\n\nURI.js is available through [npm](https://www.npmjs.com/package/urijs), [bower](http://bower.io/search/?q=urijs), [bowercdn](http://bowercdn.net/package/urijs), [cdnjs](https://cdnjs.com/libraries/URI.js) and manually from the [build page](http://medialize.github.io/URI.js/build.html):\n\n```bash\n# using bower\nbower install uri.js\n\n# using npm\nnpm install urijs\n```\n\n### Browser ###\n\nI guess you\'ll manage to use the [build tool](http://medialize.github.io/URI.js/build.html) or follow the [instructions below](#minify) to combine and minify the various files into URI.min.js - and I\'m fairly certain you know how to `<script src=".../URI.min.js"></script>` that sucker, too.\n\n### Node.js and NPM ###\n\nInstall with `npm install urijs` or add `"urijs"` to the dependencies in your `package.json`.\n\n```javascript\n// load URI.js\nvar URI = require(\'urijs\');\n// load an optional module (e.g. URITemplate)\nvar URITemplate = require(\'urijs/src/URITemplate\');\n\nURI("/foo/bar/baz.html")\n  .relativeTo("/foo/bar/sub/world.html")\n    // -> ../baz.html\n```\n\n### RequireJS ###\n\nClone the URI.js repository or use a package manager to get URI.js into your project. \n\n```javascript\nrequire.config({\n  paths: {\n    urijs: \'where-you-put-uri.js/src\'\n  }\n});\n\nrequire([\'urijs/URI\'], function(URI) {\n  console.log("URI.js and dependencies: ", URI("//amazon.co.uk").is(\'sld\') ? \'loaded\' : \'failed\');\n});\nrequire([\'urijs/URITemplate\'], function(URITemplate) {\n  console.log("URITemplate.js and dependencies: ", URITemplate._cache ? \'loaded\' : \'failed\');\n});\n```\n\n## Minify ##\n\nSee the [build tool](http://medialize.github.io/URI.js/build.html) or use [Google Closure Compiler](http://closure-compiler.appspot.com/home):\n\n```\n// ==ClosureCompiler==\n// @compilation_level SIMPLE_OPTIMIZATIONS\n// @output_file_name URI.min.js\n// @code_url http://medialize.github.io/URI.js/src/IPv6.js\n// @code_url http://medialize.github.io/URI.js/src/punycode.js\n// @code_url http://medialize.github.io/URI.js/src/SecondLevelDomains.js\n// @code_url http://medialize.github.io/URI.js/src/URI.js\n// @code_url http://medialize.github.io/URI.js/src/URITemplate.js\n// ==/ClosureCompiler==\n```\n\n\n## Resources ##\n\nDocuments specifying how URLs work:\n\n* [URL - Living Standard](http://url.spec.whatwg.org/)\n* [RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax](http://tools.ietf.org/html/rfc3986)\n* [RFC 3987 - Internationalized Resource Identifiers (IRI)](http://tools.ietf.org/html/rfc3987)\n* [RFC 2732 - Format for Literal IPv6 Addresses in URL\'s](http://tools.ietf.org/html/rfc2732)\n* [RFC 2368 - The `mailto:` URL Scheme](https://www.ietf.org/rfc/rfc2368.txt)\n* [RFC 2141 - URN Syntax](https://www.ietf.org/rfc/rfc2141.txt)\n* [IANA URN Namespace Registry](http://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)\n* [Punycode: A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA)](http://tools.ietf.org/html/rfc3492)\n* [application/x-www-form-urlencoded](http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type) (Query String Parameters) and [application/x-www-form-urlencoded encoding algorithm](http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#application/x-www-form-urlencoded-encoding-algorithm)\n* [What every web developer must know about URL encoding](http://blog.lunatech.com/2009/02/03/what-every-web-developer-must-know-about-url-encoding)\n\nInformal stuff\n\n* [Parsing URLs for Fun and Profit](http://tools.ietf.org/html/draft-abarth-url-01)\n* [Naming URL components](http://tantek.com/2011/238/b1/many-ways-slice-url-name-pieces)\n\nHow other environments do things\n\n* [Java URI Class](http://docs.oracle.com/javase/7/docs/api/java/net/URI.html)\n* [Java Inet6Address Class](http://docs.oracle.com/javase/1.5.0/docs/api/java/net/Inet6Address.html)\n* [Node.js URL API](http://nodejs.org/docs/latest/api/url.html)\n\n[Discussion on Hacker News](https://news.ycombinator.com/item?id=3398837)\n\n### Forks / Code-borrow ###\n\n* [node-dom-urls](https://github.com/passy/node-dom-urls) passy\'s partial implementation of the W3C URL Spec Draft for Node\n* [urlutils](https://github.com/cofounders/urlutils) cofounders\' `window.URL` constructor for Node\n\n### Alternatives ###\n\nIf you don\'t like URI.js, you may like one of the following libraries. (If yours is not listed, drop me a line…)\n\n#### Polyfill ####\n\n* [DOM-URL-Polyfill](https://github.com/arv/DOM-URL-Polyfill/) arv\'s polyfill of the [DOM URL spec](https://dvcs.w3.org/hg/url/raw-file/tip/Overview.html#interface-urlutils) for browsers\n* [inexorabletash](https://github.com/inexorabletash/polyfill/#whatwg-url-api) inexorabletash\'s [WHATWG URL API](http://url.spec.whatwg.org/)\n\n#### URL Manipulation ####\n\n* [The simple <a> URL Mutation "Hack"](http://jsfiddle.net/rodneyrehm/KkGUJ/) ([jsPerf comparison](http://jsperf.com/idl-attributes-vs-uri-js))\n* [URL.js](https://github.com/ericf/urljs)\n* [furl (Python)](https://github.com/gruns/furl)\n* [mediawiki Uri](https://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/resources/mediawiki/mediawiki.Uri.js?view=markup) (needs mw and jQuery)\n* [jurlp](https://github.com/tombonner/jurlp)\n* [jsUri](https://github.com/derek-watson/jsUri)\n\n#### URL Parsers ####\n\n* [The simple <a> URL Mutation "Hack"](http://jsfiddle.net/rodneyrehm/KkGUJ/) ([jsPerf comparison](http://jsperf.com/idl-attributes-vs-uri-js))\n* [URI Parser](http://blog.stevenlevithan.com/archives/parseuri)\n* [jQuery-URL-Parser](https://github.com/allmarkedup/jQuery-URL-Parser)\n* [Google Closure Uri](https://google.github.io/closure-library/api/class_goog_Uri.html)\n* [URI.js by Gary Court](https://github.com/garycourt/uri-js)\n\n#### URI Template ####\n\n* [uri-template](https://github.com/rezigned/uri-template.js) (supporting extraction as well) by Rezigne\n* [uri-templates](https://github.com/geraintluff/uri-templates) (supporting extraction as well) by Geraint Luff\n* [uri-templates](https://github.com/marc-portier/uri-templates) by Marc Portier\n* [uri-templates](https://github.com/geraintluff/uri-templates) by Geraint Luff (including reverse operation)\n* [URI Template JS](https://github.com/fxa/uritemplate-js) by Franz Antesberger\n* [Temple](https://github.com/brettstimmerman/temple) by Brett Stimmerman\n* ([jsperf comparison](http://jsperf.com/uri-templates/2))\n\n#### Various ####\n\n* [TLD.js](https://github.com/oncletom/tld.js) - second level domain names\n* [Public Suffix](http://mxr.mozilla.org/mozilla-central/source/netwerk/dns/effective_tld_names.dat?raw=1) - second level domain names\n* [uri-collection](https://github.com/scivey/uri-collection) - underscore based utility for working with many URIs\n\n## Authors ##\n\n* [Rodney Rehm](https://github.com/rodneyrehm)\n* [Various Contributors](https://github.com/medialize/URI.js/graphs/contributors)\n\n\n## Contains Code From ##\n\n* [punycode.js](http://mths.be/punycode) - Mathias Bynens\n* [IPv6.js](http://intermapper.com/support/tools/IPV6-Validator.aspx) - Rich Brown - (rewrite of the original)\n\n\n## License ##\n\nURI.js is published under the [MIT license](http://www.opensource.org/licenses/mit-license). Until version 1.13.2 URI.js was also published under the [GPL v3](http://opensource.org/licenses/GPL-3.0) license - but as this dual-licensing causes more questions than helps anyone, it was dropped with version 1.14.0.\n\n\n## Changelog ##\n\nmoved to [Changelog](./CHANGELOG.md)\n',
+385 silly install resolved     readmeFilename: 'README.md',
+385 silly install resolved     bugs: { url: 'https://github.com/medialize/URI.js/issues' },
+385 silly install resolved     _id: 'urijs@1.19.0',
+385 silly install resolved     _shasum: 'a5793485d47a6d20dd141fb5e2b46789386b2bc0',
+385 silly install resolved     _from: 'danielweck/URI.js',
+385 silly install resolved     _resolved: 'git://github.com/danielweck/URI.js.git#34b082939dda82fa53ebfa5534bd898b359ef672' } ]
+386 info install parallelshell@3.0.2 into /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+387 info install jquery-sizes@0.33.0 into /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+388 info install domReady@2.0.1 into /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+389 info install http-server@0.10.0 into /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+390 info install cssom@0.3.1 into /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+391 info install FontLoader@0.0.2 into /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+392 info install urijs@1.19.0 into /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+393 info installOne parallelshell@3.0.2
+394 verbose installOne of parallelshell to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js not in flight; installing
+395 info installOne jquery-sizes@0.33.0
+396 verbose installOne of jquery-sizes to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js not in flight; installing
+397 info installOne domReady@2.0.1
+398 verbose installOne of domReady to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js not in flight; installing
+399 info installOne http-server@0.10.0
+400 verbose installOne of http-server to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js not in flight; installing
+401 info installOne cssom@0.3.1
+402 verbose installOne of cssom to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js not in flight; installing
+403 info installOne FontLoader@0.0.2
+404 verbose installOne of FontLoader to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js not in flight; installing
+405 info installOne urijs@1.19.0
+406 verbose installOne of urijs to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js not in flight; installing
+407 verbose lock using /Users/huberts/.npm/_locks/parallelshell-526f58955d044b3b.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/parallelshell
+408 verbose lock using /Users/huberts/.npm/_locks/jquery-sizes-bba3347cd2773011.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+409 verbose lock using /Users/huberts/.npm/_locks/domReady-3bab849fabc0f148.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+410 verbose lock using /Users/huberts/.npm/_locks/http-server-d15a861a296b663e.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/http-server
+411 verbose lock using /Users/huberts/.npm/_locks/FontLoader-8f796f132e5f4a22.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+412 verbose lock using /Users/huberts/.npm/_locks/cssom-f88683eb3ee27933.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+413 verbose lock using /Users/huberts/.npm/_locks/urijs-720a481b6b7c932e.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+414 silly install write writing parallelshell 3.0.2 to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/parallelshell
+415 silly install write writing jquery-sizes 0.33.0 to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+416 silly install write writing domReady 2.0.1 to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+417 silly install write writing http-server 0.10.0 to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/http-server
+418 silly install write writing FontLoader 0.0.2 to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+419 silly install write writing urijs 1.19.0 to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+420 silly install write writing cssom 0.3.1 to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+421 verbose unbuild node_modules/jquery-sizes
+422 verbose unbuild node_modules/domReady
+423 verbose unbuild node_modules/FontLoader
+424 verbose unbuild node_modules/cssom
+425 verbose unbuild node_modules/urijs
+426 verbose unbuild node_modules/parallelshell
+427 verbose unbuild node_modules/http-server
+428 info preuninstall domReady@2.0.1
+429 info preuninstall FontLoader@0.0.2
+430 info preuninstall jquery-sizes@0.33.0
+431 info preuninstall cssom@0.3.1
+432 info preuninstall urijs@1.19.0
+433 info preuninstall parallelshell@2.0.0
+434 info preuninstall http-server@0.10.0
+435 info uninstall domReady@2.0.1
+436 info uninstall FontLoader@0.0.2
+437 info uninstall jquery-sizes@0.33.0
+438 info uninstall cssom@0.3.1
+439 info uninstall urijs@1.19.0
+440 info uninstall parallelshell@2.0.0
+441 info uninstall http-server@0.10.0
+442 verbose unbuild rmStuff domReady@2.0.1 from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+443 info postuninstall domReady@2.0.1
+444 verbose unbuild rmStuff FontLoader@0.0.2 from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+445 info postuninstall FontLoader@0.0.2
+446 verbose unbuild rmStuff jquery-sizes@0.33.0 from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+447 info postuninstall jquery-sizes@0.33.0
+448 verbose unbuild rmStuff cssom@0.3.1 from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+449 info postuninstall cssom@0.3.1
+450 verbose unbuild rmStuff urijs@1.19.0 from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+451 info postuninstall urijs@1.19.0
+452 verbose unbuild rmStuff parallelshell@2.0.0 from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+453 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell is being gently removed
+454 silly gentlyRm verifying /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js is an npm working directory
+455 verbose unbuild rmStuff http-server@0.10.0 from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+456 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/http-server is being gently removed
+457 silly gentlyRm verifying /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js is an npm working directory
+458 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/hs is being gently removed
+459 silly gentlyRm verifying /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js is an npm working directory
+460 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady is being purged from base /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+461 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+462 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader is being purged from base /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+463 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+464 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes is being purged from base /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+465 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+466 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom is being purged from base /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+467 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+468 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs is being purged from base /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+469 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+470 silly gentlyRm containing path /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js is under npm's control, in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+471 silly gentlyRm deletion target /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell is under /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+472 verbose gentlyRm vacuuming from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell up to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+473 silly gentlyRm containing path /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js is under npm's control, in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+474 silly gentlyRm deletion target /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/http-server is under /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+475 verbose gentlyRm vacuuming from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/http-server up to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+476 silly gentlyRm containing path /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js is under npm's control, in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+477 silly gentlyRm deletion target /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/hs is under /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+478 verbose gentlyRm vacuuming from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/hs up to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+479 silly vacuum-fs purging /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+480 silly vacuum-fs purging /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+481 silly vacuum-fs purging /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+482 silly vacuum-fs purging /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+483 silly vacuum-fs purging /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+484 silly vacuum-fs removing /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell
+485 silly vacuum-fs removing /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/http-server
+486 silly vacuum-fs removing /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/hs
+487 verbose unlock done using /Users/huberts/.npm/_locks/parallelshell-526f58955d044b3b.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/parallelshell
+488 verbose unlock done using /Users/huberts/.npm/_locks/http-server-d15a861a296b663e.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/http-server
+489 silly vacuum-fs quitting because other entries in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+490 verbose tar unpack /Users/huberts/.npm/domReady/2.0.1/package.tgz
+491 verbose tar unpacking to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+492 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady is being purged
+493 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+494 silly gunzTarPerm modes [ '755', '644' ]
+495 silly vacuum-fs quitting because other entries in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+496 verbose tar unpack /Users/huberts/.npm/FontLoader/0.0.2/package.tgz
+497 verbose tar unpacking to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+498 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader is being purged
+499 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+500 silly vacuum-fs quitting because other entries in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+501 verbose tar unpack /Users/huberts/.npm/cssom/0.3.1/package.tgz
+502 verbose tar unpacking to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+503 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom is being purged
+504 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+505 silly vacuum-fs quitting because other entries in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+506 verbose tar unpack /Users/huberts/.npm/urijs/1.19.0/package.tgz
+507 verbose tar unpacking to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+508 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs is being purged
+509 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+510 silly gunzTarPerm modes [ '755', '644' ]
+511 silly gunzTarPerm modes [ '755', '644' ]
+512 silly gunzTarPerm extractEntry package.json
+513 silly gunzTarPerm modes [ '755', '644' ]
+514 silly gunzTarPerm extractEntry README.md
+515 silly gunzTarPerm extractEntry LICENSE
+516 silly gunzTarPerm extractEntry package.json
+517 silly gunzTarPerm extractEntry package.json
+518 silly gunzTarPerm extractEntry package.json
+519 silly gunzTarPerm extractEntry .npmignore
+520 silly gunzTarPerm extractEntry README.md
+521 silly gunzTarPerm extractEntry LICENSE.txt
+522 silly gunzTarPerm extractEntry README.mdown
+523 silly gunzTarPerm extractEntry README.md
+524 silly gunzTarPerm extractEntry CHANGELOG.md
+525 silly gunzTarPerm extractEntry domReady.js
+526 silly gunzTarPerm extractEntry bower.json
+527 silly vacuum-fs quitting because other entries in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+528 verbose tar unpack /Users/huberts/.npm/jquery-sizes/0.33.0/package.tgz
+529 verbose tar unpacking to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+530 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes is being purged
+531 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+532 silly gunzTarPerm extractEntry FontLoader.js
+533 silly gunzTarPerm extractEntry build/CSSOM.js
+534 silly gunzTarPerm extractEntry lib/CSSDocumentRule.js
+535 silly gunzTarPerm extractEntry lib/CSSMediaRule.js
+536 silly gunzTarPerm extractEntry lib/CSSRule.js
+537 silly gunzTarPerm extractEntry lib/CSSStyleDeclaration.js
+538 silly gunzTarPerm extractEntry lib/CSSKeyframesRule.js
+539 silly gunzTarPerm extractEntry lib/CSSStyleSheet.js
+540 silly gunzTarPerm extractEntry lib/CSSValue.js
+541 silly gunzTarPerm extractEntry lib/CSSValueExpression.js
+542 silly gunzTarPerm extractEntry lib/MatcherList.js
+543 silly gunzTarPerm extractEntry lib/MediaList.js
+544 silly gunzTarPerm extractEntry lib/CSSKeyframeRule.js
+545 silly gunzTarPerm extractEntry lib/StyleSheet.js
+546 silly gunzTarPerm extractEntry lib/CSSImportRule.js
+547 silly gunzTarPerm extractEntry lib/clone.js
+548 silly gunzTarPerm extractEntry lib/CSSHostRule.js
+549 silly gunzTarPerm extractEntry lib/index.js
+550 silly gunzTarPerm extractEntry lib/CSSFontFaceRule.js
+551 silly gunzTarPerm extractEntry lib/parse.js
+552 silly gunzTarPerm extractEntry lib/CSSStyleRule.js
+553 silly gunzTarPerm modes [ '755', '644' ]
+554 silly gunzTarPerm extractEntry MIT-LICENSE.txt
+555 silly gunzTarPerm extractEntry Tests/compat-tests.js
+556 silly gunzTarPerm extractEntry Tests/qunit-1.13.0.js
+557 silly gunzTarPerm extractEntry Tests/compat-tests.css
+558 silly gunzTarPerm extractEntry Tests/compat-tests.html
+559 silly gunzTarPerm extractEntry Tests/qunit-1.13.0.css
+560 silly gunzTarPerm extractEntry bower.json
+561 silly gunzTarPerm extractEntry demo.html
+562 silly gunzTarPerm extractEntry LICENSE.txt
+563 silly gunzTarPerm extractEntry package.json
+564 silly gunzTarPerm extractEntry src/IPv6.js
+565 silly gunzTarPerm extractEntry src/SecondLevelDomains.js
+566 silly gunzTarPerm extractEntry src/URI.fragmentQuery.js
+567 silly gunzTarPerm extractEntry README.md
+568 silly gunzTarPerm extractEntry LICENSE
+569 silly gunzTarPerm extractEntry src/URI.fragmentURI.js
+570 silly gunzTarPerm extractEntry lib/jquery.sizes.js
+571 silly gunzTarPerm extractEntry src/URI.js
+572 silly gunzTarPerm extractEntry src/URI.min.js
+573 silly gunzTarPerm extractEntry src/URITemplate.js
+574 silly gunzTarPerm extractEntry src/jquery.URI.js
+575 verbose write writing to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady/package.json
+576 info preinstall domReady@2.0.1
+577 silly gunzTarPerm extractEntry src/jquery.URI.min.js
+578 silly gunzTarPerm extractEntry src/punycode.js
+579 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady/package.json
+580 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady/package.json
+581 silly install resolved []
+582 verbose about to build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+583 info build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+584 verbose write writing to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/package.json
+585 info linkStuff domReady@2.0.1
+586 silly linkStuff domReady@2.0.1 has /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules as its parent node_modules
+587 info preinstall jquery-sizes@0.33.0
+588 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/package.json
+589 silly prepareForInstallMany adding jquery@latest from jquery-sizes dependencies
+590 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/package.json
+591 verbose linkBins domReady@2.0.1
+592 verbose linkMans domReady@2.0.1
+593 verbose rebuildBundles domReady@2.0.1
+594 info install domReady@2.0.1
+595 info postinstall domReady@2.0.1
+596 verbose unlock done using /Users/huberts/.npm/_locks/domReady-3bab849fabc0f148.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/domReady
+597 silly cache add args [ 'jquery@latest', null ]
+598 verbose cache add spec jquery@latest
+599 silly cache add parsed spec Result {
+599 silly cache add   raw: 'jquery@latest',
+599 silly cache add   scope: null,
+599 silly cache add   name: 'jquery',
+599 silly cache add   rawSpec: 'latest',
+599 silly cache add   spec: 'latest',
+599 silly cache add   type: 'tag' }
+600 silly addNamed jquery@latest
+601 verbose addNamed "latest" is being treated as a dist-tag for jquery
+602 info addNameTag [ 'jquery', 'latest' ]
+603 silly mapToRegistry name jquery
+604 silly mapToRegistry using default registry
+605 silly mapToRegistry registry https://registry.npmjs.org/
+606 silly mapToRegistry uri https://registry.npmjs.org/jquery
+607 verbose addNameTag registry:https://registry.npmjs.org/jquery not in flight; fetching
+608 verbose request uri https://registry.npmjs.org/jquery
+609 verbose request no auth needed
+610 info attempt registry request try #1 at 1:10:41 AM
+611 verbose etag "5a2daac1-163dc"
+612 verbose lastModified Sun, 10 Dec 2017 21:44:33 GMT
+613 http request GET https://registry.npmjs.org/jquery
+614 verbose write writing to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader/package.json
+615 info preinstall FontLoader@0.0.2
+616 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader/package.json
+617 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader/package.json
+618 verbose write writing to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs/package.json
+619 info preinstall urijs@1.19.0
+620 silly install resolved []
+621 verbose about to build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+622 info build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+623 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs/package.json
+624 info linkStuff FontLoader@0.0.2
+625 silly linkStuff FontLoader@0.0.2 has /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules as its parent node_modules
+626 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs/package.json
+627 silly install resolved []
+628 verbose about to build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+629 info build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+630 verbose linkBins FontLoader@0.0.2
+631 verbose linkMans FontLoader@0.0.2
+632 verbose rebuildBundles FontLoader@0.0.2
+633 info install FontLoader@0.0.2
+634 info postinstall FontLoader@0.0.2
+635 info linkStuff urijs@1.19.0
+636 silly linkStuff urijs@1.19.0 has /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules as its parent node_modules
+637 verbose unlock done using /Users/huberts/.npm/_locks/FontLoader-8f796f132e5f4a22.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/FontLoader
+638 verbose linkBins urijs@1.19.0
+639 verbose linkMans urijs@1.19.0
+640 verbose rebuildBundles urijs@1.19.0
+641 info install urijs@1.19.0
+642 info postinstall urijs@1.19.0
+643 verbose unlock done using /Users/huberts/.npm/_locks/urijs-720a481b6b7c932e.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/urijs
+644 verbose write writing to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom/package.json
+645 info preinstall cssom@0.3.1
+646 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom/package.json
+647 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom/package.json
+648 silly install resolved []
+649 verbose about to build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+650 info build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+651 info linkStuff cssom@0.3.1
+652 silly linkStuff cssom@0.3.1 has /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules as its parent node_modules
+653 verbose linkBins cssom@0.3.1
+654 verbose linkMans cssom@0.3.1
+655 verbose rebuildBundles cssom@0.3.1
+656 info install cssom@0.3.1
+657 info postinstall cssom@0.3.1
+658 verbose unlock done using /Users/huberts/.npm/_locks/cssom-f88683eb3ee27933.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/cssom
+659 http 304 https://registry.npmjs.org/jquery
+660 verbose headers { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+660 verbose headers   via: '1.1 varnish',
+660 verbose headers   'cache-control': 'max-age=300',
+660 verbose headers   etag: '"5a2daac1-163dc"',
+660 verbose headers   age: '3986',
+660 verbose headers   connection: 'keep-alive',
+660 verbose headers   'x-served-by': 'cache-mad9435-MAD',
+660 verbose headers   'x-cache': 'HIT',
+660 verbose headers   'x-cache-hits': '7',
+660 verbose headers   'x-timer': 'S1513033842.855422,VS0,VE0',
+660 verbose headers   vary: 'Accept-Encoding, Accept' }
+661 silly get cb [ 304,
+661 silly get   { date: 'Mon, 11 Dec 2017 23:10:41 GMT',
+661 silly get     via: '1.1 varnish',
+661 silly get     'cache-control': 'max-age=300',
+661 silly get     etag: '"5a2daac1-163dc"',
+661 silly get     age: '3986',
+661 silly get     connection: 'keep-alive',
+661 silly get     'x-served-by': 'cache-mad9435-MAD',
+661 silly get     'x-cache': 'HIT',
+661 silly get     'x-cache-hits': '7',
+661 silly get     'x-timer': 'S1513033842.855422,VS0,VE0',
+661 silly get     vary: 'Accept-Encoding, Accept' } ]
+662 verbose etag https://registry.npmjs.org/jquery from cache
+663 verbose get saving jquery to /Users/huberts/.npm/registry.npmjs.org/jquery/.cache.json
+664 silly addNameTag next cb for jquery with tag latest
+665 silly addNamed jquery@3.2.1
+666 verbose addNamed "3.2.1" is a plain semver version for jquery
+667 silly cache afterAdd jquery@3.2.1
+668 verbose afterAdd /Users/huberts/.npm/jquery/3.2.1/package/package.json not in flight; writing
+669 verbose afterAdd /Users/huberts/.npm/jquery/3.2.1/package/package.json written
+670 silly install resolved [ { name: 'jquery',
+670 silly install resolved     title: 'jQuery',
+670 silly install resolved     description: 'JavaScript library for DOM operations',
+670 silly install resolved     version: '3.2.1',
+670 silly install resolved     main: 'dist/jquery.js',
+670 silly install resolved     homepage: 'https://jquery.com',
+670 silly install resolved     author:
+670 silly install resolved      { name: 'JS Foundation and other contributors',
+670 silly install resolved        url: 'https://github.com/jquery/jquery/blob/3.2.1/AUTHORS.txt' },
+670 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/jquery/jquery.git' },
+670 silly install resolved     keywords: [ 'jquery', 'javascript', 'browser', 'library' ],
+670 silly install resolved     bugs: { url: 'https://github.com/jquery/jquery/issues' },
+670 silly install resolved     license: 'MIT',
+670 silly install resolved     dependencies: {},
+670 silly install resolved     devDependencies:
+670 silly install resolved      { 'babel-preset-es2015': '6.6.0',
+670 silly install resolved        commitplease: '2.6.1',
+670 silly install resolved        'core-js': '2.2.2',
+670 silly install resolved        'cross-spawn': '2.2.3',
+670 silly install resolved        'eslint-config-jquery': '1.0.0',
+670 silly install resolved        grunt: '1.0.1',
+670 silly install resolved        'grunt-babel': '6.0.0',
+670 silly install resolved        'grunt-cli': '1.2.0',
+670 silly install resolved        'grunt-compare-size': '0.4.2',
+670 silly install resolved        'grunt-contrib-uglify': '1.0.1',
+670 silly install resolved        'grunt-contrib-watch': '1.0.0',
+670 silly install resolved        'grunt-eslint': '19.0.0',
+670 silly install resolved        'grunt-git-authors': '3.2.0',
+670 silly install resolved        'grunt-jsonlint': '1.0.7',
+670 silly install resolved        'grunt-newer': '1.2.0',
+670 silly install resolved        'grunt-npmcopy': '0.1.0',
+670 silly install resolved        'gzip-js': '0.3.2',
+670 silly install resolved        husky: '0.11.4',
+670 silly install resolved        insight: '0.8.1',
+670 silly install resolved        jsdom: '5.6.1',
+670 silly install resolved        'load-grunt-tasks': '3.5.0',
+670 silly install resolved        'native-promise-only': '0.8.1',
+670 silly install resolved        'promises-aplus-tests': '2.1.2',
+670 silly install resolved        q: '1.4.1',
+670 silly install resolved        'qunit-assert-step': '1.0.3',
+670 silly install resolved        qunitjs: '1.23.1',
+670 silly install resolved        requirejs: '2.2.0',
+670 silly install resolved        sinon: '1.17.3',
+670 silly install resolved        sizzle: '2.3.3',
+670 silly install resolved        'strip-json-comments': '2.0.1',
+670 silly install resolved        testswarm: '1.1.0' },
+670 silly install resolved     scripts:
+670 silly install resolved      { build: 'npm install && grunt',
+670 silly install resolved        start: 'grunt watch',
+670 silly install resolved        test: 'grunt && grunt test:slow',
+670 silly install resolved        precommit: 'grunt lint:newer',
+670 silly install resolved        commitmsg: 'node node_modules/commitplease' },
+670 silly install resolved     commitplease:
+670 silly install resolved      { nohook: true,
+670 silly install resolved        components: [Object],
+670 silly install resolved        markerPattern: '^((clos|fix|resolv)(e[sd]|ing))|^(refs?)',
+670 silly install resolved        ticketPattern: '^((Closes|Fixes) ([a-zA-Z]{2,}-)[0-9]+)|^(Refs? [^#])' },
+670 silly install resolved     gitHead: '77d2a51d0520d2ee44173afdf4e40a9201f5964e',
+670 silly install resolved     _id: 'jquery@3.2.1',
+670 silly install resolved     _shasum: '5c4d9de652af6cd0a770154a631bba12b015c787',
+670 silly install resolved     _from: 'jquery@latest',
+670 silly install resolved     _npmVersion: '4.4.4',
+670 silly install resolved     _nodeVersion: '7.7.3',
+670 silly install resolved     _npmUser: { name: 'timmywil', email: '4timmywil@gmail.com' },
+670 silly install resolved     dist:
+670 silly install resolved      { shasum: '5c4d9de652af6cd0a770154a631bba12b015c787',
+670 silly install resolved        tarball: 'https://registry.npmjs.org/jquery/-/jquery-3.2.1.tgz' },
+670 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+670 silly install resolved     _npmOperationalInternal:
+670 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+670 silly install resolved        tmp: 'tmp/jquery-3.2.1.tgz_1490036530067_0.19497186387889087' },
+670 silly install resolved     directories: {},
+670 silly install resolved     _resolved: 'https://registry.npmjs.org/jquery/-/jquery-3.2.1.tgz',
+670 silly install resolved     readme: 'ERROR: No README data found!' } ]
+671 info install jquery@3.2.1 into /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+672 info installOne jquery@3.2.1
+673 verbose installOne of jquery to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes not in flight; installing
+674 verbose lock using /Users/huberts/.npm/_locks/jquery-01fff4b9dd60c8bb.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery
+675 silly install write writing jquery 3.2.1 to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery
+676 verbose unbuild node_modules/jquery-sizes/node_modules/jquery
+677 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery is being purged from base /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+678 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery
+679 verbose tar unpack /Users/huberts/.npm/jquery/3.2.1/package.tgz
+680 verbose tar unpacking to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery
+681 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery is being purged
+682 verbose gentlyRm don't care about contents; nuking /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery
+683 silly gunzTarPerm modes [ '755', '644' ]
+684 silly gunzTarPerm extractEntry package.json
+685 silly gunzTarPerm extractEntry README.md
+686 silly gunzTarPerm extractEntry AUTHORS.txt
+687 silly gunzTarPerm extractEntry LICENSE.txt
+688 silly gunzTarPerm extractEntry bower.json
+689 silly gunzTarPerm extractEntry dist/core.js
+690 silly gunzTarPerm extractEntry dist/jquery.js
+691 silly gunzTarPerm extractEntry dist/jquery.min.js
+692 silly gunzTarPerm extractEntry dist/jquery.slim.js
+693 silly gunzTarPerm extractEntry dist/jquery.slim.min.js
+694 silly gunzTarPerm extractEntry dist/jquery.min.map
+695 silly gunzTarPerm extractEntry dist/jquery.slim.min.map
+696 silly gunzTarPerm extractEntry external/sizzle/LICENSE.txt
+697 silly gunzTarPerm extractEntry external/sizzle/dist/sizzle.js
+698 silly gunzTarPerm extractEntry external/sizzle/dist/sizzle.min.js
+699 silly gunzTarPerm extractEntry external/sizzle/dist/sizzle.min.map
+700 silly gunzTarPerm extractEntry src/wrap.js
+701 silly gunzTarPerm extractEntry src/core.js
+702 silly gunzTarPerm extractEntry src/selector.js
+703 silly gunzTarPerm extractEntry src/css.js
+704 silly gunzTarPerm extractEntry src/selector-sizzle.js
+705 silly gunzTarPerm extractEntry src/serialize.js
+706 silly gunzTarPerm extractEntry src/selector-native.js
+707 silly gunzTarPerm extractEntry src/deferred.js
+708 silly gunzTarPerm extractEntry src/deprecated.js
+709 silly gunzTarPerm extractEntry src/dimensions.js
+710 silly gunzTarPerm extractEntry src/queue.js
+711 silly gunzTarPerm extractEntry src/callbacks.js
+712 silly gunzTarPerm extractEntry src/offset.js
+713 silly gunzTarPerm extractEntry src/attributes.js
+714 silly gunzTarPerm extractEntry src/manipulation.js
+715 silly gunzTarPerm extractEntry src/traversing.js
+716 silly gunzTarPerm extractEntry src/event.js
+717 silly gunzTarPerm extractEntry src/ajax.js
+718 silly gunzTarPerm extractEntry src/jquery.js
+719 silly gunzTarPerm extractEntry src/data.js
+720 silly gunzTarPerm extractEntry src/effects.js
+721 silly gunzTarPerm extractEntry src/data/Data.js
+722 silly gunzTarPerm extractEntry src/data/var/acceptData.js
+723 silly gunzTarPerm extractEntry src/data/var/dataPriv.js
+724 silly gunzTarPerm extractEntry src/data/var/dataUser.js
+725 silly gunzTarPerm extractEntry src/exports/amd.js
+726 silly gunzTarPerm extractEntry src/exports/global.js
+727 silly gunzTarPerm extractEntry src/event/ajax.js
+728 silly gunzTarPerm extractEntry src/event/alias.js
+729 silly gunzTarPerm extractEntry src/event/focusin.js
+730 silly gunzTarPerm extractEntry src/event/support.js
+731 silly gunzTarPerm extractEntry src/event/trigger.js
+732 silly gunzTarPerm extractEntry src/ajax/jsonp.js
+733 silly gunzTarPerm extractEntry src/ajax/load.js
+734 silly gunzTarPerm extractEntry src/ajax/parseXML.js
+735 silly gunzTarPerm extractEntry src/ajax/script.js
+736 silly gunzTarPerm extractEntry src/ajax/xhr.js
+737 silly gunzTarPerm extractEntry src/ajax/var/location.js
+738 silly gunzTarPerm extractEntry src/ajax/var/nonce.js
+739 silly gunzTarPerm extractEntry src/ajax/var/rquery.js
+740 silly gunzTarPerm extractEntry src/queue/delay.js
+741 silly gunzTarPerm extractEntry src/effects/Tween.js
+742 silly gunzTarPerm extractEntry src/effects/animatedSelector.js
+743 silly gunzTarPerm extractEntry src/deferred/exceptionHook.js
+744 silly gunzTarPerm extractEntry src/manipulation/_evalUrl.js
+745 silly gunzTarPerm extractEntry src/manipulation/buildFragment.js
+746 silly gunzTarPerm extractEntry src/manipulation/getAll.js
+747 silly gunzTarPerm extractEntry src/manipulation/setGlobalEval.js
+748 silly gunzTarPerm extractEntry src/manipulation/support.js
+749 silly gunzTarPerm extractEntry src/manipulation/wrapMap.js
+750 silly gunzTarPerm extractEntry src/manipulation/var/rcheckableType.js
+751 silly gunzTarPerm extractEntry src/manipulation/var/rscriptType.js
+752 silly gunzTarPerm extractEntry src/manipulation/var/rtagName.js
+753 silly gunzTarPerm extractEntry src/css/addGetHookIf.js
+754 silly gunzTarPerm extractEntry src/css/adjustCSS.js
+755 silly gunzTarPerm extractEntry src/css/curCSS.js
+756 silly gunzTarPerm extractEntry src/css/hiddenVisibleSelectors.js
+757 silly gunzTarPerm extractEntry src/css/showHide.js
+758 silly gunzTarPerm extractEntry src/css/support.js
+759 silly gunzTarPerm extractEntry src/css/var/cssExpand.js
+760 silly gunzTarPerm extractEntry src/css/var/getStyles.js
+761 silly gunzTarPerm extractEntry src/css/var/isHiddenWithinTree.js
+762 silly gunzTarPerm extractEntry src/css/var/rmargin.js
+763 silly gunzTarPerm extractEntry src/css/var/rnumnonpx.js
+764 silly gunzTarPerm extractEntry src/css/var/swap.js
+765 silly gunzTarPerm extractEntry src/core/DOMEval.js
+766 silly gunzTarPerm extractEntry src/core/init.js
+767 silly gunzTarPerm extractEntry src/core/nodeName.js
+768 silly gunzTarPerm extractEntry src/core/parseHTML.js
+769 silly gunzTarPerm extractEntry src/core/access.js
+770 silly gunzTarPerm extractEntry src/core/ready.js
+771 silly gunzTarPerm extractEntry src/core/readyException.js
+772 silly gunzTarPerm extractEntry src/core/stripAndCollapse.js
+773 silly gunzTarPerm extractEntry src/core/support.js
+774 silly gunzTarPerm extractEntry src/core/ready-no-deferred.js
+775 silly gunzTarPerm extractEntry src/core/var/rsingleTag.js
+776 silly gunzTarPerm extractEntry src/traversing/findFilter.js
+777 silly gunzTarPerm extractEntry src/traversing/var/dir.js
+778 silly gunzTarPerm extractEntry src/traversing/var/rneedsContext.js
+779 silly gunzTarPerm extractEntry src/traversing/var/siblings.js
+780 silly gunzTarPerm extractEntry src/attributes/attr.js
+781 silly gunzTarPerm extractEntry src/attributes/classes.js
+782 silly gunzTarPerm extractEntry src/attributes/prop.js
+783 silly gunzTarPerm extractEntry src/attributes/support.js
+784 silly gunzTarPerm extractEntry src/attributes/val.js
+785 silly gunzTarPerm extractEntry src/var/ObjectFunctionString.js
+786 silly gunzTarPerm extractEntry src/var/documentElement.js
+787 silly gunzTarPerm extractEntry src/var/fnToString.js
+788 silly gunzTarPerm extractEntry src/var/getProto.js
+789 silly gunzTarPerm extractEntry src/var/document.js
+790 silly gunzTarPerm extractEntry src/var/indexOf.js
+791 silly gunzTarPerm extractEntry src/var/pnum.js
+792 silly gunzTarPerm extractEntry src/var/push.js
+793 silly gunzTarPerm extractEntry src/var/rcssNum.js
+794 silly gunzTarPerm extractEntry src/var/rnothtmlwhite.js
+795 silly gunzTarPerm extractEntry src/var/concat.js
+796 silly gunzTarPerm extractEntry src/var/slice.js
+797 silly gunzTarPerm extractEntry src/var/class2type.js
+798 silly gunzTarPerm extractEntry src/var/support.js
+799 silly gunzTarPerm extractEntry src/var/arr.js
+800 silly gunzTarPerm extractEntry src/var/toString.js
+801 silly gunzTarPerm extractEntry src/var/hasOwn.js
+802 silly gunzTarPerm extractEntry src/.eslintrc.json
+803 verbose write writing to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery/package.json
+804 info preinstall jquery@3.2.1
+805 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery/package.json
+806 verbose readDependencies loading dependencies from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery/package.json
+807 silly install resolved []
+808 verbose about to build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery
+809 info build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery
+810 info linkStuff jquery@3.2.1
+811 silly linkStuff jquery@3.2.1 has /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules as its parent node_modules
+812 verbose linkBins jquery@3.2.1
+813 verbose linkMans jquery@3.2.1
+814 verbose rebuildBundles jquery@3.2.1
+815 info install jquery@3.2.1
+816 info postinstall jquery@3.2.1
+817 verbose unlock done using /Users/huberts/.npm/_locks/jquery-01fff4b9dd60c8bb.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes/node_modules/jquery
+818 verbose about to build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+819 info build /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+820 info linkStuff jquery-sizes@0.33.0
+821 silly linkStuff jquery-sizes@0.33.0 has /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules as its parent node_modules
+822 verbose linkBins jquery-sizes@0.33.0
+823 verbose linkMans jquery-sizes@0.33.0
+824 verbose rebuildBundles jquery-sizes@0.33.0
+825 verbose rebuildBundles [ 'jquery' ]
+826 info install jquery-sizes@0.33.0
+827 info postinstall jquery-sizes@0.33.0
+828 verbose unlock done using /Users/huberts/.npm/_locks/jquery-sizes-bba3347cd2773011.lock for /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/jquery-sizes
+829 verbose stack Error: EACCES: permission denied, unlink '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell'
+829 verbose stack     at Error (native)
+830 verbose cwd /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+831 error Darwin 17.2.0
+832 error argv "/Users/huberts/.nvm/versions/node/v4.8.3/bin/node" "/Users/huberts/.nvm/versions/node/v4.8.3/bin/npm" "install"
+833 error node v4.8.3
+834 error npm  v2.14.7
+835 error path /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell
+836 error code EACCES
+837 error errno -13
+838 error syscall unlink
+839 error Error: EACCES: permission denied, unlink '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell'
+839 error     at Error (native)
+839 error  { [Error: EACCES: permission denied, unlink '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell']
+839 error   errno: -13,
+839 error   code: 'EACCES',
+839 error   syscall: 'unlink',
+839 error   path: '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell' }
+840 error Please try running this command again as root/Administrator.
+841 verbose exit [ -13, true ]
+842 verbose unbuild node_modules/parallelshell
+843 info preuninstall parallelshell@2.0.0
+844 info uninstall parallelshell@2.0.0
+845 verbose unbuild rmStuff parallelshell@2.0.0 from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules
+846 silly gentlyRm /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell is being gently removed
+847 silly gentlyRm verifying /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js is an npm working directory
+848 silly gentlyRm containing path /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js is under npm's control, in /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+849 silly gentlyRm deletion target /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell is under /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+850 verbose gentlyRm vacuuming from /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell up to /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js
+851 silly vacuum-fs removing /Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell
+852 error error rolling back Error: EACCES: permission denied, unlink '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell'
+852 error error rolling back     at Error (native)
+852 error error rolling back  { [Error: EACCES: permission denied, unlink '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell']
+852 error error rolling back   errno: -13,
+852 error error rolling back   code: 'EACCES',
+852 error error rolling back   syscall: 'unlink',
+852 error error rolling back   path: '/Users/huberts/Coding/readium-js-viewer/readium-js/readium-shared-js/node_modules/.bin/parallelshell' }
