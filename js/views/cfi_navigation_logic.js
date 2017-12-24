@@ -430,7 +430,7 @@ var CfiNavigationLogic = function(options) {
         // split between several columns)
         var clientRectangles = [];
         for (var i = 0, l = clientRectList.length; i < l; ++i) {
-            if (clientRectList[i].height > 0) {
+            if (clientRectList[i].height > 0 || clientRectList.length === 1) {
                 // Firefox sometimes gets it wrong,
                 // adding literally empty (height = 0) client rectangle preceding the real one,
                 // that empty client rectanle shouldn't be retrieved
@@ -1127,6 +1127,53 @@ var CfiNavigationLogic = function(options) {
         }
     };
 
+    this.getNearestCfiFromElement = function (element) {
+        var collapseToStart;
+        var chosenNode;
+        var isTextNode;
+
+        var siblingTextNodesAndSelf = _.filter(element.parentNode.childNodes, function (n) {
+            return n === element || isValidTextNode(n);
+        });
+
+        var indexOfSelf = siblingTextNodesAndSelf.indexOf(element);
+        var nearestNode = siblingTextNodesAndSelf[indexOfSelf - 1];
+        if (!nearestNode) {
+            nearestNode = siblingTextNodesAndSelf[indexOfSelf + 1];
+            collapseToStart = true;
+        }
+        if (!nearestNode) {
+            nearestNode = _.last(this.getLeafNodeElements($(element.previousElementSibling)));
+            if (!nearestNode) {
+                collapseToStart = true;
+                nearestNode = _.first(this.getLeafNodeElements($(element.nextElementSibling)));
+            }
+        }
+
+        // Prioritize text node use
+        if (isValidTextNode(nearestNode)) {
+            chosenNode = nearestNode;
+            isTextNode = true;
+        } else if (isElementNode(nearestNode)) {
+            chosenNode = nearestNode;
+        } else if (isElementNode(element.previousElementSibling)) {
+            chosenNode = element.previousElementSibling;
+        } else if (isElementNode(element.nextElementSibling)) {
+            chosenNode = element.nextElementSibling;
+        } else {
+            chosenNode = element.parentNode;
+        }
+
+        if (isTextNode) {
+            var range = chosenNode.ownerDocument.createRange();
+            range.selectNodeContents(chosenNode);
+            range.collapse(collapseToStart);
+            return this.getRangeCfiFromDomRange(range);
+        } else {
+            return this.getCfiForElement(chosenNode);
+        }
+    };
+
     this.getElementByCfi = function (cfi, classBlacklist, elementBlacklist, idBlacklist) {
 
         var cfiParts = splitCfi(cfi);
@@ -1142,8 +1189,11 @@ var CfiNavigationLogic = function(options) {
 
         var pageIndex = findPageByRectangles($element, y);
         if (pageIndex === null) {
-            console.warn('Impossible to locate a hidden element: ', $element);
-            return 0;
+            // get CFI of the nearest (to hidden) element, and then get CFI's element
+            var nearestVisibleElement = this.getElementByCfi(this.getNearestCfiFromElement($element[0]));
+
+            // find page index by rectangles again, for the nearest element
+            return findPageByRectangles(nearestVisibleElement, y);
         }
         return pageIndex;
     };
@@ -1419,6 +1469,15 @@ var CfiNavigationLogic = function(options) {
 
         return $leafNodeElements;
     };
+
+    function isElementNode(node) {
+        if (!node) {
+            return false;
+        }
+        else {
+            return node.nodeType === Node.ELEMENT_NODE;
+        }
+    }
 
     function isValidTextNode(node) {
 
