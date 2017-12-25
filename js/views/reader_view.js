@@ -69,7 +69,7 @@ var ReaderView = function (options) {
     var lazyResize = Helpers.extendedThrottle(
         handleViewportResizeStart,
         handleViewportResizeTick,
-        handleViewportResizeEnd, 250, 1000, self);
+        handleViewportResizeEnd, 20, 50, self);  // biblemesh_ : reduced these numbers to avoid flash on Android since there is an immediate resize due to removing the statusbar.
 
     $(window).on("resize.ReadiumSDK.readerView", lazyResize);
 
