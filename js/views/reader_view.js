@@ -69,9 +69,10 @@ var ReaderView = function (options) {
     var lazyResize = Helpers.extendedThrottle(
         handleViewportResizeStart,
         handleViewportResizeTick,
-        handleViewportResizeEnd, 20, 50, self);  // biblemesh_ : reduced these numbers to avoid flash on Android since there is an immediate resize due to removing the statusbar.
+        handleViewportResizeEnd, 250, 1000, self);
 
-    $(window).on("resize.ReadiumSDK.readerView", lazyResize);
+    // $(window).on("resize.ReadiumSDK.readerView", lazyResize);
+    $(window).on("resize.ReadiumSDK.readerView", handleViewportResizeEnd);  // biblemesh_ : For apps, I do not want a delay
 
     if (options.el instanceof $) {
         _$el = options.el;
