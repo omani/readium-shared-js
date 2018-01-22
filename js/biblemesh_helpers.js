@@ -100,9 +100,14 @@ biblemesh_Helpers.getUTCTimeStamp = function() {
 
 biblemesh_Helpers.getCurrentSpotInfo = function() {
     var urlParams = biblemesh_Helpers.getURLQueryParams();
+    var settings = {};
+    try {
+        settings = JSON.parse(urlParams['settings'])
+    } catch(e) {}
     return {
         ebookURL: urlParams['epub'],
         ebookSpot: urlParams['goto'],
+        settings: settings,
         bookId: parseInt((urlParams['epub'] || "").replace(/^.*?book_([0-9]+).*$/, '$1') , 10) || 0
     };
 }
