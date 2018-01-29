@@ -82,7 +82,7 @@ var ReflowableView = function(options, reader){
         spreadCount : 0,
         currentSpreadIndex : 0,
         columnWidth : undefined,
-        pageOffset : 0,
+        pageOffset : -10,  // biblemesh_
         columnCount: 0
     };
 
@@ -201,7 +201,7 @@ var ReflowableView = function(options, reader){
                 self.emit(Globals.Events.CONTENT_DOCUMENT_UNLOADED, _$iframe, _currentSpineItem);
             }
 
-            _paginationInfo.pageOffset = 0;
+            _paginationInfo.pageOffset = _paginationInfo.columnGap / -2;  // biblemesh_
             _paginationInfo.currentSpreadIndex = 0;
             _currentSpineItem = spineItem;
             
@@ -505,7 +505,7 @@ var ReflowableView = function(options, reader){
 
     function onPaginationChanged_(initiator, paginationRequest_spineItem, paginationRequest_elementId) {
 
-        _paginationInfo.pageOffset = (_paginationInfo.columnWidth + _paginationInfo.columnGap) * _paginationInfo.visibleColumnCount * _paginationInfo.currentSpreadIndex;
+        _paginationInfo.pageOffset = (_paginationInfo.columnWidth + _paginationInfo.columnGap) * _paginationInfo.visibleColumnCount * _paginationInfo.currentSpreadIndex - _paginationInfo.columnGap/2;  // biblemesh_
 
 
         redraw();
@@ -615,7 +615,7 @@ var ReflowableView = function(options, reader){
         // ...but we include the "borderLeft" strip to avoid wasting valuable rendering real-estate:  
         adjustedGapLeft = Math.max(0, adjustedGapLeft-borderLeft);
         // Typically, "adjustedGapLeft" is zero because the space available for the 'previous page' button is wider than half of the column gap!
-
+        
         // "borderRight" is the blank vertical strip (e.g. 40px wide) where the right-arrow button resides, i.e. next page command
         var borderRight = parseInt(_$viewport.css("border-right-width"));
         
@@ -626,6 +626,8 @@ var ReflowableView = function(options, reader){
         // ...but we include the "borderRight" strip to avoid wasting valuable rendering real-estate:
         adjustedGapRight = Math.max(0, adjustedGapRight-borderRight);
         // Typically, "adjustedGapRight" is zero because the space available for the 'next page' button is wider than half of the column gap! (in other words, the right-most and left-most page margins are fully included in the strips reserved for the arrow buttons)
+
+        adjustedGapRight = adjustedGapLeft = 0; // biblemesh_
 
         // Note that "availableWidth" does not contain "borderLeft" and "borderRight" (.width() excludes the padding and border and margin in the CSS box model of div#epub-reader-frame)  
         var availableWidth = _$viewport.width();
