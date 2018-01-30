@@ -630,7 +630,8 @@ var ReflowableView = function(options, reader){
         adjustedGapRight = adjustedGapLeft = 0; // biblemesh_
 
         // Note that "availableWidth" does not contain "borderLeft" and "borderRight" (.width() excludes the padding and border and margin in the CSS box model of div#epub-reader-frame)  
-        var availableWidth = _$viewport.width();
+        var availableWidth = _$viewport.width() - _paginationInfo.columnGap/2;  // biblemesh_
+        
         
         // ...So, we substract the page margins and button spacing to obtain the width available for actual text:
         var textWidth = availableWidth - adjustedGapLeft - adjustedGapRight;
@@ -700,7 +701,7 @@ var ReflowableView = function(options, reader){
 
         // biblemesh_ Took out the rounding
         // _paginationInfo.columnWidth = Math.round(((_htmlBodyIsVerticalWritingMode ? _lastViewPortSize.height : _lastViewPortSize.width) - _paginationInfo.columnGap * (_paginationInfo.visibleColumnCount - 1)) / _paginationInfo.visibleColumnCount);
-        _paginationInfo.columnWidth = (((_htmlBodyIsVerticalWritingMode ? _lastViewPortSize.height : _lastViewPortSize.width) - _paginationInfo.columnGap * (_paginationInfo.visibleColumnCount - 1)) / _paginationInfo.visibleColumnCount);
+        _paginationInfo.columnWidth = (((_htmlBodyIsVerticalWritingMode ? _lastViewPortSize.height : _lastViewPortSize.width) - _paginationInfo.columnGap - _paginationInfo.columnGap * (_paginationInfo.visibleColumnCount - 1)) / _paginationInfo.visibleColumnCount);  // biblemesh_
 
         var useColumnCountNotWidth = _paginationInfo.visibleColumnCount > 1; // column-count == 1 does not work in Chrome, and is not needed anyway (HTML width is full viewport width, no Firefox video flickering)
         if (useColumnCountNotWidth) {
@@ -708,7 +709,7 @@ var ReflowableView = function(options, reader){
             _$epubHtml.css("column-width", "auto");
             _$epubHtml.css("column-count", _paginationInfo.visibleColumnCount);
         } else {
-            _$epubHtml.css("width", (_htmlBodyIsVerticalWritingMode ? _lastViewPortSize.width : _paginationInfo.columnWidth) + "px");
+            _$epubHtml.css("width", (_htmlBodyIsVerticalWritingMode ? (_lastViewPortSize.width - _paginationInfo.columnGap) : _paginationInfo.columnWidth) + "px");  // biblemesh_
             _$epubHtml.css("column-count", "auto");
             _$epubHtml.css("column-width", _paginationInfo.columnWidth + "px");
         }
