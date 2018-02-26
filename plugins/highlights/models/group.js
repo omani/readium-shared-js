@@ -47,6 +47,9 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
                     debouncedTrigger(triggerEvent, "annotationClicked");
                 }
 
+            } else if (type === "touchstart") {  // biblemesh_
+                triggerEvent("annotationTouched");
+                
             } else if (type === "contextmenu") {
                 triggerEvent("annotationRightClicked");
 
@@ -388,7 +391,7 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
             that.boundHighlightCallback = function(e) {
                 var scale = calculateScale();
                 var mouseIsInside = false;
-
+                
                 var x = e.pageX;
                 var y = e.pageY;
 
@@ -396,6 +399,12 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
                     var lastTouch = _.last(e.changedTouches);
                     x = lastTouch.pageX;
                     y = lastTouch.pageY;
+
+                } else if (e.type.indexOf('touch') !== -1) {  // biblemesh_
+                    try {
+                        x = e.originalEvent.touches[0].pageX;
+                        y = e.originalEvent.touches[0].pageY;
+                    } catch(e) {}
                 }
 
                 var point = {
