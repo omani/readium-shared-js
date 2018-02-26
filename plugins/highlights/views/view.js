@@ -256,6 +256,7 @@ function($, _, Class, Length, TextLineInferrer, CopiedTextStyles) {
         },
 
         setHoverHighlight: function() {
+            return; // biblemesh_: This assumes touch. If I want to support hover, this will need to be reexamined
             var type = this.highlight.type;
             this.$el.addClass("hover-" + type);
             this.$el.removeClass(type);
