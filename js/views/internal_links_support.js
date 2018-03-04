@@ -22,7 +22,7 @@
 //  OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
 //  OF THE POSSIBILITY OF SUCH DAMAGE.
 
-define(['jquery', '../helpers', 'readium_cfi_js'], function($, Helpers, epubCfi) {
+define(['jquery', '../helpers', 'readium_cfi_js', 'biblemesh_AppComm'], function($, Helpers, epubCfi, biblemesh_AppComm) {
 /**
  *
  * @param reader
@@ -209,7 +209,10 @@ var InternalLinksSupport = function(reader) {
 
             } else {
                 // It's an absolute URL to a remote site - open it in a separate window outside the reader
-                window.open(href, '_blank');
+                biblemesh_AppComm.postMsg('openURL', {
+                    url: href,
+                });
+                // window.open(href, '_blank');  biblemesh_: replacing with above line for apps
                 overrideClickEvent = true;
             }
 
