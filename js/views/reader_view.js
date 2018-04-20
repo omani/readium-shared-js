@@ -1003,6 +1003,10 @@ var ReaderView = function (options) {
         return bookmark ? bookmark.toString() : null;
     };
 
+    this.biblemesh_getFirstVisibleCfiOnSpineItemPageIndex = function(pageIndex) {
+        return _currentView.biblemesh_getFirstVisibleCfiOnSpineItemPageIndex(pageIndex);
+    };
+
     /**
      * Resets all the custom styles set by setStyle callers at runtime
      */
@@ -1185,6 +1189,8 @@ var ReaderView = function (options) {
     }
 
     function handleViewportResizeEnd() {
+        if(window.biblemesh_preventAllResizing) return;
+
         //same as doing one final tick for now
         handleViewportResizeTick();
 

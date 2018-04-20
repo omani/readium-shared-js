@@ -1014,6 +1014,11 @@ var ReflowableView = function(options, reader){
         return createBookmarkFromCfi(_navigationLogic.getFirstVisibleCfi());
     };
 
+    this.biblemesh_getFirstVisibleCfiOnSpineItemPageIndex = function (pageIndex) {
+        var biblemesh_leftOffset = pageIndex * (_paginationInfo.columnWidth + _paginationInfo.columnGap) * -1;
+        return _navigationLogic.getFirstVisibleCfi({ left: biblemesh_leftOffset });
+    };
+
     this.getLastVisibleCfi = function () {
         return createBookmarkFromCfi(_navigationLogic.getLastVisibleCfi());
     };
