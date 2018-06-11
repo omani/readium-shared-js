@@ -760,6 +760,10 @@ var FixedView = function(options, reader){
         return undefined;
     };
 
+    this.biblemesh_getFirstVisibleCfiOnSpineItemPageIndex = function (pageIndex) {
+        return this.getFirstVisibleCfi().contentCFI;
+    };
+
     this.getLastVisibleCfi = function () {
         var views = getDisplayingViews();
         if (views.length > 0) {
@@ -862,6 +866,9 @@ var FixedView = function(options, reader){
         });
     };
 
+    this.biblemesh_getColumnCount = function() {
+        return 1;
+    };
 };
     return FixedView;
 });
