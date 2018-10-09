@@ -44,26 +44,26 @@
     "README.md"
   ],
   "dependencies": {
-    "parallelshell": "latest",
+    "http-server": "github:danielweck/http-server#master",
     "opener": "latest",
-    "http-server": "danielweck/http-server"
+    "parallelshell": "latest"
   },
   "devDependencies": {
-    "jquery-sizes": "bramstein/jsizes",
-    "domReady": "requirejs/domReady",
+    "FontLoader": "github:smnh/FontLoader#master",
     "backbone": "latest",
-    "underscore": "latest",
-    "urijs": "danielweck/URI.js",
-    "eventemitter3": "1.2.0",
+    "cssom": "github:danielweck/CSSOM#master",
+    "domReady": "github:requirejs/domReady#master",
     "es6-collections": "latest",
-    "FontLoader": "smnh/FontLoader",
-    "CSSOM": "danielweck/CSSOM#gh-pages"
+    "eventemitter3": "1.2.0",
+    "jquery-sizes": "github:bramstein/jsizes#master",
+    "underscore": "latest",
+    "urijs": "github:danielweck/URI.js#master"
   },
   "scripts": {
     "cson2json": "node ./readium-cfi-js/node_modules/cson/bin/cson2json package.cson > package.json && node readium-cfi-js/readium-build-tools/optimizePackageJsonScripts.js",
-    "prepare": "npm run prepare:submodule && npm run prepare:local && npm run prepare:patch",
-    "prepare:local": "npm outdated && npm install && npm update && node readium-cfi-js/readium-build-tools/gitHubForksUpdater.js",
-    "prepare:submodule": "cd readium-cfi-js && npm run prepare && cd .. && ls",
+    "prepare:all": "npm run prepare:submodule && npm run prepare:local && npm run prepare:patch",
+    "prepare:local": "(npm outdated || echo outdated) && npm install && npm update && node readium-cfi-js/readium-build-tools/gitHubForksUpdater.js",
+    "prepare:submodule": "cd readium-cfi-js && npm run prepare:all && cd .. && ls",
     "prepare:patch": "node ./readium-cfi-js/node_modules/rimraf/bin.js node_modules/eventemitter3/_rjs/** && node readium-cfi-js/node_modules/requirejs/bin/r.js -convert node_modules/eventemitter3/ node_modules/eventemitter3/_rjs/",
     "clean": "node --version && npm --version && node ./readium-cfi-js/node_modules/rimraf/bin.js build-output/* && node ./readium-cfi-js/node_modules/rimraf/bin.js api-docs/*",
     "apidocs": "node ./readium-cfi-js/node_modules/yuidocjs/lib/cli.js -N -C -c yuidocs.json",
