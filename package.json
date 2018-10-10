@@ -49,14 +49,13 @@
     "parallelshell": "latest"
   },
   "devDependencies": {
-    "CSSOM": "github:danielweck/CSSOM#master",
     "FontLoader": "github:smnh/FontLoader#master",
     "backbone": "latest",
+    "cssom": "github:danielweck/CSSOM#master",
     "domReady": "github:requirejs/domReady#master",
     "es6-collections": "latest",
     "eventemitter3": "1.2.0",
     "jquery-sizes": "github:bramstein/jsizes#master",
-    "spin.js": "^4.0.0",
     "underscore": "latest",
     "urijs": "github:danielweck/URI.js#master"
   },
