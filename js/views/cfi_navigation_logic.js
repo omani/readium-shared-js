@@ -63,6 +63,12 @@ var CfiNavigationLogic = function(options) {
         return self.getRootDocument().createRange();
     }
 
+    function createRangeFromNode(textnode) {
+        var documentRange = createRange();
+        documentRange.selectNodeContents(textnode);
+        return documentRange;
+    }
+
     function getNodeClientRect(node) {
         var range = createRange();
         range.selectNode(node);
@@ -96,6 +102,17 @@ var CfiNavigationLogic = function(options) {
         var range = createRange();
         range.selectNode(node);
         return _.map(range.getClientRects(), function (rect) {
+            return normalizeRectangle(rect, visibleContentOffsets.left, visibleContentOffsets.top);
+        });
+    }
+
+    function getRangeClientRectList(range, visibleContentOffsets) {
+        visibleContentOffsets = visibleContentOffsets || getVisibleContentOffsets();
+
+        //noinspection JSUnresolvedFunction
+
+        return _.map(range.getClientRects(), function (rect) {
+
             return normalizeRectangle(rect, visibleContentOffsets.left, visibleContentOffsets.top);
         });
     }
@@ -750,145 +767,121 @@ var CfiNavigationLogic = function(options) {
 
     var DEBUG = false;
 
-    function getVisibleTextRangeOffsetsSelectedByFunc(textNode, pickerFunc, visibleContentOffsets, frameDimensions) {
-        visibleContentOffsets = visibleContentOffsets || getVisibleContentOffsets();
-        
-        var textNodeFragments = getNodeClientRectList(textNode, visibleContentOffsets);
-
-        var visibleFragments = _.filter(textNodeFragments, function (rect) {
-            return isRectVisible(rect, false, frameDimensions);
+    function rectTopHash (rectList) {
+        // sort the rectangles by top value
+        var sortedList = rectList.sort(function (a, b) {
+            return a.top < b.top;
         });
-
-        var fragment = pickerFunc(visibleFragments);
-        if (!fragment) {
-            //no visible fragment, empty text node?
-            return null;
-        }
-        var fragmentCorner = pickerFunc(getTextNodeRectCornerPairs(fragment));
-        // Reverse taking into account of visible content offsets
-        fragmentCorner.x -= visibleContentOffsets.left;
-        fragmentCorner.y -= visibleContentOffsets.top;
-        
-        var caretRange = getCaretRangeFromPoint(fragmentCorner.x, fragmentCorner.y);
-
-        // Workaround for inconsistencies with the caretRangeFromPoint IE TextRange based shim.
-        if (caretRange && caretRange.startContainer !== textNode && caretRange.startContainer === textNode.parentNode) {
-            if (DEBUG) console.log('ieTextRangeWorkaround needed');
-            var startOrEnd = pickerFunc([0, 1]);
-
-            // #1
-            if (caretRange.startOffset === caretRange.endOffset) {
-                var checkNode = caretRange.startContainer.childNodes[Math.max(caretRange.startOffset - 1, 0)];
-                if (checkNode === textNode) {
-                    caretRange = {
-                        startContainer: textNode,
-                        endContainer: textNode,
-                        startOffset: startOrEnd === 0 ? 0 : textNode.nodeValue.length,
-                        startOffset: startOrEnd === 0 ? 0 : textNode.nodeValue.length
-                    };
-                    if (DEBUG) console.log('ieTextRangeWorkaround #1:', caretRange);
-                }
+        var lineMap = [];
+        _.each(sortedList, function (rect) {
+            var key = rect.top;
+            if (!lineMap[key]) {
+                lineMap[key] = [rect.height];
+            } else {
+                var currentLine = lineMap[key];
+                currentLine.push(rect.height);
+                lineMap[key] = currentLine;
             }
+        });
+    }
 
-            // Failed
-            else if (DEBUG) {
-                console.log('ieTextRangeWorkaround didn\'t work :(');
+    function calculateCumulativeHeight (rectList) {
+        var lineMap = rectTopHash(rectList);
+        var height = 0;
+        _.each(lineMap, function (line) {
+            height = height + Math.max.apply(null, line);
+        });
+        return height;
+    }
+
+    function getTextRangeOffset(startingSet, visibleContentOffsets, directionBit, splitRatio, filterFunc) {
+        var runCount = 0;
+        var currRange = startingSet;
+        //begin iterative binary search, each iteration will check Range length and visibility
+        while (currRange.length !== 1) {
+            runCount++;
+            var currTextNodeFragments = getRangeClientRectList(currRange[directionBit], visibleContentOffsets);
+            if (hasVisibleFragments(currTextNodeFragments, filterFunc)) {
+                currRange = splitRange(currRange[directionBit], splitRatio);
+            }
+            // No visible fragment Look in other half
+            else {
+                currRange = splitRange(currRange[directionBit ? 0 : 1], splitRatio);
             }
         }
+        if (DEBUG) {
+            console.debug('getVisibleTextRangeOffsets:getTextRangeOffset:runCount', runCount);
+            window.top._DEBUG_visibleTextRangeOffsetsRuns.push(runCount);
+        }
+        var resultRange = currRange[0];
+        if (resultRange) {
+            resultRange.collapse(!directionBit);
+        }
+        return resultRange;
+    }
 
-        if (DEBUG)
-        console.log('getVisibleTextRangeOffsetsSelectedByFunc: ', 'a0');
-        
-        // Desperately try to find it from all angles! Darn sub pixeling..
-        //TODO: remove the need for this brute-force method, since it's making the result non-deterministic
-        if (!caretRange || caretRange.startContainer !== textNode) {
-            caretRange = getCaretRangeFromPoint(fragmentCorner.x - 1, fragmentCorner.y);
-            
-            if (DEBUG)
-            console.log('getVisibleTextRangeOffsetsSelectedByFunc: ', 'a1');
-        }
-        if (!caretRange || caretRange.startContainer !== textNode) {
-            caretRange = getCaretRangeFromPoint(fragmentCorner.x, fragmentCorner.y - 1);
-            
-            if (DEBUG)
-            console.log('getVisibleTextRangeOffsetsSelectedByFunc: ', 'a2');
-        }
-        if (!caretRange || caretRange.startContainer !== textNode) {
-            caretRange = getCaretRangeFromPoint(fragmentCorner.x - 1, fragmentCorner.y - 1);
-            
-            if (DEBUG)
-            console.log('getVisibleTextRangeOffsetsSelectedByFunc: ', 'a3');
-        }
-        if (!caretRange || caretRange.startContainer !== textNode) {
-            fragmentCorner.x = Math.floor(fragmentCorner.x);
-            fragmentCorner.y = Math.floor(fragmentCorner.y);
-            caretRange = getCaretRangeFromPoint(fragmentCorner.x, fragmentCorner.y);
-            
-            if (DEBUG)
-            console.log('getVisibleTextRangeOffsetsSelectedByFunc: ', 'b0');
-        }
-        // Desperately try to find it from all angles! Darn sub pixeling..
-        if (!caretRange || caretRange.startContainer !== textNode) {
-            caretRange = getCaretRangeFromPoint(fragmentCorner.x - 1, fragmentCorner.y);
-            
-            if (DEBUG)
-            console.log('getVisibleTextRangeOffsetsSelectedByFunc: ', 'b1');
-        }
-        if (!caretRange || caretRange.startContainer !== textNode) {
-            caretRange = getCaretRangeFromPoint(fragmentCorner.x, fragmentCorner.y - 1);
-            
-            if (DEBUG)
-            console.log('getVisibleTextRangeOffsetsSelectedByFunc: ', 'b2');
-        }
-        if (!caretRange || caretRange.startContainer !== textNode) {
-            caretRange = getCaretRangeFromPoint(fragmentCorner.x - 1, fragmentCorner.y - 1);
-            
-            if (DEBUG)
-            console.log('getVisibleTextRangeOffsetsSelectedByFunc: ', 'b3');
-        }
+    function hasVisibleFragments(fragments, filterFunc) {
+        var visibleFragments = _.filter(fragments, filterFunc);
+        return !!visibleFragments.length;
+    }
 
-        // Still nothing? fall through..
-        if (!caretRange) {
-            
-            if (DEBUG)
-            console.warn('getVisibleTextRangeOffsetsSelectedByFunc: no caret range result');
-            
-            return null;
-        }
+    function determineSplit(range, division) {
+        var percent = division / 100;
+        return Math.round((range.endOffset - range.startOffset ) * percent);
+    }
 
-        if (caretRange.startContainer === textNode) {
-            return pickerFunc(
-                [{start: caretRange.startOffset, end: caretRange.startOffset + 1},
-                {start: caretRange.startOffset - 1, end: caretRange.startOffset}]
-            );
+    function splitRange(range, division) {
+        if (range.endOffset - range.startOffset === 1) {
+            return [range];
+        }
+        var length = determineSplit(range, division);
+        var textNode = range.startContainer;
+        var leftNodeRange = range.cloneRange();
+        leftNodeRange.setStart(textNode, range.startOffset);
+        leftNodeRange.setEnd(textNode, range.startOffset + length);
+        var rightNodeRange = range.cloneRange();
+        rightNodeRange.setStart(textNode, range.startOffset + length);
+        rightNodeRange.setEnd(textNode, range.endOffset);
+
+        return [leftNodeRange, rightNodeRange];
+
+    }
+
+    // create Range from target node and search for visibleOutput Range
+    function getVisibleTextRangeOffsets(textNode, pickerFunc, visibleContentOffsets, frameDimensions) {
+        visibleContentOffsets = visibleContentOffsets || getVisibleContentOffsets();
+
+        var nodeRange = createRangeFromNode(textNode);
+        var nodeClientRects = getRangeClientRectList(nodeRange, visibleContentOffsets);
+        var splitRatio = deterministicSplit(nodeClientRects, pickerFunc([0, 1]));
+        return getTextRangeOffset(splitRange(nodeRange, splitRatio), visibleContentOffsets,
+            pickerFunc([0, 1]), splitRatio,
+            function (rect) {
+                return (isVerticalWritingMode() ? rect.height : rect.width) && isRectVisible(rect, false, frameDimensions);
+            });
+    }
+
+    function deterministicSplit(rectList, directionBit) {
+        var split = 0;
+        // Calculate total cumulative Height for both visible portions and invisible portions and find the split
+        var visibleRects = _.filter(rectList, function (rect) {
+            return (isVerticalWritingMode() ? rect.height : rect.width) && isRectVisible(rect, false, getFrameDimensions());
+        });
+        var visibleRectHeight = calculateCumulativeHeight(visibleRects);
+        var invisibleRectHeight = totalHeight - visibleRectHeight;
+        var totalHeight = calculateCumulativeHeight(rectList);
+
+        if (visibleRectHeight === totalHeight) {
+            // either all visible or split
+            // heuristic: slight bias to increase likelihood of hits
+            return directionBit ? 55 : 45;
         } else {
-            
-            if (DEBUG)
-            console.warn('getVisibleTextRangeOffsetsSelectedByFunc: incorrect caret range result');
-            
-            return null;
+            split = 100 * (visibleRectHeight / totalHeight);
+            return invisibleRectHeight > visibleRectHeight ? split + 5 : split - 5;
         }
     }
 
-    function findVisibleLeafNodeCfi(leafNodeList, pickerFunc, targetLeafNode, visibleContentOffsets, frameDimensions, startingParent) {
-        var index = 0;
-        if (!targetLeafNode) {
-            index = leafNodeList.indexOf(pickerFunc(leafNodeList));
-            var leafNode = leafNodeList[index];
-            if (leafNode) {
-                startingParent = leafNode.element;
-            }
-        } else {
-            index = leafNodeList.indexOf(targetLeafNode);
-            if (index === -1) {
-                //target leaf node not the right type? not in list?
-                return null;
-            }
-            // use the next leaf node in the list
-            index += pickerFunc([1, -1]);
-        }
-        var visibleLeafNode = leafNodeList[index];
-
+    function findVisibleLeafNodeCfi(visibleLeafNode, pickerFunc, visibleContentOffsets, frameDimensions) {
         if (!visibleLeafNode) {
             return null;
         }
@@ -896,23 +889,14 @@ var CfiNavigationLogic = function(options) {
         var element = visibleLeafNode.element;
         var textNode = visibleLeafNode.textNode;
 
-        if (targetLeafNode && element !== startingParent && !_.contains($(textNode || element).parents(), startingParent)) {
-            if (DEBUG) console.warn("findVisibleLeafNodeCfi: stopped recursion early");
-            return null;
-        }
-
         //if a valid text node is found, try to generate a CFI with range offsets
         if (textNode && isValidTextNode(textNode)) {
-            var visibleRange = getVisibleTextRangeOffsetsSelectedByFunc(textNode, pickerFunc, visibleContentOffsets, frameDimensions);
+            var visibleRange = getVisibleTextRangeOffsets(textNode, pickerFunc, visibleContentOffsets, frameDimensions);
             if (!visibleRange) {
-                //the text node is valid, but not visible..
-                //let's try again with the next node in the list
-                return findVisibleLeafNodeCfi(leafNodeList, pickerFunc, visibleLeafNode, visibleContentOffsets, frameDimensions, startingParent);
+                if (DEBUG) console.warn("findVisibleLeafNodeCfi: failed to find text range offset");
+                return null;
             }
-            var range = createRange();
-            range.setStart(textNode, visibleRange.start);
-            range.setEnd(textNode, visibleRange.end);
-            return generateCfiFromDomRange(range);
+            return generateCfiFromDomRange(visibleRange);
         } else {
             //if not then generate a CFI for the element
             return self.getCfiForElement(element);
@@ -927,11 +911,13 @@ var CfiNavigationLogic = function(options) {
     }
 
     function getLastVisibleTextRangeCfi(visibleContentOffsets, frameDimensions) {
-        return getVisibleTextRangeCfiForTextElementSelectedByFunc(_.last, visibleContentOffsets, frameDimensions);
+        var visibleLeafNode = self.findLastVisibleElement(visibleContentOffsets, frameDimensions);
+        return findVisibleLeafNodeCfi(visibleLeafNode, _.last, visibleContentOffsets, frameDimensions);
     }
 
     function getFirstVisibleTextRangeCfi(visibleContentOffsets, frameDimensions) {
-        return getVisibleTextRangeCfiForTextElementSelectedByFunc(_.first, visibleContentOffsets, frameDimensions);
+        var visibleLeafNode = self.findFirstVisibleElement(visibleContentOffsets, frameDimensions);
+        return findVisibleLeafNodeCfi(visibleLeafNode, _.first, visibleContentOffsets, frameDimensions);
     }
 
     this.getFirstVisibleCfi = function (visibleContentOffsets, frameDimensions) {
@@ -1708,6 +1694,166 @@ var CfiNavigationLogic = function(options) {
 
         //
    // }
+
+
+    this.findFirstVisibleElement = function (visibleContentOffsets, frameDimensions) {
+
+        var firstVisibleElement;
+        var percentVisible = 0;
+        var textNode;
+
+        var treeWalker = document.createTreeWalker(
+            this.getBodyElement(),
+            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
+            function(node) {
+                if (node.nodeType === Node.ELEMENT_NODE && isElementBlacklisted($(node)))
+                    return NodeFilter.FILTER_REJECT;
+
+                if (node.nodeType === Node.TEXT_NODE && !isValidTextNode(node))
+                    return NodeFilter.FILTER_REJECT;
+
+                var visibilityResult = checkVisibilityByRectangles($(node), true, visibleContentOffsets, frameDimensions);
+                return visibilityResult ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            },
+            false
+            );
+
+        while (treeWalker.nextNode()) {
+            var node = treeWalker.currentNode;
+
+            if (node.nodeType === Node.TEXT_NODE) {
+                firstVisibleElement = node.parentNode;
+                textNode = node;
+                percentVisible = 100; // not really used, assume this value unless otherwise
+                break;
+            }
+
+            var hasChildElements = false;
+            var hasChildTextNodes = false;
+
+            for (var i = node.childNodes.length - 1; i >= 0; i--) {
+                var childNode = node.childNodes[i];
+                if (childNode.nodeType === Node.ELEMENT_NODE) {
+                    hasChildElements = true;
+                    break;
+                }
+                if (childNode.nodeType === Node.TEXT_NODE)
+                    hasChildTextNodes = true;
+            }
+
+            // potentially stop tree traversal when first element hit with no child element nodes
+            if (!hasChildElements && hasChildTextNodes) {
+                for (var i=node.childNodes.length-1; i>=0; i--) {
+                    var childNode = node.childNodes[i];
+                    if (childNode.nodeType === Node.TEXT_NODE && isValidTextNode(childNode)) {
+                        var visibilityResult = checkVisibilityByRectangles($(childNode), true, visibleContentOffsets, frameDimensions);
+                        if (visibilityResult) {
+                            firstVisibleElement = node;
+                            textNode = childNode;
+                            percentVisible = visibilityResult;
+                            break;
+                        }
+                    }
+                }
+            } else if (!hasChildElements) {
+                firstVisibleElement = node;
+                percentVisible = 100;
+                textNode = null;
+                break;
+            }
+        }
+
+        if (!firstVisibleElement) {
+            return null;
+        }
+        return {
+            element: firstVisibleElement,
+            textNode: textNode,
+            percentVisible: percentVisible
+        };
+    };
+
+    this.findLastVisibleElement = function (visibleContentOffsets, frameDimensions) {
+
+        var firstVisibleElement;
+        var percentVisible = 0;
+        var textNode;
+
+        var treeWalker = document.createTreeWalker(
+            this.getBodyElement(),
+            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
+            function(node) {
+                if (node.nodeType === Node.ELEMENT_NODE && isElementBlacklisted($(node)))
+                    return NodeFilter.FILTER_REJECT;
+
+                if (node.nodeType === Node.TEXT_NODE && !isValidTextNode(node))
+                    return NodeFilter.FILTER_REJECT;
+
+                var visibilityResult = checkVisibilityByRectangles($(node), true, visibleContentOffsets, frameDimensions);
+                return visibilityResult ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            },
+            false
+            );
+
+        while (treeWalker.lastChild()) { }
+
+        do {
+            var node = treeWalker.currentNode;
+
+            if (node.nodeType === Node.TEXT_NODE) {
+                firstVisibleElement = node.parentNode;
+                textNode = node;
+                percentVisible = 100; // not really used, assume this value unless otherwise
+                break;
+            }
+
+            var hasChildElements = false;
+            var hasChildTextNodes = false;
+
+            for (var i = node.childNodes.length - 1; i >= 0; i--) {
+                var childNode = node.childNodes[i];
+                if (childNode.nodeType === Node.ELEMENT_NODE) {
+                    hasChildElements = true;
+                    break;
+                }
+                if (childNode.nodeType === Node.TEXT_NODE)
+                    hasChildTextNodes = true;
+            }
+
+            // potentially stop tree traversal when first element hit with no child element nodes
+            if (!hasChildElements && hasChildTextNodes) {
+                for (var i=node.childNodes.length-1; i>=0; i--) {
+                    var childNode = node.childNodes[i];
+                    if (childNode.nodeType === Node.TEXT_NODE && isValidTextNode(childNode)) {
+                        var visibilityResult = checkVisibilityByRectangles($(childNode), true, visibleContentOffsets, frameDimensions);
+                        if (visibilityResult) {
+                            firstVisibleElement = node;
+                            textNode = childNode;
+                            percentVisible = visibilityResult;
+                            break;
+                        }
+                    }
+                }
+            } else if (!hasChildElements) {
+                firstVisibleElement = node;
+                percentVisible = 100;
+                textNode = null;
+                break;
+            }
+        } while (treeWalker.previousNode());
+
+        if (!firstVisibleElement) {
+            return null;
+        }
+        return {
+            element: firstVisibleElement,
+            textNode: textNode,
+            percentVisible: percentVisible
+        };
+    };
+
+
+
 
 };
 return CfiNavigationLogic;
