@@ -274,7 +274,7 @@ var CfiNavigationLogic = function(options) {
                 //it might still be partially visible in webkit
                 if (shouldCalculateVisibilityPercentage && adjustedRect.top < 0) {
                     visibilityPercentage =
-                        Math.floor(100 * (adjustedRect.height + adjustedRect.top) / adjustedRect.height);
+                        Math.ceil(100 * (adjustedRect.height + adjustedRect.top) / adjustedRect.height);
                 } else {
                     visibilityPercentage = 100;
                 }
@@ -415,7 +415,7 @@ var CfiNavigationLogic = function(options) {
         }
         return heightVisible === heightTotal
             ? 100 // trivial case: element is 100% visible
-            : Math.floor(100 * heightVisible / heightTotal);
+            : Math.ceil(100 * heightVisible / heightTotal);
     }
 
     /**
@@ -917,6 +917,7 @@ var CfiNavigationLogic = function(options) {
 
     function getFirstVisibleTextRangeCfi(visibleContentOffsets, frameDimensions) {
         var visibleLeafNode = self.findFirstVisibleElement(visibleContentOffsets, frameDimensions);
+        var a = findVisibleLeafNodeCfi(visibleLeafNode, _.first, visibleContentOffsets, frameDimensions);
         return findVisibleLeafNodeCfi(visibleLeafNode, _.first, visibleContentOffsets, frameDimensions);
     }
 
