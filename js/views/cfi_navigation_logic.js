@@ -813,9 +813,10 @@ var CfiNavigationLogic = function(options) {
             console.debug('getVisibleTextRangeOffsets:getTextRangeOffset:runCount', runCount);
             window.top._DEBUG_visibleTextRangeOffsetsRuns.push(runCount);
         }
+
         var resultRange = currRange[0];
         if (resultRange) {
-            resultRange.collapse(!directionBit);
+            // resultRange.collapse(!directionBit);
         }
         return resultRange;
     }
