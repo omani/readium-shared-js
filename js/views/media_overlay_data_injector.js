@@ -61,7 +61,7 @@ var MediaOverlayDataInjector = function (mediaOverlay, mediaOverlayPlayer) {
                     if (!elem)
                     {
                         mediaOverlayPlayer.touchInit();
-                        return true;
+                        return false;  // biblemesh_
                     }
 
 //console.debug("MO CLICK: " + elem.id);
@@ -99,14 +99,14 @@ var MediaOverlayDataInjector = function (mediaOverlay, mediaOverlayPlayer) {
                         {
 console.log("MO CLICK DISABLED");
                             mediaOverlayPlayer.touchInit();
-                            return true;
+                            return false;  // biblemesh_
                         }
 
                         if (inLink)
                         {
 console.log("MO CLICKED LINK");
                             mediaOverlayPlayer.touchInit();
-                            return true;
+                            return false;  // biblemesh_
                         }
 
                         var par = data.par ? data.par : data.pars[0];
@@ -233,7 +233,7 @@ console.log("MO CLICKED LINK");
                         {
 //console.debug("MO CLICKED BLANK BODY");
                             mediaOverlayPlayer.touchInit();
-                            return true;
+                            return false;  // biblemesh_
                         }
 
                         mediaOverlayPlayer.playUserPar(par);
@@ -262,16 +262,25 @@ console.debug("MO readaloud attr: " + readaloud);
                     }
 
                     mediaOverlayPlayer.touchInit();
-                    return true;
+                    return false;  // biblemesh_
                 };
 
-                var touchClickMOEventHandler_ = _.debounce(touchClickMOEventHandler, 200);
+                // var touchClickMOEventHandler_ = _.debounce(touchClickMOEventHandler, 200);
                 
-                if ('ontouchstart' in document.documentElement)
-                {
-                  $body[0].addEventListener("touchstart", touchClickMOEventHandler_, false);
+                // if ('ontouchstart' in document.documentElement)
+                // {
+                //   $body[0].addEventListener("touchstart", touchClickMOEventHandler_, false);
+                // }
+                // $body[0].addEventListener("mousedown", touchClickMOEventHandler_, false);
+
+                var biblemesh_touchClickMOEventHandler = function(event) {
+                    var didMediaOverlayAction = touchClickMOEventHandler.bind(this, event.detail || {})();
+                    if(didMediaOverlayAction && event.detail && event.detail.indicateMediaChange) {
+                        event.detail.indicateMediaChange();
+                    }
+                    return didMediaOverlayAction;
                 }
-                $body[0].addEventListener("mousedown", touchClickMOEventHandler_, false);
+                $body[0].addEventListener("media_overlay_touch_tap", biblemesh_touchClickMOEventHandler, false);
 
                 //var clickEvent = 'ontouchstart' in document.documentElement ? 'touchstart' : 'click';
                 //$body.bind(clickEvent, touchClickMOEventHandler);
