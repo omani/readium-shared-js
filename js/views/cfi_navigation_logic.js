@@ -815,7 +815,7 @@ var CfiNavigationLogic = function(options) {
         }
         var resultRange = currRange[0];
         if (resultRange) {
-            resultRange.collapse(!directionBit);
+            // resultRange.collapse(!directionBit);
         }
         return resultRange;
     }
