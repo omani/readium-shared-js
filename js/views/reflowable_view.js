@@ -850,16 +850,33 @@ var ReflowableView = function(options, reader){
             // $elem.css('max-width', '98%');  // biblemesh_: commented out
             // $elem.css('max-height', '98%');  // biblemesh_: commented out
 
-            // biblemesh_: next two lines
+            // biblemesh_: the rest of this function
             $elem.css('max-width', '100%');
             $elem.css('max-height', '100vh');
 
-            if(!$elem.css('height')) {
-                $elem.css('height', 'auto');
-            }
+            // The next two commented out sections would prevent images from getting stretched.
+            // But what if an epub actually wants this?
 
-            if(!$elem.css('width')) {
-                $elem.css('width', 'auto');
+            var styleHeight = $elem[0].style.height || $elem.attr('height');
+            // if(!styleHeight || styleHeight == '100%') {
+            //     $elem.css('height', 'auto');
+            // }
+
+            // var styleWidth = $elem[0].style.width || $elem.attr('width');
+            // if(!styleWidth || styleWidth == '100%') {
+            //     $elem.css('width', 'auto');
+            // }
+
+            // For lone images in block elements which have 100% height,
+            // get rid of the extra space after an img tag so that there
+            // is not a blank page which follows.
+            if(
+                $elem.is('img')
+                && $elem.parent().css('display') == 'block'
+                && $elem.siblings().length == 0
+                && styleHeight == '100%'
+            ) {
+                $elem.css('vertical-align', 'middle');
             }
 
         });
