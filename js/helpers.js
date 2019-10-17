@@ -95,6 +95,10 @@ Helpers.getEbookUrlFilePath = function(ebookURL) {
  * @returns object (map between URL query parameter names and corresponding decoded / unescaped values)
  */
 Helpers.getURLQueryParams = function() {
+    if(window.initialQueryStringParamsFromWebView) {
+        return window.initialQueryStringParamsFromWebView;
+    }
+
     var params = {};
 
     var query = window.location.search;
