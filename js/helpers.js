@@ -429,46 +429,46 @@ Helpers.triggerLayout = function ($iframe) {
         return;
     }
 
-    var ss = undefined;
-    try {
-        ss = doc.styleSheets && doc.styleSheets.length ? doc.styleSheets[0] : undefined;
-        if (!ss) {
-            var style = doc.createElement('style');
-            doc.head.appendChild(style);
-            style.appendChild(doc.createTextNode(''));
-            ss = style.sheet;
-        }
+    // var ss = undefined;
+    // try {
+    //     ss = doc.styleSheets && doc.styleSheets.length ? doc.styleSheets[0] : undefined;
+    //     if (!ss) {
+    //         var style = doc.createElement('style');
+    //         doc.head.appendChild(style);
+    //         style.appendChild(doc.createTextNode(''));
+    //         ss = style.sheet;
+    //     }
 
-        if (ss) {
-            var cssRule = 'body:first-child::before {content:\'READIUM\';color: red;font-weight: bold;}';
-            if (ss.cssRules) {
-                ss.insertRule(cssRule, ss.cssRules.length);
-            } else {
-                ss.insertRule(cssRule, 0);
-            }
-        }
-    }
-    catch (ex) {
-        console.error(ex);
-    }
+    //     if (ss) {
+    //         var cssRule = 'body:first-child::before {content:\'READIUM\';color: red;font-weight: bold;}';
+    //         if (ss.cssRules) {
+    //             ss.insertRule(cssRule, ss.cssRules.length);
+    //         } else {
+    //             ss.insertRule(cssRule, 0);
+    //         }
+    //     }
+    // }
+    // catch (ex) {
+    //     console.error(ex);
+    // }
 
-    try {
-        var el = doc.createElementNS("http://www.w3.org/1999/xhtml", "style");
-        el.appendChild(doc.createTextNode("*{}"));
-        doc.body.appendChild(el);
-        doc.body.removeChild(el);
+    // try {
+    //     var el = doc.createElementNS("http://www.w3.org/1999/xhtml", "style");
+    //     el.appendChild(doc.createTextNode("*{}"));
+    //     doc.body.appendChild(el);
+    //     doc.body.removeChild(el);
 
-        if (ss) {
-            if (ss.cssRules) {
-                ss.deleteRule(ss.cssRules.length - 1);
-            } else {
-                ss.deleteRule(0);
-            }
-        }
-    }
-    catch (ex) {
-        console.error(ex);
-    }
+    //     if (ss) {
+    //         if (ss.cssRules) {
+    //             ss.deleteRule(ss.cssRules.length - 1);
+    //         } else {
+    //             ss.deleteRule(0);
+    //         }
+    //     }
+    // }
+    // catch (ex) {
+    //     console.error(ex);
+    // }
 
     if (doc.body) {
         var val = doc.body.offsetTop; // triggers layout
