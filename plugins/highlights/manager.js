@@ -49,9 +49,9 @@ var HighlightsManager = function (proxyObj, options) {
     var liveAnnotations = {};
     var spines = {};
     var proxy = proxyObj;
-    var annotationCSSUrl = options.annotationCSSUrl;
+    var annotationCSSContent = options.annotationCSSContent;
 
-    if (!annotationCSSUrl) {
+    if (!annotationCSSContent) {
         console.warn("WARNING! Annotations CSS not supplied. Highlighting might not work.");
     }
 
@@ -111,7 +111,7 @@ var HighlightsManager = function (proxyObj, options) {
             window: iframe.contentWindow,
             iframe: iframe,
             manager: self,
-            cssUrl: annotationCSSUrl,
+            cssContent: annotationCSSContent,
             isFixedLayout: spineItem.isFixedLayout(),
             isRTL: spineItem.spine.isRightToLeft(),
             paginationInfo: function() { return spineItem.paginationInfo; }

@@ -20,8 +20,8 @@ function($, _, Class, HighlightHelpers, HighlightGroup) {
             }
 
             // inject annotation CSS into iframe
-            if (this.context.cssUrl) {
-                this._injectAnnotationCSS(this.context.cssUrl);
+            if (this.context.cssContent) {
+                this._injectAnnotationCSS(this.context.cssContent);
             }
 
             // emit an event when user selects some text.
@@ -589,14 +589,15 @@ function($, _, Class, HighlightHelpers, HighlightGroup) {
             return offsetLeft;
         },
 
-        _injectAnnotationCSS: function(annotationCSSUrl) {
+        _injectAnnotationCSS: function(annotationCSSContent) {
             var doc = this.context.document;
             setTimeout(function(){
                 var $contentDocHead = $("head", doc);
                 $contentDocHead.append(
-                    $("<link/>", {
-                        rel: "stylesheet",
-                        href: annotationCSSUrl,
+                    $("<style/>", {
+                        // rel: "stylesheet",
+                        // href: annotationCSSUrl,
+                        text: annotationCSSContent,
                         type: "text/css"
                     })
                 );
