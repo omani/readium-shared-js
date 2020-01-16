@@ -45,6 +45,8 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
             if (type === "click" || type === "touchend") {
                 if(!$(event.target)[0].closest("#highlightOpts")) {  // biblemesh_
                     debouncedTrigger(triggerEvent, "annotationClicked");
+                    event.preventDefault();
+                    event.stopPropagation();
                 }
 
             } else if (type === "touchstart") {  // biblemesh_
