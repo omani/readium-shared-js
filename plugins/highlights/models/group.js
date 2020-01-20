@@ -36,15 +36,10 @@ function($, _, Class, TextLineInferrer, HighlightView, HighlightBorderView, High
                 that.CFI, that.id, event, documentFrame);
             var $html = $(that.context.document.documentElement);   // biblemesh_
 
-            // biblemesh_ : IF block is new
-            if(type === "mouseenter"
-                && event.target
-                && $(event.target)[0].closest("#highlightOpts")
-            ) { return; }
-
             if (type === "click" || type === "touchend") {
-                if(!$(event.target)[0].closest("#highlightOpts")) {  // biblemesh_
-                    debouncedTrigger(triggerEvent, "annotationClicked");
+                if(!event.target.touchIsSwipe) {  // biblemesh_
+                    // debouncedTrigger(triggerEvent, "annotationClicked");
+                    triggerEvent("annotationClicked");
                     event.preventDefault();
                     event.stopPropagation();
                 }
