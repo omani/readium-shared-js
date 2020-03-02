@@ -568,6 +568,24 @@ var ReflowableView = function(options, reader){
     };
 
 
+    function updateColumnCount() {
+
+        if(!_$epubHtml) {
+            return;
+        }
+
+        _paginationInfo.columnCount = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].scrollWidth) + _paginationInfo.columnGap) / (_paginationInfo.columnWidth + _paginationInfo.columnGap);
+        _paginationInfo.columnCount = Math.round(_paginationInfo.columnCount);
+
+        _paginationInfo.spreadCount =  Math.ceil(_paginationInfo.columnCount / _paginationInfo.visibleColumnCount);
+
+        if(_paginationInfo.currentSpreadIndex >= _paginationInfo.spreadCount) {
+            _paginationInfo.currentSpreadIndex = _paginationInfo.spreadCount - 1;
+        }
+
+    };
+
+
     function updatePagination() {
 
         // At 100% font-size = 16px (on HTML, not body or descendant markup!)
@@ -720,8 +738,7 @@ var ReflowableView = function(options, reader){
 
         Helpers.triggerLayout(_$iframe);
 
-        _paginationInfo.columnCount = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].scrollWidth) + _paginationInfo.columnGap) / (_paginationInfo.columnWidth + _paginationInfo.columnGap);
-        _paginationInfo.columnCount = Math.round(_paginationInfo.columnCount);
+        updateColumnCount();
 
         var totalGaps = (_paginationInfo.columnCount-1) * _paginationInfo.columnGap;
         var colWidthCheck = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].scrollWidth) - totalGaps) / _paginationInfo.columnCount;
@@ -734,12 +751,6 @@ var ReflowableView = function(options, reader){
             console.log(colWidthCheck);
 
             _paginationInfo.columnWidth = colWidthCheck;
-        }
-
-        _paginationInfo.spreadCount =  Math.ceil(_paginationInfo.columnCount / _paginationInfo.visibleColumnCount);
-
-        if(_paginationInfo.currentSpreadIndex >= _paginationInfo.spreadCount) {
-            _paginationInfo.currentSpreadIndex = _paginationInfo.spreadCount - 1;
         }
 
         if(_deferredPageRequest) {
@@ -1074,6 +1085,10 @@ var ReflowableView = function(options, reader){
 
     this.biblemesh_getColumnCount = function() {
         return _paginationInfo.columnCount;
+    };
+
+    this.biblemesh_updateColumnCount = function() {
+        updateColumnCount();
     };
 };
     return ReflowableView;

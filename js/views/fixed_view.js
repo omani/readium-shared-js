@@ -869,6 +869,8 @@ var FixedView = function(options, reader){
     this.biblemesh_getColumnCount = function() {
         return 1;
     };
+
+    this.biblemesh_updateColumnCount = function() {};
 };
     return FixedView;
 });

@@ -1692,9 +1692,16 @@ var ReaderView = function (options) {
         return undefined;
     };
 
-    this.biblemesh_getColumnCount = function(element) {
+    this.biblemesh_getColumnCount = function() {
         if (_currentView && _currentView.biblemesh_getColumnCount) {
             return _currentView.biblemesh_getColumnCount();
+        }
+        return undefined;
+    };
+
+    this.biblemesh_updateColumnCount = function() {
+        if (_currentView && _currentView.biblemesh_updateColumnCount) {
+            return _currentView.biblemesh_updateColumnCount();
         }
         return undefined;
     };
