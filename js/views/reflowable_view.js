@@ -28,9 +28,11 @@
 
 define(["../globals", "jquery", "underscore", "eventEmitter", "../models/bookmark_data", "./cfi_navigation_logic",
     "../models/current_pages_info", "../helpers", "../models/page_open_request",
+    // "biblemesh_AppComm",
     "../models/viewer_settings", "./font_loader"],
     function(Globals, $, _, EventEmitter, BookmarkData, CfiNavigationLogic,
              CurrentPagesInfo, Helpers, PageOpenRequest,
+            //  biblemesh_AppComm,
              ViewerSettings, FontLoader) {
 /**
  * Renders reflowable content using CSS columns
@@ -241,9 +243,10 @@ var ReflowableView = function(options, reader){
             applyIFrameLoad(success);
             return;
         }
-        var fontLoader = new FontLoader(_$iframe);
-        fontLoader.waitForFonts(function () {
-            applyIFrameLoad(success);
+        document.fonts.ready.then(function() {
+            setTimeout(function() {
+                applyIFrameLoad(success);
+            });
         });
     }
 
@@ -380,7 +383,7 @@ var ReflowableView = function(options, reader){
 
 
         updateViewportSize();
-        updatePagination();
+        setTimeout(updatePagination);
     };
 
     this.applyBookStyles = function() {
@@ -569,13 +572,17 @@ var ReflowableView = function(options, reader){
 
 
     function updateColumnCount() {
+// biblemesh_AppComm.postMsg('consoleLog', { message: 'updateColumnCount pre' });
 
         if(!_$epubHtml) {
             return;
         }
 
+        // var b = _paginationInfo.columnCount;
         _paginationInfo.columnCount = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].canonicalScrollWidth) + _paginationInfo.columnGap) / (_paginationInfo.columnWidth + _paginationInfo.columnGap);
+        // _paginationInfo.columnCount = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].scrollWidth) + _paginationInfo.columnGap) / (_paginationInfo.columnWidth + _paginationInfo.columnGap);
         _paginationInfo.columnCount = Math.round(_paginationInfo.columnCount);
+// biblemesh_AppComm.postMsg('consoleLog', { message: 'updateColumnCount ' + b + ' -> ' + _paginationInfo.columnCount + ' ' + _$epubHtml[0].scrollWidth + ' ' + _$epubHtml[0].canonicalScrollWidth });
 
         _paginationInfo.spreadCount =  Math.ceil(_paginationInfo.columnCount / _paginationInfo.visibleColumnCount);
 
@@ -583,10 +590,17 @@ var ReflowableView = function(options, reader){
             _paginationInfo.currentSpreadIndex = _paginationInfo.spreadCount - 1;
         }
 
+        // Globals.logEvent("InternalEvents.CURRENT_VIEW_PAGINATION_CHANGED", "EMIT", "reflowable_view.js");
+        // self.emit(Globals.InternalEvents.CURRENT_VIEW_PAGINATION_CHANGED, {
+        //     paginationInfo: self.getPaginationInfo(),
+        //     initiator: self
+        // });
+
     };
 
 
     function updatePagination() {
+// biblemesh_AppComm.postMsg('consoleLog', { message: 'updatePagination' });
 
         // At 100% font-size = 16px (on HTML, not body or descendant markup!)
         var MAXW = _paginationInfo.columnMaxWidth;
@@ -620,6 +634,8 @@ var ReflowableView = function(options, reader){
         if(!_$epubHtml) {
             return;
         }
+
+        // _$iframe[0].contentDocument.documentElement.getBoundingClientRect();
 
         hideBook(); // shiftBookOfScreen();
 
@@ -740,6 +756,7 @@ var ReflowableView = function(options, reader){
 
         _$epubHtml[0].canonicalScrollWidth = _$epubHtml[0].scrollWidth
 
+// biblemesh_AppComm.postMsg('consoleLog', { message: 'updatePagination2' });
         updateColumnCount();
 
         var totalGaps = (_paginationInfo.columnCount-1) * _paginationInfo.columnGap;
