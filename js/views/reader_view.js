@@ -27,10 +27,12 @@
 define(["../globals", "jquery", "underscore", "eventEmitter", "./fixed_view", "../helpers", "./iframe_loader", "./internal_links_support",
         "./media_overlay_data_injector", "./media_overlay_player", "../models/package", "../models/page_open_request",
         "./reflowable_view", "./scroll_view", "../models/style_collection", "../models/switches", "../models/trigger",
+        // "biblemesh_AppComm",
         "../models/viewer_settings", "../models/bookmark_data", "../models/node_range_info"],
     function (Globals, $, _, EventEmitter, FixedView, Helpers, IFrameLoader, InternalLinksSupport,
               MediaOverlayDataInjector, MediaOverlayPlayer, Package, PageOpenRequest,
               ReflowableView, ScrollView, StyleCollection, Switches, Trigger,
+            //   biblemesh_AppComm,
               ViewerSettings, BookmarkData, NodeRangeInfo) {
 /**
  * Options passed on the reader from the readium loader/initializer
