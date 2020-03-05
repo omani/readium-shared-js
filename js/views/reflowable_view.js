@@ -421,6 +421,9 @@ var ReflowableView = function(options, reader){
 
         var pageIndex = undefined;
 
+        if(pageRequest.prePageTurnFunc) {
+            pageRequest.prePageTurnFunc();
+        }
 
         if(pageRequest.spineItemPageIndex !== undefined) {
             pageIndex = pageRequest.spineItemPageIndex;

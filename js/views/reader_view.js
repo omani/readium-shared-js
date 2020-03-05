@@ -430,13 +430,13 @@ var ReaderView = function (options) {
                 if (pageRequestData.idref) {
 
                     if (pageRequestData.spineItemPageIndex) {
-                        fallback = !self.openSpineItemPage(pageRequestData.idref, pageRequestData.spineItemPageIndex, self);
+                        fallback = !self.openSpineItemPage(pageRequestData.idref, pageRequestData.spineItemPageIndex, self, pageRequestData.prePageTurnFunc);
                     }
                     else if (pageRequestData.elementCfi) {
-                        fallback = !self.openSpineItemElementCfi(pageRequestData.idref, pageRequestData.elementCfi, self);
+                        fallback = !self.openSpineItemElementCfi(pageRequestData.idref, pageRequestData.elementCfi, self, pageRequestData.prePageTurnFunc);
                     }
                     else {
-                        fallback = !self.openSpineItemPage(pageRequestData.idref, 0, self);
+                        fallback = !self.openSpineItemPage(pageRequestData.idref, 0, self, pageRequestData.prePageTurnFunc);
                     }
                 }
                 else {
@@ -712,7 +712,7 @@ var ReaderView = function (options) {
      * @param {string} elementCfi CFI of the element to be shown
      * @param {object} initiator optional
      */
-    this.openSpineItemElementCfi = function (idref, elementCfi, initiator) {
+    this.openSpineItemElementCfi = function (idref, elementCfi, initiator, prePageTurnFunc) {
 
         var spineItem = getSpineItem(idref);
 
@@ -720,7 +720,7 @@ var ReaderView = function (options) {
             return false;
         }
 
-        var pageData = new PageOpenRequest(spineItem, initiator);
+        var pageData = new PageOpenRequest(spineItem, initiator, prePageTurnFunc);
         if (elementCfi && elementCfi.lastPage) {  // biblemesh_
             pageData.setLastPage();
         } else if (elementCfi) {
@@ -790,7 +790,7 @@ var ReaderView = function (options) {
      * @param {number} pageIndex Zero based index of the page in the spine item
      * @param {object} initiator optional
      */
-    this.openSpineItemPage = function (idref, pageIndex, initiator) {
+    this.openSpineItemPage = function (idref, pageIndex, initiator, prePageTurnFunc) {
 
         var spineItem = getSpineItem(idref);
 
@@ -798,7 +798,7 @@ var ReaderView = function (options) {
             return false;
         }
 
-        var pageData = new PageOpenRequest(spineItem, initiator);
+        var pageData = new PageOpenRequest(spineItem, initiator, prePageTurnFunc);
         if (pageIndex) {
             pageData.setPageIndex(pageIndex);
         }
@@ -977,14 +977,14 @@ var ReaderView = function (options) {
      * @param {string} elementId id of the element to be shown
      * @param {object} initiator optional
      */
-    this.openSpineItemElementId = function (idref, elementId, initiator) {
+    this.openSpineItemElementId = function (idref, elementId, initiator, prePageTurnFunc) {
 
         var spineItem = _spine.getItemById(idref);
         if (!spineItem) {
             return false;
         }
 
-        var pageData = new PageOpenRequest(spineItem, initiator);
+        var pageData = new PageOpenRequest(spineItem, initiator, prePageTurnFunc);
 
         if (elementId) {
             pageData.setElementId(elementId);
