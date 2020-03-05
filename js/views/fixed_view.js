@@ -870,7 +870,7 @@ var FixedView = function(options, reader){
         return 1;
     };
 
-    this.biblemesh_updateColumnCount = function() {};
+    this.biblemesh_updatePagination = function() {};
 };
     return FixedView;
 });

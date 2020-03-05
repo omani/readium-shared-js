@@ -510,7 +510,6 @@ var ReflowableView = function(options, reader){
 
         _paginationInfo.pageOffset = (_paginationInfo.columnWidth + _paginationInfo.columnGap) * _paginationInfo.visibleColumnCount * _paginationInfo.currentSpreadIndex - _paginationInfo.columnGap/2;  // biblemesh_
 
-
         redraw();
 
         _.defer(function () {
@@ -574,33 +573,6 @@ var ReflowableView = function(options, reader){
             }
         }
     };
-
-
-    function updateColumnCount() {
-
-        if(!_$epubHtml) {
-            return;
-        }
-
-        // var b = _paginationInfo.columnCount;
-        _paginationInfo.columnCount = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].canonicalScrollWidth) + _paginationInfo.columnGap) / (_paginationInfo.columnWidth + _paginationInfo.columnGap);
-        // _paginationInfo.columnCount = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].scrollWidth) + _paginationInfo.columnGap) / (_paginationInfo.columnWidth + _paginationInfo.columnGap);
-        _paginationInfo.columnCount = Math.round(_paginationInfo.columnCount);
-
-        _paginationInfo.spreadCount =  Math.ceil(_paginationInfo.columnCount / _paginationInfo.visibleColumnCount);
-
-        if(_paginationInfo.currentSpreadIndex >= _paginationInfo.spreadCount) {
-            _paginationInfo.currentSpreadIndex = _paginationInfo.spreadCount - 1;
-        }
-
-        // Globals.logEvent("InternalEvents.CURRENT_VIEW_PAGINATION_CHANGED", "EMIT", "reflowable_view.js");
-        // self.emit(Globals.InternalEvents.CURRENT_VIEW_PAGINATION_CHANGED, {
-        //     paginationInfo: self.getPaginationInfo(),
-        //     initiator: self
-        // });
-
-    };
-
 
     function updatePagination() {
 
@@ -756,12 +728,17 @@ var ReflowableView = function(options, reader){
 
         Helpers.triggerLayout(_$iframe);
 
-        _$epubHtml[0].canonicalScrollWidth = _$epubHtml[0].scrollWidth
+        _paginationInfo.columnCount = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].scrollWidth) + _paginationInfo.columnGap) / (_paginationInfo.columnWidth + _paginationInfo.columnGap);
+        _paginationInfo.columnCount = Math.round(_paginationInfo.columnCount);
 
-        updateColumnCount();
+        _paginationInfo.spreadCount =  Math.ceil(_paginationInfo.columnCount / _paginationInfo.visibleColumnCount);
+
+        if(_paginationInfo.currentSpreadIndex >= _paginationInfo.spreadCount) {
+            _paginationInfo.currentSpreadIndex = _paginationInfo.spreadCount - 1;
+        }
 
         var totalGaps = (_paginationInfo.columnCount-1) * _paginationInfo.columnGap;
-        var colWidthCheck = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].canonicalScrollWidth) - totalGaps) / _paginationInfo.columnCount;
+        var colWidthCheck = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].scrollWidth) - totalGaps) / _paginationInfo.columnCount;
         // colWidthCheck = Math.round(colWidthCheck);  // biblemesh_
 
         if (colWidthCheck > _paginationInfo.columnWidth)
@@ -1107,8 +1084,8 @@ var ReflowableView = function(options, reader){
         return _paginationInfo.columnCount;
     };
 
-    this.biblemesh_updateColumnCount = function() {
-        updateColumnCount();
+    this.biblemesh_updatePagination = function() {
+        updatePagination();
     };
 };
     return ReflowableView;

@@ -1701,9 +1701,9 @@ var ReaderView = function (options) {
         return undefined;
     };
 
-    this.biblemesh_updateColumnCount = function() {
-        if (_currentView && _currentView.biblemesh_updateColumnCount) {
-            return _currentView.biblemesh_updateColumnCount();
+    this.biblemesh_updatePagination = function() {
+        if (_currentView && _currentView.biblemesh_updatePagination) {
+            return _currentView.biblemesh_updatePagination();
         }
         return undefined;
     };
