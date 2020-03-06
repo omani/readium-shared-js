@@ -799,7 +799,9 @@ var ReaderView = function (options) {
         }
 
         var pageData = new PageOpenRequest(spineItem, initiator, prePageTurnFunc);
-        if (pageIndex) {
+        if (pageIndex && pageIndex.lastPage) {  // biblemesh_
+            pageData.setLastPage();
+        } else if (pageIndex) {
             pageData.setPageIndex(pageIndex);
         }
 
