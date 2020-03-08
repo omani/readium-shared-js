@@ -198,6 +198,8 @@ var InternalLinksSupport = function(reader) {
 
             if (hrefIsRelative) {
 
+                biblemesh_AppComm.postMsg('startPageTurn');
+
                 if(isDeepLikHref(hrefUri)) {
                     processDeepLink(hrefUri, spineItem);
                     overrideClickEvent = true;
