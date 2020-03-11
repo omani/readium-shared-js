@@ -1732,14 +1732,18 @@ var CfiNavigationLogic = function(options) {
             var hasChildElements = false;
             var hasChildTextNodes = false;
 
-            for (var i = node.childNodes.length - 1; i >= 0; i--) {
-                var childNode = node.childNodes[i];
-                if (childNode.nodeType === Node.ELEMENT_NODE) {
-                    hasChildElements = true;
-                    break;
+            // biblemesh_ : svgs cannot be broken across columns and so no need to
+            // check their children which can be problematic.
+            if(node.tagName != 'svg') {
+                for (var i = node.childNodes.length - 1; i >= 0; i--) {
+                    var childNode = node.childNodes[i];
+                    if (childNode.nodeType === Node.ELEMENT_NODE) {
+                        hasChildElements = true;
+                        break;
+                    }
+                    if (childNode.nodeType === Node.TEXT_NODE)
+                        hasChildTextNodes = true;
                 }
-                if (childNode.nodeType === Node.TEXT_NODE)
-                    hasChildTextNodes = true;
             }
 
             // potentially stop tree traversal when first element hit with no child element nodes
