@@ -882,8 +882,7 @@ var ReflowableView = function(options, reader){
             // get rid of the extra space after an img tag so that there
             // is not a blank page which follows.
             if(
-                $elem.is('img')
-                && $elem.parent().css('display') == 'block'
+                $elem.parent().css('display') == 'block'
                 && $elem.siblings().length == 0
                 && styleHeight == '100%'
             ) {
