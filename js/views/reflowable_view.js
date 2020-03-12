@@ -868,7 +868,8 @@ var ReflowableView = function(options, reader){
             // The next two commented out sections would prevent images from getting stretched.
             // But what if an epub actually wants this?
 
-            var styleHeight = $elem[0].style.height || $elem.attr('height');
+            // var styleHeight = $elem[0].style.height || $elem.attr('height');
+            var styleVerticalAlign = $elem[0].style.verticalAlign || $elem.attr('vertical-align');
             // if(!styleHeight || styleHeight == '100%') {
             //     $elem.css('height', 'auto');
             // }
@@ -878,13 +879,14 @@ var ReflowableView = function(options, reader){
             //     $elem.css('width', 'auto');
             // }
 
-            // For lone images in block elements which have 100% height,
+            // For lone images/svg in block elements which don't have a
+            // length or % vertical-align value (https://www.w3schools.com/cssref/pr_pos_vertical-align.asp),
             // get rid of the extra space after an img tag so that there
-            // is not a blank page which follows.
+            // is not a blank page which follows if they happen to work out to 100% height.
             if(
                 $elem.parent().css('display') == 'block'
                 && $elem.siblings().length == 0
-                && styleHeight == '100%'
+                && !/[0-9]/.test(styleVerticalAlign || '')
             ) {
                 $elem.css('vertical-align', 'middle');
             }
