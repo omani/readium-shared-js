@@ -1544,21 +1544,25 @@ return; // turned off for the sake of the widget
         });
     };
 
+    function createBookmarkFromCfi(currentSpineItem, cfi){
+        return new BookmarkData(currentSpineItem.idref, cfi);
+    }
+
     this.getVisibleCfiFromPoint = function (x, y, precisePoint) {
         return callOnVisiblePageView(function (pageView) {
-            return createBookmark(pageView.currentSpineItem(), pageView.getVisibleCfiFromPoint(x, y, precisePoint));
+            return createBookmarkFromCfi(pageView.currentSpineItem(), pageView.getVisibleCfiFromPoint(x, y, precisePoint));
         });
     };
 
     this.getRangeCfiFromPoints = function (startX, startY, endX, endY) {
         return callOnVisiblePageView(function (pageView) {
-            return createBookmark(pageView.currentSpineItem(), pageView.getRangeCfiFromPoints(startX, startY, endX, endY));
+            return createBookmarkFromCfi(pageView.currentSpineItem(), pageView.getRangeCfiFromPoints(startX, startY, endX, endY));
         });
     };
 
     this.getCfiForElement = function(element) {
         return callOnVisiblePageView(function (pageView) {
-            return createBookmark(pageView.currentSpineItem(), pageView.getCfiForElement(element));
+            return createBookmarkFromCfi(pageView.currentSpineItem(), pageView.getCfiForElement(element));
         });
     };
 
