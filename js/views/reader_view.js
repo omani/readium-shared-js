@@ -430,13 +430,13 @@ var ReaderView = function (options) {
                 if (pageRequestData.idref) {
 
                     if (pageRequestData.spineItemPageIndex) {
-                        fallback = !self.openSpineItemPage(pageRequestData.idref, pageRequestData.spineItemPageIndex, self, pageRequestData.prePageTurnFunc);
+                        fallback = !self.openSpineItemPage(pageRequestData.idref, pageRequestData.spineItemPageIndex, self, pageRequestData.prePageTurnFunc, pageRequestData.postFunc);
                     }
                     else if (pageRequestData.elementCfi) {
-                        fallback = !self.openSpineItemElementCfi(pageRequestData.idref, pageRequestData.elementCfi, self, pageRequestData.prePageTurnFunc);
+                        fallback = !self.openSpineItemElementCfi(pageRequestData.idref, pageRequestData.elementCfi, self, pageRequestData.prePageTurnFunc, pageRequestData.postFunc);
                     }
                     else {
-                        fallback = !self.openSpineItemPage(pageRequestData.idref, 0, self, pageRequestData.prePageTurnFunc);
+                        fallback = !self.openSpineItemPage(pageRequestData.idref, 0, self, pageRequestData.prePageTurnFunc, pageRequestData.postFunc);
                     }
                 }
                 else {
@@ -712,7 +712,7 @@ var ReaderView = function (options) {
      * @param {string} elementCfi CFI of the element to be shown
      * @param {object} initiator optional
      */
-    this.openSpineItemElementCfi = function (idref, elementCfi, initiator, prePageTurnFunc) {
+    this.openSpineItemElementCfi = function (idref, elementCfi, initiator, prePageTurnFunc, postFunc) {
 
         var spineItem = getSpineItem(idref);
 
@@ -720,7 +720,7 @@ var ReaderView = function (options) {
             return false;
         }
 
-        var pageData = new PageOpenRequest(spineItem, initiator, prePageTurnFunc);
+        var pageData = new PageOpenRequest(spineItem, initiator, prePageTurnFunc, postFunc);
         if (elementCfi && elementCfi.lastPage) {  // biblemesh_
             pageData.setLastPage();
         } else if (elementCfi) {

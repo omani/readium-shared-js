@@ -467,6 +467,11 @@ var ReflowableView = function(options, reader){
         else {
             console.log('Illegal pageIndex value: ', pageIndex, 'column count is ', _paginationInfo.columnCount);
         }
+
+        if(pageRequest.postFunc) {
+            pageRequest.postFunc();
+        }
+
     };
 
     function redraw() {

@@ -38,7 +38,7 @@ define(function() {
  *
  * @constructor
  */
-var PageOpenRequest = function(spineItem, initiator, prePageTurnFunc) {
+var PageOpenRequest = function(spineItem, initiator, prePageTurnFunc, postFunc) {
 
     this.spineItem = spineItem;
     this.spineItemPageIndex = undefined;
@@ -48,6 +48,7 @@ var PageOpenRequest = function(spineItem, initiator, prePageTurnFunc) {
     this.lastPage = false;
     this.initiator = initiator;
     this.prePageTurnFunc = prePageTurnFunc;
+    this.postFunc = postFunc;
 
     this.reset = function() {
         this.spineItemPageIndex = undefined;
