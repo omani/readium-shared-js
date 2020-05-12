@@ -327,6 +327,9 @@ var CfiNavigationLogic = function(options) {
      * @returns {number|null}
      */
     function calculatePageIndexByRectangles(clientRectangles, spatialVerticalOffset, frameDimensions, columnFullWidth) {
+        var document = self.getRootDocument();
+        var docEl = $( document.documentElement );
+        const docElLeft = parseInt(docEl.css('left'), 10);
         var isRtl = isPageProgressionRightToLeft();
         var isVwm = isVerticalWritingMode();
         columnFullWidth = columnFullWidth || getColumnFullWidth();
@@ -348,7 +351,7 @@ var CfiNavigationLogic = function(options) {
             var topOffset = firstRectangle.top;
             pageIndex = Math.floor(topOffset / frameDimensions.height);
         } else {
-            var leftOffset = firstRectangle.left;
+            var leftOffset = firstRectangle.left - docElLeft;
             if (isRtl) {
                 leftOffset = (columnFullWidth * (options.paginationInfo ? options.paginationInfo.visibleColumnCount : 1)) - leftOffset;
             }
