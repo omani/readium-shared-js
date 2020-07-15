@@ -32,6 +32,7 @@ define(function() {
  *  elementCfi {String},
  *  firstPage {bool},
  *  lastPage {bool}
+ *  textNodeInfo {Object}
  *
  * @param {Models.SpineItem} spineItem
  * @param {object} [initiator]
@@ -46,6 +47,7 @@ var PageOpenRequest = function(spineItem, initiator, prePageTurnFunc, postFunc) 
     this.elementCfi = undefined;
     this.firstPage = false;
     this.lastPage = false;
+    this.textNodeInfo = undefined;
     this.initiator = initiator;
     this.prePageTurnFunc = prePageTurnFunc;
     this.postFunc = postFunc;
@@ -56,6 +58,7 @@ var PageOpenRequest = function(spineItem, initiator, prePageTurnFunc, postFunc) 
         this.elementCfi = undefined;
         this.firstPage = false;
         this.lastPage = false;
+        this.textNodeInfo = undefined;
     };
 
     this.setFirstPage = function() {
@@ -82,6 +85,11 @@ var PageOpenRequest = function(spineItem, initiator, prePageTurnFunc, postFunc) 
 
         this.reset();
         this.elementCfi = elementCfi;
+    };
+
+    this.setTextNodeInfo = function(textNodeInfo) {
+        this.reset();
+        this.textNodeInfo = textNodeInfo;
     };
 
 

@@ -723,6 +723,8 @@ var ReaderView = function (options) {
         var pageData = new PageOpenRequest(spineItem, initiator, prePageTurnFunc, postFunc);
         if (elementCfi && elementCfi.lastPage) {  // biblemesh_
             pageData.setLastPage();
+        } else if (elementCfi && elementCfi.textNodeInfo) {  // biblemesh_
+            pageData.setTextNodeInfo(elementCfi.textNodeInfo);
         } else if (elementCfi) {
             pageData.setElementCfi(elementCfi);
         }

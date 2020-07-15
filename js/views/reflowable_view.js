@@ -433,10 +433,46 @@ var ReflowableView = function(options, reader){
             
             if (pageIndex < 0) pageIndex = 0;
         }
-        else if(pageRequest.elementCfi) {
+        else if(pageRequest.elementCfi || pageRequest.textNodeInfo) {
             try
             {
-                pageIndex = _navigationLogic.getPageForElementCfi(pageRequest.elementCfi,
+
+                var elementCfi = pageRequest.elementCfi;
+
+                if(pageRequest.textNodeInfo) {
+                    // find the text node and get the page index
+                    var textContent = pageRequest.textNodeInfo.content;
+                    var hitIndex = pageRequest.textNodeInfo.hitIndex || 0;
+                    var startOffset = pageRequest.textNodeInfo.startOffset || 0;
+                    var endOffset = pageRequest.textNodeInfo.endOffset || (startOffset + 1);
+    
+                    var treeWalker = document.createTreeWalker(
+                        $("body", _$epubHtml)[0],
+                        NodeFilter.SHOW_TEXT,
+                        {
+                            acceptNode: function (node) {
+                                return (
+                                    node.textContent === textContent
+                                        ? NodeFilter.FILTER_ACCEPT
+                                        : NodeFilter.FILTER_REJECT
+                                );
+                            }
+                        }
+                    );
+
+                    var targetNode = treeWalker.nextNode();
+                    for(var i=0; targetNode && i<hitIndex; i++) {
+                        targetNode = treeWalker.nextNode();
+                    }
+
+                    var range = document.createRange();
+                    range.setStart(targetNode, startOffset);
+                    range.setEnd(targetNode, endOffset);
+
+                    elementCfi = self.getRangeCfiFromDomRange(range).contentCFI
+                }
+        
+                pageIndex = _navigationLogic.getPageForElementCfi(elementCfi,
                     ["cfi-marker", "mo-cfi-highlight"],
                     [],
                     ["MathJax_Message"]);
