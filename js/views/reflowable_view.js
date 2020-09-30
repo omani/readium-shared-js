@@ -903,6 +903,17 @@ var ReflowableView = function(options, reader){
             // $elem.css('max-height', '98%');  // biblemesh_: commented out
 
             // biblemesh_: the rest of this function
+
+            // Thought about next block, but decided against it since it would remove the fix to some poorly encoded epubs.
+            // var styleMaxWidth = $elem[0].style.maxWidth || $elem.attr('max-width');
+            // if(!/^(100|[0-9]{1,2})(%|vw)$/i.test(styleMaxWidth)) {
+            //     $elem.css('max-width', '100%');
+            // }
+            // var styleMaxHeight = $elem[0].style.maxHeight || $elem.attr('max-height');
+            // if(!/^(100|[0-9]{1,2})(%|vh)$/i.test(styleMaxHeight)) {
+            //     $elem.css('max-height', '100vh');
+            // }
+
             $elem.css('max-width', '100%');
             $elem.css('max-height', '100vh');
 
