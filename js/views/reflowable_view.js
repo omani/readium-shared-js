@@ -421,6 +421,10 @@ var ReflowableView = function(options, reader){
 
         var pageIndex = undefined;
 
+        if((pageRequest.elementCfi || '').substr(0, 3) === 'ID:') {
+            pageRequest.elementId = pageRequest.elementCfi.substr(3);
+        }
+
         if(pageRequest.prePageTurnFunc) {
             pageRequest.prePageTurnFunc();
         }
