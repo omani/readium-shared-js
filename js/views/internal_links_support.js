@@ -32,6 +32,8 @@ var InternalLinksSupport = function(reader) {
 
     var self = this;
 
+    this.isInternalLink = true;
+
     function splitCfi(fullCfi) {
 
         var startIx = fullCfi.indexOf("(");
