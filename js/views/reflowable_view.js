@@ -345,7 +345,8 @@ var ReflowableView = function(options, reader){
         updateViewportSize();
         _$epubHtml.css("height", _lastViewPortSize.height + "px");
 
-        _$epubHtml.css("position", "relative");
+        // _$epubHtml.css("position", "relative");  // biblemesh_
+        _$epubHtml.css("position", "fixed");  // biblemesh_
         _$epubHtml.css("margin", "0");
         _$epubHtml.css("padding", "0");
 
@@ -774,10 +775,14 @@ var ReflowableView = function(options, reader){
 
         _$epubHtml.css({left: "0", right: "0", top: "0"});
 
+        _$epubHtml.css("position", "relative");  // biblemesh_: this needs to be the case in order to get the scrollWidth value
+
         Helpers.triggerLayout(_$iframe);
 
         _paginationInfo.columnCount = ((_htmlBodyIsVerticalWritingMode ? _$epubHtml[0].scrollHeight : _$epubHtml[0].scrollWidth) + _paginationInfo.columnGap) / (_paginationInfo.columnWidth + _paginationInfo.columnGap);
         _paginationInfo.columnCount = Math.round(_paginationInfo.columnCount);
+
+        _$epubHtml.css("position", "fixed");  // biblemesh_: needs to be fixed to prevent browser from shifting content on highlight
 
         _paginationInfo.spreadCount =  Math.ceil(_paginationInfo.columnCount / _paginationInfo.visibleColumnCount);
 
